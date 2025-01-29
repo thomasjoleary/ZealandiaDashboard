@@ -7,6 +7,8 @@ var map = L.map('map').setView([-41.2883, 174.7666], 12);
 
 map.setMaxBounds([[-41.15177509803096, 175.3280641410647], [-41.42985785717913, 174.2143251273928]])
 
+
+
 function NameToCircle(cityname) {
     var result;
     var index;
