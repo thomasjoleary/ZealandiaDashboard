@@ -30,9 +30,3 @@ function NameToCircle(cityname) {
     console.log(result)
     return result;
 }
-
-function giveBounds() {
-    var bounds = map.getBounds();
-    console.log(bounds);
-    return bounds;
-}
