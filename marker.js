@@ -1,3 +1,6 @@
+// Marker class
+// Used on Various Map Markers
+
 class marker {
     constructor(name, lat, lng) {
         this.name = name
@@ -6,6 +9,15 @@ class marker {
         this.data = null
         this.tags = []
         this.color = null
+        this.LMarker = null
+    }
+
+    setLMarker(marker) {
+        this.LMarker = marker
+    }
+
+    getLMarker() {
+        return this.LMarker
     }
 
     setName(name) {
