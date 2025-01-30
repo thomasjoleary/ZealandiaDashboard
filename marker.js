@@ -12,7 +12,7 @@ class marker {
         this.LMarker = null
     }
 
-    setLMarker(marker) {
+    setLMarker(marker) { // The L.Marker object gets set here to tie the two together
         this.LMarker = marker
     }
 
