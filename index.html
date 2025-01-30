@@ -14,9 +14,17 @@
 </head>
 <body>
     <div id="centered">
-        <h1>Wait</h1>
-        <p>I'm goated?!</p>
         <img src="assets/images/zlogo.png" alt="The Zealandia Logo"></img>
+        <button id="AddMarker" onclick=markerAdd()>Add Marker</button>
+        <div id="popup" class="popup">
+            <form>
+                <label for="name">Name</label>
+                <input name="name" id="popupname" class="popuptext"></input>
+                <label for="info">Info</label>
+                <textarea name="info" id="popupinfo" class="popuptext"></textarea>
+                <button id="popupsubmit">Submit</button>
+            </form>
+        </div>
         <div id="dashboard">
             <div id="map"></div>
             <div id="info">
