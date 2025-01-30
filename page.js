@@ -67,6 +67,54 @@ function markerPopup(marker, text) {
 }
 */
 
+let popupopen = false;
+
+function markerAdd(e) {
+
+    let popup = document.getElementById('popup')
+
+    if (popupopen === false) {
+        popup.style.display = "block"
+        popupopen = true
+    } else {
+        popup.style.display = "none"
+        popupopen = false
+    }
+
+}
+
+let popupname = ""
+let popupinfo = ""
+
+function setMarkerHere(e) {
+
+    let marker = markerMaker(popupname, e.latlng.lat, e.latlng.lng)
+    marker.setData(popupinfo)
+
+    let popup = document.getElementById('popup')
+    popup.style.display = "none"
+    popupopen = false
+
+    document.getElementById('popupname').value = ""
+    document.getElementById('popupinfo').value = ""
+
+    map.off('click', setMarkerHere)
+    map.on('click', onMapClick)
+
+}
+
+function popupSubmit(e) {
+
+    e.preventDefault()
+
+    popupname = document.getElementById('popupname').value
+    popupinfo = document.getElementById('popupinfo').value
+
+    map.on('click', setMarkerHere)
+    map.off('click', onMapClick)
+
+}
+
 ///////////////////////////////////
 // Sample Markers
 let tangle = markerMaker("Tanglewood", -41.289273, 174.754056)
@@ -101,11 +149,6 @@ function onMapClick(e) {
 
 map.on('click', onMapClick);
 ///////////////////////////////////
-
-kaiwharawharageo = L.geoJson(kaiwharawhara).addTo(map);
-kaiwharawharageo.bindPopup("Kaiwharawhara Stream");
-
-///////////////////////////////////
 var coordsText = "Mouse coordinates:";
 map.on('mousemove', onMapMouseMove);
 
@@ -117,3 +160,14 @@ function onMapMouseMove(e) {
     coordsText = "Mouse coordinates: " + x + ", " + y;
     document.getElementById("coordsbox").innerHTML = coordsText;
 }
+///////////////////////////////////
+
+kaiwharawharageo = L.geoJson(kaiwharawhara).addTo(map);
+kaiwharawharageo.bindPopup("Kaiwharawhara Stream");
+
+
+let popupbutton = document.getElementById('popupsubmit')
+popupbutton.addEventListener('click', popupSubmit)
+
+
+
