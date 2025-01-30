@@ -11,6 +11,18 @@ map.setMaxBounds([[-41.15177509803096, 175.3280641410647], [-41.42985785717913, 
 
 ///////////////////////////////////
 // Marker Making
+
+let currentSelect
+
+let selectedIcon = new L.Icon({
+    iconUrl: 'assets/images/marker-icon-2x-blue.png',
+    iconSize: [50, 82],
+    iconAnchor: [24, 82],
+    popupAnchor: [1, -34],
+});
+
+let defaultIcon = new L.Icon.Default;
+
 let markerList = []
 
 function findMarkerinList(marker) {
@@ -25,7 +37,16 @@ function findMarkerinList(marker) {
 
 function dataFromMarker(e) {
     let dataView = document.getElementById('info-content')
-    dataView.innerHTML = findMarkerinList(e.target).getData()
+    let title = document.getElementById('info-title')
+    let marker = findMarkerinList(e.target)
+    title.innerHTML = marker.getName()
+    dataView.innerHTML = marker.getData()
+
+    if (currentSelect) {
+        currentSelect.setIcon(defaultIcon)
+    }
+    e.target.setIcon(selectedIcon)
+    currentSelect = e.target
 }
 
 function markerMaker(name, lat, lng) {
@@ -40,35 +61,29 @@ function markerMaker(name, lat, lng) {
     return constructed
 }
 
+/*
 function markerPopup(marker, text) {
     marker.getLMarker().bindPopup(text)
 }
+*/
 
 ///////////////////////////////////
 // Sample Markers
 let tangle = markerMaker("Tanglewood", -41.289273, 174.754056)
 tangle.setData("I can see you. Turn around.")
-markerPopup(tangle, "Tanglewood")
 let dam = markerMaker("Dam", -41.298383, 174.744959)
-markerPopup(dam, "Upper Karori Dam")
 dam.setData("Dam with a great view and lots of wind.")
 let suspension = markerMaker("John's Suspension Bridge", -41.29768, 174.746854)
-markerPopup(suspension, "John's Lover")
 suspension.setData("John LOVES this bridge and its steel cable.")
 let estuary = markerMaker("Estuary", -41.260735, 174.789888)
-markerPopup(estuary, "Kaiwharawhara Estuary")
 estuary.setData("Where the freshwater meets the saltwater!")
 let fishladder = markerMaker("Fish Ladder", -41.259848, 174.769296)
-markerPopup(fishladder, "Fish Ladder")
 fishladder.setData("Fish ladder, but also where the two main branches of the river meet!")
 let karoricemetery = markerMaker("Karori Cemetery", -41.276083, 174.751224)
-markerPopup(karoricemetery, "Karori Cemetery")
 karoricemetery.setData("Plastic flowers left at graves here are commonly blown into the Kaiwharawhara.")
 let appleton = markerMaker("Appleton Park", -41.285393, 174.754128)
-markerPopup(appleton, "Appleton Park")
 appleton.setData("Built on top a landfill. Leachate from this landfill leaks into the Kaiwharawhara.")
 let otari = markerMaker("Otari-Wilton's Bush", -41.266592, 174.755824)
-markerPopup(otari, "Otari-Wilton's Bush")
 otari.setData("The only place with untouched bush in Wellington!")
 ///////////////////////////////////
 
