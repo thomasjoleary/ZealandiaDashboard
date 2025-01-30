@@ -11,10 +11,31 @@ map.setMaxBounds([[-41.15177509803096, 175.3280641410647], [-41.42985785717913, 
 
 ///////////////////////////////////
 // Marker Making
+let markerList = []
+
+function findMarkerinList(marker) {
+    let m
+    for (let i = 0; i < markerList.length; i++) {
+        if (markerList[i].getLMarker() === marker) {
+            return markerList[i]
+        }
+    }
+    return false
+}
+
+function dataFromMarker(e) {
+    let dataView = document.getElementById('info-content')
+    dataView.innerHTML = findMarkerinList(e.target).getData()
+}
+
 function markerMaker(name, lat, lng) {
     let constructed = new marker(name, lat, lng)
 
     constructed.setLMarker(L.marker(constructed.getPos()).addTo(map))
+
+    constructed.getLMarker().on('click', dataFromMarker)
+
+    markerList.push(constructed)
 
     return constructed
 }
@@ -26,6 +47,7 @@ function markerPopup(marker, text) {
 ///////////////////////////////////
 // Sample Markers
 let tangle = markerMaker("Tanglewood", -41.289273, 174.754056)
+tangle.setData("I can see you. Turn around.")
 markerPopup(tangle, "Tanglewood")
 let dam = markerMaker("Dam", -41.298383, 174.744959)
 markerPopup(dam, "Upper Karori Dam")
