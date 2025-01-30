@@ -89,3 +89,16 @@ map.on('click', onMapClick);
 
 kaiwharawharageo = L.geoJson(kaiwharawhara).addTo(map);
 kaiwharawharageo.bindPopup("Kaiwharawhara Stream");
+
+///////////////////////////////////
+var coordsText = "Mouse coordinates:";
+map.on('mousemove', onMapMouseMove);
+
+function onMapMouseMove(e) {
+    var x, y;
+
+    x = e.latlng.lat.toFixed(5);
+    y = e.latlng.lng.toFixed(5);
+    coordsText = "Mouse coordinates: " + x + ", " + y;
+    document.getElementById("coordsbox").innerHTML = coordsText;
+}
