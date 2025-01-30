@@ -31,6 +31,16 @@ let dam = markerMaker("Dam", -41.298383, 174.744959)
 markerPopup(dam, "Upper Karori Dam")
 let suspension = markerMaker("John's Suspension Bridge", -41.29768, 174.746854)
 markerPopup(suspension, "John's Lover")
+let estuary = markerMaker("Estuary", -41.260735, 174.789888)
+markerPopup(estuary, "Kaiwharawhara Estuary")
+let fishladder = markerMaker("Fish Ladder", -41.259848, 174.769296)
+markerPopup(fishladder, "Fish Ladder")
+let karoricemetery = markerMaker("Karori Cemetery", -41.276083, 174.751224)
+markerPopup(karoricemetery, "Karori Cemetery")
+let appleton = markerMaker("Appleton Park", -41.285393, 174.754128)
+markerPopup(appleton, "Appleton Park")
+let otari = markerMaker("Otari-Wilton's Bush", -41.266592, 174.755824)
+markerPopup(otari, "Otari-Wilton's Bush")
 ///////////////////////////////////
 
 
@@ -48,5 +58,5 @@ function onMapClick(e) {
 map.on('click', onMapClick);
 ///////////////////////////////////
 
-
-geojson = L.geoJson(kaiwharawhara).addTo(map);
+kaiwharawharageo = L.geoJson(kaiwharawhara).addTo(map);
+kaiwharawharageo.bindPopup("Kaiwharawhara Stream");
