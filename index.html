@@ -14,18 +14,18 @@
 </head>
 <body>
     <div id="centered">
-        <img src="assets/images/zlogo.png" alt="The Zealandia Logo"></img>
+        <img id="topphoto" src="assets/images/zlogo.png" alt="The Zealandia Logo"></img>
         <button id="AddMarker" onclick=markerAdd()>Add Marker</button>
-        <div id="popup" class="popup">
-            <form>
-                <label for="name">Name</label>
-                <input name="name" id="popupname" class="popuptext"></input>
-                <label for="info">Info</label>
-                <textarea name="info" id="popupinfo" class="popuptext"></textarea>
-                <button id="popupsubmit">Submit</button>
-            </form>
-        </div>
         <div id="dashboard">
+            <div id="popup" class="popup">
+                <form>
+                    <label for="name">Name</label>
+                    <input name="name" id="popupname" class="popuptext"></input>
+                    <label for="info">Info</label>
+                    <textarea name="info" id="popupinfo" class="popuptext"></textarea>
+                    <button id="popupsubmit">Submit</button>
+                </form>
+            </div>
             <div id="map"></div>
             <div id="info">
                 <h2>Zealandia Dashboard</h2>
