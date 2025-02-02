@@ -5,6 +5,7 @@ body {
     height: 100vh;
     margin: 0;
     background-color: #4b6f45;
+    font-family: 'Open Sans',Arial,Helvetica,sans-serif;
 }
 
 #centered {
