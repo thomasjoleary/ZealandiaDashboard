@@ -162,12 +162,13 @@ function onMapMouseMove(e) {
 }
 ///////////////////////////////////
 
-kaiwharawharageo = L.geoJson(kaiwharawhara).addTo(map);
-kaiwharawharageo.bindPopup("Kaiwharawhara Stream");
 
+let catchmentgeo = L.geoJson(catchment).addTo(map);
+catchmentgeo.bindPopup("Kaiwharawhara Catchment");
+catchmentgeo.setStyle({fillColor: 'lime', fillOpacity: 0.2, color: 'green', weight: 1});
+
+let kaiwharawharageo = L.geoJson(kaiwharawhara).addTo(map);
+kaiwharawharageo.bindPopup("Kaiwharawhara Stream");
 
 let popupbutton = document.getElementById('popupsubmit')
 popupbutton.addEventListener('click', popupSubmit)
-
-
-
