@@ -167,6 +167,10 @@ let catchmentgeo = L.geoJson(catchment).addTo(map);
 catchmentgeo.bindPopup("Kaiwharawhara Catchment");
 catchmentgeo.setStyle({fillColor: 'lime', fillOpacity: 0.2, color: 'green', weight: 1});
 
+let zealandiageo = L.geoJson(zealandia).addTo(map);
+zealandiageo.bindPopup("Zealandia");
+zealandiageo.setStyle({fillColor: 'orange', fillOpacity: 0.2, color: 'orange', weight: 3});
+
 let kaiwharawharageo = L.geoJson(kaiwharawhara).addTo(map);
 kaiwharawharageo.bindPopup("Kaiwharawhara Stream");
 
