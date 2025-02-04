@@ -12,9 +12,13 @@ const svg = d3.select("#graph").append("svg")
   .append("g")
   .attr("transform", "translate(" + margin + "," + margin + ")");
 
-// create data
-const xdata = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
-const ydata = [13, 17, 22, 27, 40, 50, 43, 27, 20, 17];
+
+// read data from json
+console.log(birdCount);
+const xdata = birdCount.map(d => d.Month);
+const ydata = birdCount.map(d => d.Count);
+console.log(xdata);
+console.log(ydata);
 
 // create axes
 const xScale = d3.scaleLinear()
