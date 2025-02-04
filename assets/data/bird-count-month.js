@@ -3,51 +3,51 @@ const birdCount =
   { "Title": "Bird Count by Month"},
   { data: [
     {
-      "Month": 1,
+      "Month": "January",
       "Count": 67
     },
     {
-      "Month": 2,
+      "Month": "February",
       "Count": 63
     },
     {
-      "Month": 3,
+      "Month": "March",
       "Count": 60
     },
     {
-      "Month": 4,
+      "Month": "April",
       "Count": 60
     },
     {
-      "Month": 5,
+      "Month": "May",
       "Count": 52
     },
     {
-      "Month": 6,
+      "Month": "June",
       "Count": 51
     },
     {
-      "Month": 7,
+      "Month": "July",
       "Count": 52
     },
     {
-      "Month": 8,
+      "Month": "August",
       "Count": 53
     },
     {
-      "Month": 9,
+      "Month": "September",
       "Count": 52
     },
     {
-      "Month": 10,
+      "Month": "October",
       "Count": 53
     },
     {
-      "Month": 11,
+      "Month": "November",
       "Count": 62
     },
     {
-      "Month": 12,
+      "Month": "December",
       "Count": 61
     }
   ]}
