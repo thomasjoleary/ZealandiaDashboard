@@ -17,29 +17,34 @@
     <div id="centered">
         <img id="topphoto" src="assets/images/zlogo.png" alt="The Zealandia Logo"></img>
         <button id="AddMarker" onclick=markerAdd()>Add Marker</button>
-        <div id="dashboard">
-            <div id="popup" class="popup">
-                <form>
-                    <label for="name">Name</label>
-                    <input name="name" id="popupname" class="popuptext"></input>
-                    <label for="info">Info</label>
-                    <textarea name="info" id="popupinfo" class="popuptext"></textarea>
-                    <button id="popupsubmit">Submit</button>
-                </form>
+        <div id="dashboardContainer">
+            <div class="slidecontainer">
+                <input type="range" min="1" max="10" value="5" class="slider" id="dateRange">
             </div>
-            <div id="map"></div>
-            <div id="info">
-                <h2>Zealandia Dashboard</h2>
-                <h3 id="info-title">To use:</h3>
-                <p id="info-content">Click on a marker to see more information</p>
+            <div id="dashboard">
+                <div id="popup" class="popup">
+                    <form>
+                        <label for="name">Name</label>
+                        <input name="name" id="popupname" class="popuptext"></input>
+                        <label for="info">Info</label>
+                        <textarea name="info" id="popupinfo" class="popuptext"></textarea>
+                        <button id="popupsubmit">Submit</button>
+                    </form>
+                </div>
+                <div id="map"></div>
+                <div id="info">
+                    <h2>Zealandia Dashboard</h2>
+                    <h3 id="info-title">To use:</h3>
+                    <p id="info-content">Click on a marker to see more information</p>
+                </div>
+            </div>
         </div>
+        <div id="coordsbox"> Mouse coordinates: </div>
+        <script src = "assets/osm/kaiwharawharastream.js"></script>
+        <script src = "assets/osm/kaiwharawharacatchment.js"></script>
+        <script src = "assets/osm/zealandia.js"></script>
+        <script src = "marker.js"></script>
+        <script src="page.js"></script>
     </div>
-    <div id="coordsbox"> Mouse coordinates: 
-    </div>
-    <script src = "assets/osm/kaiwharawharastream.js"></script>
-    <script src = "assets/osm/kaiwharawharacatchment.js"></script>
-    <script src = "assets/osm/zealandia.js"></script>
-    <script src = "marker.js"></script>
-    <script src="page.js"></script>
 </body>
 </html>
