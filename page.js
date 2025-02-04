@@ -1,11 +1,43 @@
 ///////////////////////////////////
 // Map Instantiation
 var map = L.map('map').setView([-41.2883, 174.7666], 12);
-        L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+
+let osm = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
             maxZoom: 19,
             minZoom: 10,
             attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
-        }).addTo(map);
+        })
+osm.addTo(map);
+
+let baseMaps = {
+    "OpenStreetMap": osm
+}
+
+let catchmentGroup = new L.LayerGroup()
+catchmentGroup.addTo(map)
+let catchmentgeo = L.geoJson(catchment)
+catchmentGroup.addLayer(catchmentgeo)
+
+let zealandiaGroup = new L.LayerGroup()
+zealandiaGroup.addTo(map)
+let zealandiageo = L.geoJson(zealandia).addTo(map);
+zealandiaGroup.addLayer(zealandiageo)
+
+let kaiwharawharaGroup = new L.LayerGroup()
+kaiwharawharaGroup.addTo(map)
+let kaiwharawharageo = L.geoJson(kaiwharawhara).addTo(map);
+kaiwharawharaGroup.addLayer(kaiwharawharageo)
+
+let markers = new L.LayerGroup().addTo(map)
+
+let overlayMaps = {
+    "Kaiwharawhara Catchment": catchmentGroup,
+    "Zealandia": zealandiaGroup,
+    "Kaiwharawhara Stream": kaiwharawharaGroup,
+    "Markers": markers
+}
+
+let layerControl = L.control.layers(baseMaps, overlayMaps).addTo(map)
 
 map.setMaxBounds([[-41.15177509803096, 175.3280641410647], [-41.42985785717913, 174.2143251273928]])
 
@@ -57,6 +89,8 @@ function markerMaker(name, lat, lng) {
     constructed.getLMarker().on('click', dataFromMarker)
 
     markerList.push(constructed)
+
+    markers.addLayer(constructed.getLMarker())
 
     return constructed
 }
@@ -162,16 +196,12 @@ function onMapMouseMove(e) {
 }
 ///////////////////////////////////
 
-
-let catchmentgeo = L.geoJson(catchment).addTo(map);
 catchmentgeo.bindPopup("Kaiwharawhara Catchment");
 catchmentgeo.setStyle({fillColor: 'lime', fillOpacity: 0.2, color: 'green', weight: 1});
 
-let zealandiageo = L.geoJson(zealandia).addTo(map);
 zealandiageo.bindPopup("Zealandia");
 zealandiageo.setStyle({fillColor: 'orange', fillOpacity: 0.2, color: 'orange', weight: 3});
 
-let kaiwharawharageo = L.geoJson(kaiwharawhara).addTo(map);
 kaiwharawharageo.bindPopup("Kaiwharawhara Stream");
 
 let popupbutton = document.getElementById('popupsubmit')
