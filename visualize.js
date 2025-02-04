@@ -28,6 +28,7 @@ svg.append("text")
     .attr("y", 0)
     .attr("text-anchor", "middle")
     .style("font-size", "20px")
+    .style("text-decoration", "underline")
     .text(title);
 
 
@@ -78,13 +79,14 @@ svg.selectAll(".dot")
     .attr("cx", (d, i) => xScale(xdata[i]))
     .attr("cy", (d, i) => yScale(ydata[i]))
     .attr("r", smallDot)
-    .on("mouseover", function(d, i) {
+    .on("mouseover", function() {
+        d3.select(this).append("title").text(function(d) { return d;})
         d3.select(this).transition()
             .duration('750')
             .attr('r', bigDot)
             .attr('fill', 'red');
     })
-    .on("mouseout", function(d, i) {
+    .on("mouseout", function() {
         d3.select(this).transition()
             .duration('750')
             .attr('r', smallDot)
