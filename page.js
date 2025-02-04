@@ -175,10 +175,20 @@ otari.setData("The only place with untouched bush in Wellington!")
 var popup = L.popup();
 
 function onMapClick(e) {
+    /* FOR DEBUGGING
     popup
         .setLatLng(e.latlng)
         .setContent("You clicked the map at " + e.latlng.toString())
-        .openOn(map);
+        .openOn(map);*/
+
+    currentSelect.setIcon(defaultIcon)
+    currentSelect = null
+
+    let dataView = document.getElementById('info-content')
+    let title = document.getElementById('info-title')
+    title.innerHTML = "To use:"
+    dataView.innerHTML = "Click on a marker to see more information"
+
 }
 
 map.on('click', onMapClick);
