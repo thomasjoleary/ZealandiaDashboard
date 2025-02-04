@@ -53,6 +53,21 @@ let selectedIcon = new L.Icon({
     popupAnchor: [1, -34],
 });
 
+let cautionIcon = new L.Icon({
+    iconUrl: 'assets/images/warning-pin-background.png',
+    iconSize: [50, 50],
+    iconAnchor: [24, 46],
+    popupAnchor: [1, -17]
+})
+
+let selectedCautionIcon = new L.Icon({
+    iconUrl: 'assets/images/warning-pin-background.png',
+    iconSize: [100, 100],
+    iconAnchor: [48, 92],
+    popupAnchor: [1, -17]
+})
+
+
 let defaultIcon = new L.Icon.Default;
 
 let markerList = []
@@ -75,10 +90,16 @@ function dataFromMarker(e) {
     dataView.innerHTML = marker.getData()
 
     if (currentSelect) {
-        currentSelect.setIcon(defaultIcon)
+        let currentMarker = findMarkerinList(currentSelect)
+        setLMarkerIcon(currentMarker, currentMarker.getLIcon())
     }
-    e.target.setIcon(selectedIcon)
+    e.target.setIcon(marker.getSIcon())
     currentSelect = e.target
+}
+
+function setLMarkerIcon(marker, icon) {
+    marker.getLMarker().setIcon(icon)
+    marker.setLIcon(icon)
 }
 
 function markerMaker(name, lat, lng) {
@@ -91,6 +112,10 @@ function markerMaker(name, lat, lng) {
     markerList.push(constructed)
 
     markers.addLayer(constructed.getLMarker())
+
+    constructed.setLIcon(defaultIcon)
+
+    constructed.setSIcon(selectedIcon)
 
     return constructed
 }
@@ -167,6 +192,8 @@ let appleton = markerMaker("Appleton Park", -41.285393, 174.754128)
 appleton.setData("Built on top a landfill. Leachate from this landfill leaks into the Kaiwharawhara.")
 let otari = markerMaker("Otari-Wilton's Bush", -41.266592, 174.755824)
 otari.setData("The only place with untouched bush in Wellington!")
+setLMarkerIcon(appleton, cautionIcon)
+appleton.setSIcon(selectedCautionIcon)
 ///////////////////////////////////
 
 
@@ -181,7 +208,8 @@ function onMapClick(e) {
         .setContent("You clicked the map at " + e.latlng.toString())
         .openOn(map);*/
 
-    currentSelect.setIcon(defaultIcon)
+    let currentMarker = findMarkerinList(currentSelect)
+    setLMarkerIcon(currentMarker, currentMarker.getLIcon())
     currentSelect = null
 
     let dataView = document.getElementById('info-content')

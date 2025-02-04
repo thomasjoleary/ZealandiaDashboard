@@ -10,6 +10,8 @@ class marker {
         this.tags = []
         this.color = null
         this.LMarker = null
+        this.icon = null
+        this.sicon = null
     }
 
     setLMarker(marker) { // The L.Marker object gets set here to tie the two together
@@ -18,6 +20,22 @@ class marker {
 
     getLMarker() {
         return this.LMarker
+    }
+
+    setLIcon(icon) {
+        this.icon = icon
+    }
+
+    getLIcon() {
+        return this.icon
+    }
+
+    setSIcon(icon) {
+        this.sicon = icon
+    }
+
+    getSIcon() {
+        return this.sicon
     }
 
     setName(name) {
