@@ -57,6 +57,31 @@ function clearInfo() {
 
 }
 
+///////////////////////////////////
+// Slider
+
+let startSlider = document.getElementById('dateStart')
+let startSliderval = document.getElementById('startValue')
+
+let endSlider = document.getElementById('dateEnd')
+let endSliderval = document.getElementById('endValue')
+
+startSlider.oninput = function() {
+    let year = 1955 + parseInt(this.value)
+    endSlider.min = this.value
+    let endyear = 1955 + parseInt(endSlider.value)
+    endSliderval.innerHTML = (endyear)
+    startSliderval.innerHTML = (year)
+}
+
+endSlider.oninput = function() {
+    let year = 1955 + parseInt(this.value)
+    startSlider.max = this.value
+    let startyear = 1955 + parseInt(startSlider.value)
+    startSliderval.innerHTML = (startyear)
+    endSliderval.innerHTML = (year)
+}
+
 
 ///////////////////////////////////
 // Markers

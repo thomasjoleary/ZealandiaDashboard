@@ -26,13 +26,21 @@ body {
     height: 100%;
 }
 
+#optionscontainer {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: 12%;
+}
+
 #slidecontainer {
+    padding: 20px;
     margin: 20px;
-    display:block;
-    height: 10%;
-    width: 50%;
-    flex-direction: row;
-    justify-content: left;
+    display: flex;
+    height: 100%;
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
 }
 
 #dashboard {
@@ -44,7 +52,7 @@ body {
 }
 
 #map {
-    margin: 20px;
+    margin: 10px;
     padding: 10px;
     width: 60%;
     height: 80%;
@@ -53,7 +61,7 @@ body {
 }
 
 #info {
-    margin: 20px;
+    margin: 10px;
     padding: 10px;
     width: 30%;
     height: 80%;
@@ -70,11 +78,28 @@ body {
     border-width: 2px;
 }
 
-#dateRange {
-    margin-left: 50px;
-    display:block;
+.slider {
+    display:flex;
 }
 
+.sliderVal {
+    color: #f26422;
+}
+
+#intervalValue {
+    color: #f26422;
+}
+
+#sideContainer {
+    display: flex;
+    flex-direction: column;
+    margin-right: 50px;
+}
+
+#intText {
+    color: #f26422;
+    margin-right: 30px;
+}
 
 #AddMarker {
     margin: 10px;
