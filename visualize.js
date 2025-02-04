@@ -31,7 +31,7 @@ svg.append("text")
 // create axes
 const xScale = d3.scaleLinear()
     .domain([0, d3.max(xdata)*1.1])
-    .range([0, xSize*.70]);
+    .range([xSize*.10, xSize*.80]);
 svg.append("g")
     .attr("transform", "translate(0, " + (ySize*.70) + ")")
     .call(d3.axisBottom(xScale));
@@ -45,8 +45,9 @@ const yScale = d3.scaleLinear()
     .domain([0, d3.max(ydata)*1.1])
     .range([ySize*.70, 0]);
 svg.append("g")
-    .call(d3.axisLeft(yScale));
-// y axis label 
+    .call(d3.axisLeft(yScale))
+    .attr("transform", "translate(" + (xSize*.10) + ", 0)");
+// y axis label
 svg.append("text")
     .attr("transform", "rotate(-90)")
     .attr("y", 0 - 20)
