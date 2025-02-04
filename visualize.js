@@ -12,54 +12,60 @@ const svg = d3.select("#graph").append("svg")
   .append("g")
   .attr("transform", "translate(" + margin + "," + margin + ")");
 
-
 // read data from json
 console.log(birdCount);
-const xdata = birdCount.map(d => d.Month);
-const ydata = birdCount.map(d => d.Count);
+const birdCountData = birdCount[1].data;
+const xdata = birdCountData.map(d => d.Month);
+const ydata = birdCountData.map(d => d.Count);
 console.log(xdata);
 console.log(ydata);
 
 // create graph title
+const title = birdCount.map(d => d.Title)[0];
+console.log(title);
 svg.append("text")
     .attr("x", (xSize / 2))
-    .attr("y", 0 - (margin / 2)+10)
-    .attr("text-anchor", "left")
+    .attr("y", 0)
+    .attr("text-anchor", "middle")
     .style("font-size", "20px")
-    .text("Graph");
+    .text(title);
+
+
+// set axis positions
+const axisLeft = xSize * 0.10;
+const axisRight = xSize * 0.90;
+const axisTop = ySize * 0.10;
+const axisBottom = ySize * 0.90;
 
 // create axes
+// create x axis
 const xScale = d3.scaleLinear()
     .domain([0, d3.max(xdata)*1.1])
-    .range([xSize*.10, xSize*.80]);
+    .range([axisLeft, axisRight]);
 svg.append("g")
-    .attr("transform", "translate(0, " + (ySize*.70) + ")")
+    .attr("transform", "translate(0, " + axisRight + ")")
     .call(d3.axisBottom(xScale));
 // x axis label
 svg.append("text")
-    .attr("transform", "translate(" + (xSize/2) + " ," + (ySize - 75) + ")")
+    .attr("transform", "translate(" + (xSize/2) + " ," + (ySize) + ")")
     .style("text-anchor", "middle")
     .text("Month");
 
+// create y axis
 const yScale = d3.scaleLinear()
     .domain([0, d3.max(ydata)*1.1])
-    .range([ySize*.70, 0]);
+    .range([axisBottom, axisTop]);
 svg.append("g")
     .call(d3.axisLeft(yScale))
-    .attr("transform", "translate(" + (xSize*.10) + ", 0)");
+    .attr("transform", "translate(" + axisLeft + ", 0)");
 // y axis label
 svg.append("text")
     .attr("transform", "rotate(-90)")
-    .attr("y", 0 - 20)
+    .attr("y", 0)
     .attr("x", 0 - (ySize / 2))
     .attr("dy", "1em")
     .style("text-anchor", "middle")
     .text("Bird Count");
-
-// create line
-const line = d3.line()
-    .x((d, i) => xScale(xdata[i]))
-    .y((d, i) => yScale(ydata[i]));
 
 
 // add dots to svg
