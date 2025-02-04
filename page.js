@@ -41,8 +41,25 @@ let layerControl = L.control.layers(baseMaps, overlayMaps).addTo(map)
 
 map.setMaxBounds([[-41.15177509803096, 175.3280641410647], [-41.42985785717913, 174.2143251273928]])
 
+
+function clearInfo() {
+
+    let dataView = document.getElementById('info-content')
+    let title = document.getElementById('info-title')
+    title.innerHTML = "To use:"
+    dataView.innerHTML = "Click on a marker to see more information"
+
+    if (currentSelect) {
+        let currentMarker = findMarkerinList(currentSelect)
+        setLMarkerIcon(currentMarker, currentMarker.getLIcon())
+    }
+    currentSelect = null
+
+}
+
+
 ///////////////////////////////////
-// Marker Making
+// Markers
 
 let currentSelect
 
@@ -208,14 +225,7 @@ function onMapClick(e) {
         .setContent("You clicked the map at " + e.latlng.toString())
         .openOn(map);*/
 
-    let currentMarker = findMarkerinList(currentSelect)
-    setLMarkerIcon(currentMarker, currentMarker.getLIcon())
-    currentSelect = null
-
-    let dataView = document.getElementById('info-content')
-    let title = document.getElementById('info-title')
-    title.innerHTML = "To use:"
-    dataView.innerHTML = "Click on a marker to see more information"
+    clearInfo()
 
 }
 
