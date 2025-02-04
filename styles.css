@@ -102,3 +102,14 @@ body {
 #topphoto {
     padding-top: 10px;
 }
+
+#graph {
+    margin: 20px;
+    padding: 10px;
+    position: absolute;
+    top: 75%;
+    display: inline-block;
+    z-index: 5;
+    background-color: 'white';
+    margin-bottom: 10px;
+}
