@@ -10,7 +10,8 @@ const svg = d3.select("#graph").append("svg")
   .attr("width", xSize + margin)
   .attr("height", ySize + margin)
   .append("g")
-  .attr("transform", "translate(" + margin + "," + margin + ")");
+  .attr("transform", "translate(" + margin + "," + margin + ")")
+  .style("fill", "white"); // set color of text and data points
 
 // read data from json
 console.log(birdCount);
@@ -50,6 +51,7 @@ svg.append("g")
 svg.append("text")
     .attr("transform", "translate(" + (xSize/2) + " ," + ySize + ")")
     .style("text-anchor", "middle")
+    .style("font-weight", "bold")
     .text("Month");
 
 // create y axis
@@ -58,6 +60,7 @@ const yScale = d3.scaleLinear()
     .range([axisBottom, axisTop]);
 svg.append("g")
     .call(d3.axisLeft(yScale))
+    .style("stroke", "white")
     .attr("transform", "translate(" + axisLeft + ", 0)");
 // y axis label
 svg.append("text")
@@ -66,6 +69,7 @@ svg.append("text")
     .attr("x", 0 - (ySize / 2))
     .attr("dy", "1em")
     .style("text-anchor", "middle")
+    .style("font-weight", "bold")
     .text("Bird Count");
 
 
@@ -90,5 +94,5 @@ svg.selectAll(".dot")
         d3.select(this).transition()
             .duration('750')
             .attr('r', smallDot)
-            .attr('fill', 'black');
+            .attr('fill', 'white');
     });
