@@ -13,7 +13,7 @@ const historicaldata =
                     "event": "The Appleton Park area before dumping was a wooded valley.",
                     "img": [
                         {
-                            "src": "assets/images/historicaldata/appleton/1929.jpg",
+                            "src": "assets/images/historicaldata/appleton/1929.png",
                             "alt": "Appleton Park before dumping."
                         }
                     ]
@@ -25,7 +25,7 @@ const historicaldata =
                     "event": "Dumping begins at Appleton Park landfill. Toxic wastes include heavy metals, asbestos, and other hazardous materials.",
                     "img": [
                         {
-                            "src": "assets/images/historicaldata/appleton/1935.jpg",
+                            "src": "assets/images/historicaldata/appleton/1935.png",
                             "alt": "Appleton Park dumping in 1935."
                         }
                     ]
@@ -37,11 +37,11 @@ const historicaldata =
                     "event": "Appleton Park landfill covered over with grass, a parking lot, and a cycle path.",
                     "img": [
                         {
-                            "src": "assets/images/historicaldata/appleton/2025.jpg",
+                            "src": "assets/images/historicaldata/appleton/2025.png",
                             "alt": "Appleton Park in 2025 pictured from the south."
                         },
                         {
-                            "src": "assets/images/historicaldata/appleton/2025-2.jpg",
+                            "src": "assets/images/historicaldata/appleton/2025-2.png",
                             "alt": "Appleton Park in 2025 from a different angle."
                         }
                     ]
@@ -60,7 +60,7 @@ const historicaldata =
                     "event": "The Kaiwharawhara estuary is not reachable by civilians. The rail line and the motorway cut off access.",
                     "img": [
                         {
-                            "src": "assets/images/historicaldata/estuary/2025.jpg",
+                            "src": "assets/images/historicaldata/estuary/2025.png",
                             "alt": "Estuary in 2025, pictured upstream of the rail line."
                         }
                     ]
