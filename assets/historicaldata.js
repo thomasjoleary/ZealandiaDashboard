@@ -31,6 +31,18 @@ const historicaldata =
                     ]
                 },
                 {
+                    "year": 1965,
+                    "month": 8,
+                    "day": 17,
+                    "event": "Appleton Park landfill is covered in grass.",
+                    "img": [
+                        {
+                            "src": "assets/images/historicaldata/appleton/1965.jpg",
+                            "alt": "Appleton Park in 1965."
+                        }
+                    ]
+                },
+                {
                     "year": 2025,
                     "month": 2,
                     "day": 12,
