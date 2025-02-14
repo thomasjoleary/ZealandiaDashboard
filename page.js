@@ -9,9 +9,19 @@ let osm = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
         })
 osm.addTo(map);
 
+let withoutStreetNames = L.tileLayer('https://a.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png', {
+    maxZoom: 19,
+    minZoom: 10,
+    attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+})
+withoutStreetNames.addTo(map);
+
 let baseMaps = {
-    "OpenStreetMap": osm
+    "Detailed": osm,
+    "Simple": withoutStreetNames
 }
+
+let markerList = []
 
 let catchmentGroup = new L.LayerGroup()
 catchmentGroup.addTo(map)
@@ -60,11 +70,44 @@ function clearInfo() {
 ///////////////////////////////////
 // Slider
 
+function displayBetween(start, end) {
+    for (let i = 0; i < markerList.length; i++) {
+        if (markerList[i].year > start && markerList[i].year < end) {
+            markerList[i].getLMarker()._icon.style.visibility = 'visible'
+        } else {
+            markerList[i].getLMarker()._icon.style.visibility = 'hidden'
+        }
+    }
+}
+
+function displayAll() {
+    for (let i = 0; i < markerList.length; i++) {
+        markerList[i].getLMarker()._icon.style.visibility = 'visible'
+    }
+}
+
 let startSlider = document.getElementById('dateStart')
 let startSliderval = document.getElementById('startValue')
 
 let endSlider = document.getElementById('dateEnd')
 let endSliderval = document.getElementById('endValue')
+
+startSlider.disabled = true
+endSlider.disabled = true
+
+let enableSlider = document.getElementById('intervalCheck')
+
+enableSlider.onclick = function() {
+    if (enableSlider.checked === true) {
+        startSlider.disabled = false
+        endSlider.disabled = false
+        displayBetween((1955 + parseInt(startSlider.value)), (1955 + parseInt(endSlider.value)))
+    } else if (enableSlider.checked === false) {
+        startSlider.disabled = true
+        endSlider.disabled = true
+        displayAll()
+    }
+}
 
 startSlider.oninput = function() {
     let year = 1955 + parseInt(this.value)
@@ -72,6 +115,7 @@ startSlider.oninput = function() {
     let endyear = 1955 + parseInt(endSlider.value)
     endSliderval.innerHTML = (endyear)
     startSliderval.innerHTML = (year)
+    displayBetween(year, endyear)
 }
 
 endSlider.oninput = function() {
@@ -80,6 +124,7 @@ endSlider.oninput = function() {
     let startyear = 1955 + parseInt(startSlider.value)
     startSliderval.innerHTML = (startyear)
     endSliderval.innerHTML = (year)
+    displayBetween(startyear, year)
 }
 
 
@@ -93,26 +138,28 @@ let selectedIcon = new L.Icon({
     iconSize: [50, 82],
     iconAnchor: [24, 82],
     popupAnchor: [1, -34],
+    shadowSize: [0, 0]
 });
 
 let cautionIcon = new L.Icon({
     iconUrl: 'assets/images/warning-pin-background.png',
     iconSize: [50, 50],
     iconAnchor: [24, 46],
-    popupAnchor: [1, -17]
+    popupAnchor: [1, -17],
+    shadowSize: [0, 0]
 })
 
 let selectedCautionIcon = new L.Icon({
     iconUrl: 'assets/images/warning-pin-background.png',
     iconSize: [100, 100],
     iconAnchor: [48, 92],
-    popupAnchor: [1, -17]
+    popupAnchor: [1, -17],
+    shadowSize: [0, 0]
 })
 
 
 let defaultIcon = new L.Icon.Default;
-
-let markerList = []
+defaultIcon.options.shadowSize = [0, 0]
 
 function findMarkerinList(marker) {
     let m
@@ -144,10 +191,10 @@ function setLMarkerIcon(marker, icon) {
     marker.setLIcon(icon)
 }
 
-function markerMaker(name, lat, lng) {
-    let constructed = new marker(name, lat, lng)
+function markerMaker(name, lat, lng, year) {
+    let constructed = new marker(name, lat, lng, year)
 
-    constructed.setLMarker(L.marker(constructed.getPos()).addTo(map))
+    constructed.setLMarker(L.marker(constructed.getPos(), {icon : defaultIcon}).addTo(map))
 
     constructed.getLMarker().on('click', dataFromMarker)
 
@@ -218,21 +265,21 @@ function popupSubmit(e) {
 
 ///////////////////////////////////
 // Sample Markers
-let tangle = markerMaker("Tanglewood", -41.289273, 174.754056)
+let tangle = markerMaker("Tanglewood", -41.289273, 174.754056, 2020)
 tangle.setData("I can see you. Turn around.")
-let dam = markerMaker("Dam", -41.298383, 174.744959)
+let dam = markerMaker("Dam", -41.298383, 174.744959, 2020)
 dam.setData("Dam with a great view and lots of wind.")
-let suspension = markerMaker("John's Suspension Bridge", -41.29768, 174.746854)
+let suspension = markerMaker("John's Suspension Bridge", -41.29768, 174.746854, 2020)
 suspension.setData("John LOVES this bridge and its steel cable.")
-let estuary = markerMaker("Estuary", -41.260735, 174.789888)
+let estuary = markerMaker("Estuary", -41.260735, 174.789888, 2020)
 estuary.setData("Where the freshwater meets the saltwater!")
-let fishladder = markerMaker("Fish Ladder", -41.259848, 174.769296)
+let fishladder = markerMaker("Fish Ladder", -41.259848, 174.769296, 2025)
 fishladder.setData("Fish ladder, but also where the two main branches of the river meet!")
-let karoricemetery = markerMaker("Karori Cemetery", -41.276083, 174.751224)
+let karoricemetery = markerMaker("Karori Cemetery", -41.276083, 174.751224, 2025)
 karoricemetery.setData("Plastic flowers left at graves here are commonly blown into the Kaiwharawhara.")
-let appleton = markerMaker("Appleton Park", -41.285393, 174.754128)
+let appleton = markerMaker("Appleton Park", -41.285393, 174.754128, 2025)
 appleton.setData("Built on top a landfill. Leachate from this landfill leaks into the Kaiwharawhara.")
-let otari = markerMaker("Otari-Wilton's Bush", -41.266592, 174.755824)
+let otari = markerMaker("Otari-Wilton's Bush", -41.266592, 174.755824, 2025)
 otari.setData("The only place with untouched bush in Wellington!")
 setLMarkerIcon(appleton, cautionIcon)
 appleton.setSIcon(selectedCautionIcon)
