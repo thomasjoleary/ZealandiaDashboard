@@ -154,3 +154,7 @@ body {
 #topphoto {
     padding-top: 10px;
 }
+
+input[type="range"] {
+    width: 500px;
+}

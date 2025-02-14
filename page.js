@@ -72,7 +72,7 @@ function clearInfo() {
 
 function displayBetween(start, end) {
     for (let i = 0; i < markerList.length; i++) {
-        if (markerList[i].year > start && markerList[i].year < end) {
+        if (markerList[i].year >= start && markerList[i].year <= end) {
             markerList[i].getLMarker()._icon.style.visibility = 'visible'
         } else {
             markerList[i].getLMarker()._icon.style.visibility = 'hidden'
