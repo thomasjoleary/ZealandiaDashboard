@@ -7,12 +7,30 @@ class marker {
         this.lat = lat
         this.lng = lng
         this.data = null
+        this.imgsrc = null
+        this.alttxt = null
         this.tags = []
         this.color = null
         this.LMarker = null
         this.icon = null
         this.sicon = null
         this.year = year
+    }
+
+    getAltTxt() {
+        return this.alttxt
+    }
+
+    setAltTxt(txt) {
+        this.alttxt = txt
+    }
+
+    getImgSrc() {
+        return this.imgsrc
+    }
+
+    setImgSrc(src) {
+        this.imgsrc = src
     }
 
     getYear() {
