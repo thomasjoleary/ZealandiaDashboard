@@ -2,7 +2,7 @@
 // Used on Various Map Markers
 
 class marker {
-    constructor(name, lat, lng) {
+    constructor(name, lat, lng, year) {
         this.name = name
         this.lat = lat
         this.lng = lng
@@ -12,6 +12,15 @@ class marker {
         this.LMarker = null
         this.icon = null
         this.sicon = null
+        this.year = year
+    }
+
+    getYear() {
+        return this.year
+    }
+
+    setYear(year) {
+        this.year = year
     }
 
     setLMarker(marker) { // The L.Marker object gets set here to tie the two together

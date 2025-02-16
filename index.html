@@ -17,22 +17,46 @@
     <div id="centered">
         <img id="topphoto" src="assets/images/zlogo.png" alt="The Zealandia Logo"></img>
         <button id="AddMarker" onclick=markerAdd()>Add Marker</button>
-        <div id="dashboard">
-            <div id="popup" class="popup">
-                <form>
-                    <label for="name">Name</label>
-                    <input name="name" id="popupname" class="popuptext"></input>
-                    <label for="info">Info</label>
-                    <textarea name="info" id="popupinfo" class="popuptext"></textarea>
-                    <button id="popupsubmit">Submit</button>
-                </form>
+        <div id="dashboardContainer">
+            <div id="optionscontainer">
+                <div id="sideContainer">
+                    <p id="intText">Interval Sliders: </p>
+                    <div id="checkContainer">
+                        <p id="intText">Enable:</p>
+                        <input id="intervalCheck" type="checkbox"></input>
+                    </div>
+                </div>
+                <div class="slidecontainer">
+                    <div id="startValue" class="sliderVal">2010</div>
+                    <input type="range" min="1" max="100" value="50" class="slider" id="dateStart">
+                    <div id="endValue" class="sliderVal">2015</div>
+                    <input type="range" min="1" max="100" value="55" class="slider" id="dateEnd">
+                </div>
             </div>
-            <div id="map"></div>
-            <div id="info">
-                <h2>Zealandia Dashboard</h2>
-                <h3 id="info-title">To use:</h3>
-                <p id="info-content">Click on a marker to see more information</p>
+            <div id="dashboard">
+                <div id="popup" class="popup">
+                    <form>
+                        <label for="name">Name</label>
+                        <input name="name" id="popupname" class="popuptext"></input>
+                        <label for="info">Info</label>
+                        <textarea name="info" id="popupinfo" class="popuptext"></textarea>
+                        <button id="popupsubmit">Submit</button>
+                    </form>
+                </div>
+                <div id="map"></div>
+                <div id="info">
+                    <h2>Zealandia Dashboard</h2>
+                    <h3 id="info-title">To use:</h3>
+                    <p id="info-content">Click on a marker to see more information</p>
+                </div>
+            </div>
         </div>
+        <div id="coordsbox"> Mouse coordinates: </div>
+        <script src = "assets/osm/kaiwharawharastream.js"></script>
+        <script src = "assets/osm/kaiwharawharacatchment.js"></script>
+        <script src = "assets/osm/zealandia.js"></script>
+        <script src = "marker.js"></script>
+        <script src="page.js"></script>
     </div>
     <div id="coordsbox"> Mouse coordinates: 
     </div>
