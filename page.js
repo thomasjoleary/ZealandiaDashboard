@@ -134,7 +134,7 @@ endSlider.oninput = function() {
 let currentSelect
 
 let selectedIcon = new L.Icon({
-    iconUrl: 'assets/images/marker-icon-2x-blue.png',
+    iconUrl: 'assets/img/icon/marker-icon-2x-blue.png',
     iconSize: [50, 82],
     iconAnchor: [24, 82],
     popupAnchor: [1, -34],
@@ -142,7 +142,7 @@ let selectedIcon = new L.Icon({
 });
 
 let cautionIcon = new L.Icon({
-    iconUrl: 'assets/images/warning-pin-background.png',
+    iconUrl: 'assets/img/icon/warning-pin-background.png',
     iconSize: [50, 50],
     iconAnchor: [24, 46],
     popupAnchor: [1, -17],
@@ -150,7 +150,7 @@ let cautionIcon = new L.Icon({
 })
 
 let selectedCautionIcon = new L.Icon({
-    iconUrl: 'assets/images/warning-pin-background.png',
+    iconUrl: 'assets/img/icon/warning-pin-background.png',
     iconSize: [100, 100],
     iconAnchor: [48, 92],
     popupAnchor: [1, -17],
