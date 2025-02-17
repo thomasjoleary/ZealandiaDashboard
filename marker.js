@@ -52,6 +52,10 @@ class marker {
         return this.imgData.filter(e => e.year <= maxYear)
     }
 
+    getRangeImgData(minYear, maxYear) {
+        return this.imgData.filter(e => e.year >= minYear && e.year <= maxYear)
+    }
+
     getMostRecentImgData(maxYear) {
         filtered = this.getAllImgData(maxYear);
         return filtered.sort((a, b) => b.year - a.year)[0]
@@ -62,12 +66,20 @@ class marker {
     }
 
     setImgData(timeline) {
-        this.imgData.year = timeline.year,
-        this.imgData.month = timeline.month,
-        this.imgData.day = timeline.day,
-        this.imgData.event = timeline.event,
-        this.imgData.src = timeline.img[0].src,
-        this.imgData.alt = timeline.img[0].alt
+        for (let i = 0; i < timeline.length; i++) {
+            this.imgData.push({
+                "year": timeline[i].year,
+                "month": timeline[i].month,
+                "day": timeline[i].day,
+                "event": timeline[i].event})
+
+                for (let j = 0; j < timeline[i].img.length; j++) {
+                    this.imgData.push({
+                    "src": timeline[i].img[j].src,
+                    "alt": timeline[i].img[j].alt
+                })
+            }
+        }
     }
 
     setAltTxt(txt) {
