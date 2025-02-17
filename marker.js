@@ -48,12 +48,13 @@ class marker {
         return this.imgData
     }
 
-    getAllImgData(year) {
-        return this.imgData.filter(e => e.year === year)
+    getAllImgData(maxYear) {
+        return this.imgData.filter(e => e.year <= maxYear)
     }
 
-    getMostRecentImgData() {
-        return this.imgData.sort((a, b) => b.year - a.year)[0]
+    getMostRecentImgData(maxYear) {
+        filtered = this.getAllImgData(maxYear);
+        return filtered.sort((a, b) => b.year - a.year)[0]
     }
 
     isEmptyImgData() {
