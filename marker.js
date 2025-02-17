@@ -11,6 +11,17 @@ class marker {
         this.lng = lng
         // information given by the marker
         this.data = null
+        // imageData
+        this.imgData = [
+            {
+                "year": null,
+                "month": null,
+                "day": null,
+                "event": null,
+                "src": null,
+                "alt": null
+            }
+        ]
         // source of image given by the marker
         this.imgsrc = null
         // alt text for the image
@@ -31,6 +42,31 @@ class marker {
 
     getAltTxt() {
         return this.alttxt
+    }
+
+    getImgData() {
+        return this.imgData
+    }
+
+    getAllImgData(year) {
+        return this.imgData.filter(e => e.year === year)
+    }
+
+    getMostRecentImgData() {
+        return this.imgData.sort((a, b) => b.year - a.year)[0]
+    }
+
+    isEmptyImgData() {
+        return this.imgData[0].src === null && this.imgData[0].alt === null
+    }
+
+    setImgData(timeline) {
+        this.imgData.year = timeline.year,
+        this.imgData.month = timeline.month,
+        this.imgData.day = timeline.day,
+        this.imgData.event = timeline.event,
+        this.imgData.src = timeline.img[0].src,
+        this.imgData.alt = timeline.img[0].alt
     }
 
     setAltTxt(txt) {
