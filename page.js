@@ -205,11 +205,23 @@ function dataFromMarker(e) {
     // gets the pieces of the info section on the right of the dashboard
     let dataView = document.getElementById('info-content')
     let title = document.getElementById('info-title')
+    let img = document.getElementById('picture')
     // gets the clicked map Marker's marker class instance
     let marker = findMarkerinList(e.target)
     // sets the info section to the marker
     title.innerHTML = marker.getName()
     dataView.innerHTML = marker.getData()
+    // if there is no image, make the image box invisible and sizeless
+    // if there is an image, make the image box visible and sizeable and display the image
+    if (marker.getImgSrc() == null) {
+        img.style.visibility = 'hidden';
+        img.style.maxHeight = '0px';
+    } else {
+        img.style.visibility = 'visible';
+        img.style.maxHeight = '100%';
+        // display the image
+        img.src = marker.getImgSrc()
+    }
 
     // if there is a marker currently selected
     if (currentSelect) {
@@ -325,6 +337,8 @@ let karoricemetery = markerMaker("Karori Cemetery", -41.276083, 174.751224, 2025
 karoricemetery.setData("Plastic flowers left at graves here are commonly blown into the Kaiwharawhara.")
 let appleton = markerMaker("Appleton Park", -41.285393, 174.754128, 2025)
 appleton.setData("Built on top a landfill. Leachate from this landfill leaks into the Kaiwharawhara.")
+appleton.setImgSrc("assets/img/historicaldata/appleton/2025.png")
+appleton.setAltTxt("Appleton Park in 2025 pictured from the south.")
 let otari = markerMaker("Otari-Wilton's Bush", -41.266592, 174.755824, 2025)
 otari.setData("The only place with untouched bush in Wellington!")
 setLMarkerIcon(appleton, cautionIcon)
