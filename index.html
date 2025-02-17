@@ -49,7 +49,12 @@
                     <h3 id="info-title">To use:</h3>
                     <p id="info-content">Click on a marker to see more information</p>
                     <div id="picturebox">
-                        <img id="picture" src="assets/img/historicaldata/appleton/1929.png" alt="">
+                        <img id="picture">
+                            <script>
+                                let img = document.getElementById('picture')
+                                img.style.visibility = 'hidden';
+                                img.style.maxHeight = '0px';
+                            </script>
                         </img>
                     </div>
                 </div>
