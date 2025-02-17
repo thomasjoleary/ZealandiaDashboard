@@ -18,8 +18,10 @@ class marker {
                 "month": null,
                 "day": null,
                 "event": null,
-                "src": null,
-                "alt": null
+                "img": {
+                    "src": null,
+                    "alt": null
+                }
             }
         ]
         // source of image given by the marker
@@ -48,6 +50,11 @@ class marker {
         return this.imgData
     }
 
+    getImgTestData() {
+        console.log(this.imgData.img.src)
+        return this.imgData.img.src
+    }
+
     getAllImgData(maxYear) {
         return this.imgData.filter(e => e.year <= maxYear)
     }
@@ -57,26 +64,27 @@ class marker {
     }
 
     getMostRecentImgData(maxYear) {
-        filtered = this.getAllImgData(maxYear);
-        return filtered.sort((a, b) => b.year - a.year)[0]
+        let filtered = this.getAllImgData(maxYear);
+        console.log(filtered);
+        let timelinePoint = filtered.sort((a, b) => b.year - a.year)[0];
+        console.log(timelinePoint);
+        return timelinePoint.img.src;
     }
 
     isEmptyImgData() {
-        return this.imgData[0].src === null && this.imgData[0].alt === null
+        return this.imgData[0].img[0].src === null && this.imgData[0].img[0].alt === null
     }
 
     setImgData(timeline) {
         for (let i = 0; i < timeline.length; i++) {
-            this.imgData.push({
-                "year": timeline[i].year,
-                "month": timeline[i].month,
-                "day": timeline[i].day,
-                "event": timeline[i].event})
-
-                for (let j = 0; j < timeline[i].img.length; j++) {
-                    this.imgData.push({
-                    "src": timeline[i].img[j].src,
-                    "alt": timeline[i].img[j].alt
+            this.imgData.year = timeline[i].year
+            this.imgData.month = timeline[i].month
+            this.imgData.day = timeline[i].day
+            this.imgData.event = timeline[i].event
+            for (let j = 0; j < timeline[i].img.length; j++) {
+                this.imgData.img = ({
+                "src": timeline[i].img[j].src,
+                "alt": timeline[i].img[j].alt
                 })
             }
         }

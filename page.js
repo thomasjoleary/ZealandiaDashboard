@@ -234,7 +234,9 @@ function dataFromMarker(e) {
     } else {
         showPictures()
         // display the image
-        img.src = marker.getImgSrc()
+        marker.setImgData(getTimeline(marker.getName()))
+        img.src = marker.getImgTestData()
+        console.log(img.src)
     }
 
     // if there is a marker currently selected
