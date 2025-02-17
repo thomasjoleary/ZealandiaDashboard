@@ -70,6 +70,8 @@ function clearInfo() {
     let title = document.getElementById('info-title')
     title.innerHTML = "To use:"
     dataView.innerHTML = "Click on a marker to see more information"
+    // hide the image box
+    clearPictures()
 
     if (currentSelect) {
         let currentMarker = findMarkerinList(currentSelect)
@@ -77,6 +79,20 @@ function clearInfo() {
     }
     currentSelect = null
 
+}
+
+// remove pictures from right side of the dashboard
+function clearPictures() {
+    let img = document.getElementById('picture')
+    img.style.visibility = 'hidden';
+    img.style.maxHeight = '0px';
+}
+
+// show pictures on right side of the dashboard
+function showPictures() {
+    let img = document.getElementById('picture')
+    img.style.visibility = 'visible';
+    img.style.maxHeight = '100%';
 }
 
 ///////////////////////////////////
@@ -214,11 +230,9 @@ function dataFromMarker(e) {
     // if there is no image, make the image box invisible and sizeless
     // if there is an image, make the image box visible and sizeable and display the image
     if (marker.getImgSrc() == null) {
-        img.style.visibility = 'hidden';
-        img.style.maxHeight = '0px';
+        clearPictures()
     } else {
-        img.style.visibility = 'visible';
-        img.style.maxHeight = '100%';
+        showPictures()
         // display the image
         img.src = marker.getImgSrc()
     }
@@ -339,6 +353,7 @@ let appleton = markerMaker("Appleton Park", -41.285393, 174.754128, 2025)
 appleton.setData("Built on top a landfill. Leachate from this landfill leaks into the Kaiwharawhara.")
 appleton.setImgSrc("assets/img/historicaldata/appleton/2025.png")
 appleton.setAltTxt("Appleton Park in 2025 pictured from the south.")
+// appleton.setImgData(historicaldata.appleton.timeline)
 let otari = markerMaker("Otari-Wilton's Bush", -41.266592, 174.755824, 2025)
 otari.setData("The only place with untouched bush in Wellington!")
 setLMarkerIcon(appleton, cautionIcon)
