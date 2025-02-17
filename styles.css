@@ -4,7 +4,7 @@ body {
     align-items: center;
     height: 100vh;
     margin: 0;
-    background-color: #4b6f45;
+    background-color: #02414e;
     font-family: 'Open Sans',Arial,Helvetica,sans-serif;
 }
 
@@ -166,7 +166,10 @@ body {
 }
 
 #topphoto {
-    padding-top: 10px;
+    height: 12%;
+    width: 30%;
+    margin-top: 10px;
+    border:#f26422 3px solid;
 }
 
 
