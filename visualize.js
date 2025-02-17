@@ -14,16 +14,12 @@ const svg = d3.select("#graph").append("svg")
   .style("fill", "white"); // set color of text and data points
 
 // read data from json
-console.log(birdCount);
 const birdCountData = birdCount[1].data;
 const xdata = birdCountData.map(d => d.Month);
 const ydata = birdCountData.map(d => d.Count);
-console.log(xdata);
-console.log(ydata);
 
 // create graph title
 const title = birdCount.map(d => d.Title)[0];
-console.log(title);
 svg.append("text")
     .attr("x", (xSize / 2))
     .attr("y", 0)

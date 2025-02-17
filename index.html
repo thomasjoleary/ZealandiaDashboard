@@ -44,10 +44,21 @@
                     </form>
                 </div>
                 <div id="map"></div>
+
                 <div id="info">
                     <h2>Kia Mouriora Te Kaiwharawhara Dashboard</h2>
+
                     <h3 id="info-title">To use:</h3>
                     <p id="info-content">Click on a marker to see more information</p>
+                    <div id="picturebox">
+                        <img id="picture">
+                            <script>
+                                let img = document.getElementById('picture')
+                                img.style.visibility = 'hidden';
+                                img.style.maxHeight = '0px';
+                            </script>
+                        </img>
+                    </div>
                 </div>
             </div>
         </div>
@@ -64,6 +75,7 @@
     <script src = "assets/osm/kaiwharawharacatchment.js"></script>
     <script src = "assets/osm/zealandia.js"></script>
     <script src = "assets/data/bird-count.js"></script>
+    <script src = "assets/data/historicaldata.js"></script>
     <script src = "marker.js"></script>
     <script src = "page.js"></script>
     <script src = "visualize.js"></script>

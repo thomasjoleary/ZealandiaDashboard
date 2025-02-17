@@ -11,6 +11,19 @@ class marker {
         this.lng = lng
         // information given by the marker
         this.data = null
+        // imageData
+        this.imgData = [
+            {
+                "year": null,
+                "month": null,
+                "day": null,
+                "event": null,
+                "img": {
+                    "src": null,
+                    "alt": null
+                }
+            }
+        ]
         // source of image given by the marker
         this.imgsrc = null
         // alt text for the image
@@ -35,6 +48,59 @@ class marker {
 
     setAltTxt(txt) {
         this.alttxt = txt
+    }
+
+    getImgData() {
+        return this.imgData
+    }
+
+    getFirstImgSrc() {
+        return this.imgData[0].img[0].src
+    }
+
+    getLastImgSrc() {
+        console.log(this.imgData[this.imgData.length - 1].img[0].src)
+        return this.imgData[this.imgData.length - 1].img.src
+    }
+
+    getAllImgData(maxYear) {
+        return this.imgData.filter(e => e.year <= maxYear)
+    }
+
+    getRangeImgData(minYear, maxYear) {
+        return this.imgData.filter(e => e.year >= minYear && e.year <= maxYear)
+    }
+
+    getMostRecentImgData(maxYear) {
+        let filtered = this.getAllImgData(maxYear);
+        console.log(filtered);
+        let timelinePoint = filtered.sort((a, b) => b.year - a.year)[0];
+        console.log(timelinePoint);
+        return timelinePoint.img.src;
+    }
+
+    isEmptyImgData() {
+        return this.imgData.length === 0
+    }
+
+    setImgData(timeline) {
+        this.imgData = []
+        for (let i = 0; i < timeline.length; i++) {
+            let img = []
+            for (let j = 0; j < timeline[i].img.length; j++) {
+                img.push({
+                    "src": timeline[i].img[j].src,
+                    "alt": timeline[i].img[j].alt
+                })
+            }
+            this.imgData.push({
+                "year": timeline[i].year,
+                "month": timeline[i].month,
+                "day": timeline[i].day,
+                "event": timeline[i].event,
+                "img": img
+            })
+        }
     }
 
     getImgSrc() {

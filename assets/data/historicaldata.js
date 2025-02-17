@@ -51,11 +51,11 @@ const historicaldata =
                         {
                             "src": "assets/img/historicaldata/appleton/2025.png",
                             "alt": "Appleton Park in 2025 pictured from the south."
-                        },
-                        {
-                            "src": "assets/img/historicaldata/appleton/2025-2.png",
-                            "alt": "Appleton Park in 2025 from a different angle."
                         }
+                        // {
+                        //     "src": "assets/img/historicaldata/appleton/2025-2.png",
+                        //     "alt": "Appleton Park in 2025 from a different angle."
+                        // }
                     ]
                 }
             ]
@@ -67,17 +67,25 @@ const historicaldata =
             "timeline": [
                 {
                     "year": 2025,
-                    "month": null,
-                    "day": null,
+                    "month": 1,
+                    "day": 16,
                     "event": "The Kaiwharawhara estuary is not reachable by civilians. The rail line and the motorway cut off access.",
                     "img": [
                         {
-                            "src": "assets/img/historicaldata/estuary/2025.png",
-                            "alt": "Estuary in 2025, pictured upstream of the rail line."
+                            "src": "assets/img/historicaldata/estuary/2025.jpg",
+                            "alt": "Estuary in 2025, looking upstream from the rail line."
                         }
                     ]
                 }
             ]
         }
     ]
+}
+
+function getTimeline(location) {
+    for (let i = 0; i < historicaldata.locations.length; i++) {
+        if (historicaldata.locations[i].name === location) {
+            return historicaldata.locations[i].timeline
+        }
+    }
 }

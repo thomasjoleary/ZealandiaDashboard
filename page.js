@@ -20,8 +20,8 @@ withoutStreetNames.addTo(map);
 
 // sets map layers
 let baseMaps = {
-    "Detailed": osm,
-    "Simple": withoutStreetNames
+    "Detailed Map": osm,
+    "Simple Map": withoutStreetNames
 }
 
 // instantiates markerList, will be used in many functions to hold
@@ -70,6 +70,8 @@ function clearInfo() {
     let title = document.getElementById('info-title')
     title.innerHTML = "To use:"
     dataView.innerHTML = "Click on a marker to see more information"
+    // hide the image box
+    clearPictures()
 
     if (currentSelect) {
         let currentMarker = findMarkerinList(currentSelect)
@@ -77,6 +79,20 @@ function clearInfo() {
     }
     currentSelect = null
 
+}
+
+// remove pictures from right side of the dashboard
+function clearPictures() {
+    let img = document.getElementById('picture')
+    img.style.visibility = 'hidden';
+    img.style.maxHeight = '0px';
+}
+
+// show pictures on right side of the dashboard
+function showPictures() {
+    let img = document.getElementById('picture')
+    img.style.visibility = 'visible';
+    img.style.maxHeight = '100%';
 }
 
 ///////////////////////////////////
@@ -205,11 +221,25 @@ function dataFromMarker(e) {
     // gets the pieces of the info section on the right of the dashboard
     let dataView = document.getElementById('info-content')
     let title = document.getElementById('info-title')
+    let img = document.getElementById('picture')
     // gets the clicked map Marker's marker class instance
     let marker = findMarkerinList(e.target)
     // sets the info section to the marker
     title.innerHTML = marker.getName()
     dataView.innerHTML = marker.getData()
+
+    // set image data
+    marker.setImgData(getTimeline(marker.getName()))
+    // if there is no image, make the image box invisible and sizeless
+    // if there is an image, make the image box visible and sizeable and display the image
+    if (marker.getFirstImgSrc() == null) {
+        clearPictures()
+    } else {
+        showPictures()
+        // set image source and alt text
+        img.src = marker.getFirstImgSrc()
+        img.alt = marker.getAltTxt()
+    }
 
     // if there is a marker currently selected
     if (currentSelect) {
@@ -325,6 +355,9 @@ let karoricemetery = markerMaker("Karori Cemetery", -41.276083, 174.751224, 2025
 karoricemetery.setData("Plastic flowers left at graves here are commonly blown into the Kaiwharawhara.")
 let appleton = markerMaker("Appleton Park", -41.285393, 174.754128, 2025)
 appleton.setData("Built on top a landfill. Leachate from this landfill leaks into the Kaiwharawhara.")
+appleton.setImgSrc("assets/img/historicaldata/appleton/2025.png")
+appleton.setAltTxt("Appleton Park in 2025 pictured from the south.")
+// appleton.setImgData(historicaldata.appleton.timeline)
 let otari = markerMaker("Otari-Wilton's Bush", -41.266592, 174.755824, 2025)
 otari.setData("The only place with untouched bush in Wellington!")
 setLMarkerIcon(appleton, cautionIcon)
