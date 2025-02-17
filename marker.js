@@ -3,17 +3,29 @@
 
 class marker {
     constructor(name, lat, lng, year) {
+        // name of marker
         this.name = name
+        // latitude
         this.lat = lat
+        // longitude
         this.lng = lng
+        // information given by the marker
         this.data = null
+        // source of image given by the marker
         this.imgsrc = null
+        // alt text for the image
         this.alttxt = null
+        // any applicable tags (use this for a possible sorting method)
         this.tags = []
+        // use this for a future update where markers are different colors
         this.color = null
+        // pointer to the instance of the map marker (VERY NECESSARY)
         this.LMarker = null
+        // normal icon of the map marker
         this.icon = null
+        // selected icon of the map marker (usually just normal icon but doubled in size)
         this.sicon = null
+        // year of the data of the marker
         this.year = year
     }
 
