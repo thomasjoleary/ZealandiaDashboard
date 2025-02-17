@@ -46,13 +46,21 @@ class marker {
         return this.alttxt
     }
 
+    setAltTxt(txt) {
+        this.alttxt = txt
+    }
+
     getImgData() {
         return this.imgData
     }
 
-    getImgTestData() {
-        console.log(this.imgData.img.src)
-        return this.imgData.img.src
+    getFirstImgSrc() {
+        return this.imgData[0].img[0].src
+    }
+
+    getLastImgSrc() {
+        console.log(this.imgData[this.imgData.length - 1].img[0].src)
+        return this.imgData[this.imgData.length - 1].img.src
     }
 
     getAllImgData(maxYear) {
@@ -72,26 +80,27 @@ class marker {
     }
 
     isEmptyImgData() {
-        return this.imgData[0].img[0].src === null && this.imgData[0].img[0].alt === null
+        return this.imgData.length === 0
     }
 
     setImgData(timeline) {
+        this.imgData = []
         for (let i = 0; i < timeline.length; i++) {
-            this.imgData.year = timeline[i].year
-            this.imgData.month = timeline[i].month
-            this.imgData.day = timeline[i].day
-            this.imgData.event = timeline[i].event
+            let img = []
             for (let j = 0; j < timeline[i].img.length; j++) {
-                this.imgData.img = ({
-                "src": timeline[i].img[j].src,
-                "alt": timeline[i].img[j].alt
+                img.push({
+                    "src": timeline[i].img[j].src,
+                    "alt": timeline[i].img[j].alt
                 })
             }
+            this.imgData.push({
+                "year": timeline[i].year,
+                "month": timeline[i].month,
+                "day": timeline[i].day,
+                "event": timeline[i].event,
+                "img": img
+            })
         }
-    }
-
-    setAltTxt(txt) {
-        this.alttxt = txt
     }
 
     getImgSrc() {

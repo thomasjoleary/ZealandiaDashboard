@@ -227,16 +227,18 @@ function dataFromMarker(e) {
     // sets the info section to the marker
     title.innerHTML = marker.getName()
     dataView.innerHTML = marker.getData()
+
+    // set image data
+    marker.setImgData(getTimeline(marker.getName()))
     // if there is no image, make the image box invisible and sizeless
     // if there is an image, make the image box visible and sizeable and display the image
-    if (marker.getImgSrc() == null) {
+    if (marker.getFirstImgSrc() == null) {
         clearPictures()
     } else {
         showPictures()
-        // display the image
-        marker.setImgData(getTimeline(marker.getName()))
-        img.src = marker.getImgTestData()
-        console.log(img.src)
+        // set image source and alt text
+        img.src = marker.getFirstImgSrc()
+        img.alt = marker.getAltTxt()
     }
 
     // if there is a marker currently selected
