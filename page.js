@@ -20,8 +20,8 @@ withoutStreetNames.addTo(map);
 
 // sets map layers
 let baseMaps = {
-    "Detailed": osm,
-    "Simple": withoutStreetNames
+    "Detailed Map": osm,
+    "Simple Map": withoutStreetNames
 }
 
 // instantiates markerList, will be used in many functions to hold
