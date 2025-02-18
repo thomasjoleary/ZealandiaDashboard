@@ -153,16 +153,11 @@ body {
     border: 1px solid #000000;
     background-color: #d0d0d0;
 
-    margin: 20px;
-    width: auto;
+    width: 310px;
     height: 20px;
 
-    position: absolute;
-    bottom: 25px;
-    left: 0px;
-
+    display: relative;
     z-index: 2;
-
 }
 
 #topphoto {
