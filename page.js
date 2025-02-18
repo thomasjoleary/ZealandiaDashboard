@@ -232,13 +232,14 @@ function dataFromMarker(e) {
     marker.setImgData(getTimeline(marker.getName()))
     // if there is no image, make the image box invisible and sizeless
     // if there is an image, make the image box visible and sizeable and display the image
-    if (marker.getFirstImgSrc() == null) {
+    if (marker.getImgData() == null) {
         clearPictures()
     } else {
         showPictures()
         // set image source and alt text
         img.src = marker.getFirstImgSrc()
         img.alt = marker.getAltTxt()
+        marker.getAllImgData(2025)
     }
 
     // if there is a marker currently selected

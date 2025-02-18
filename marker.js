@@ -51,6 +51,17 @@ class marker {
     }
 
     getImgData() {
+        console.log("Start of getImgData")
+        console.log(this.imgData)
+        if (this.imgData.length === 0) {
+            console.log("No image data")
+            return null
+        }
+        if (this.imgData.length >= 1 && this.imgData[0].img.src === null) {
+            console.log("No image data")
+            return null
+        }
+        console.log(this.imgData)
         return this.imgData
     }
 
@@ -64,7 +75,16 @@ class marker {
     }
 
     getAllImgData(maxYear) {
-        return this.imgData.filter(e => e.year <= maxYear)
+        let ret = []
+        for (let i = 0; i < this.imgData.length; i++) {
+            if (this.imgData[i].year <= maxYear) {
+                ret.push(this.imgData[i])
+            }
+        }
+        console.log(ret)
+        ret.sort((a, b) => a.year - b.year)
+        console.log(ret)
+        return ret
     }
 
     getRangeImgData(minYear, maxYear) {
@@ -85,6 +105,20 @@ class marker {
 
     setImgData(timeline) {
         this.imgData = []
+        // if there is no timeline, pull the data from the marker
+        if (timeline === null || timeline === undefined) {
+            this.imgData.push({
+                "year": this.year,
+                "month": null,
+                "day": null,
+                "event": this.getData(),
+                "img": {
+                    "src": this.imgsrc,
+                    "alt": this.imgalt
+                }
+            })
+            return
+        }
         for (let i = 0; i < timeline.length; i++) {
             let img = []
             for (let j = 0; j < timeline[i].img.length; j++) {
