@@ -18,10 +18,16 @@ let withoutStreetNames = L.tileLayer('https://a.tile.openstreetmap.fr/hot/{z}/{x
 })
 withoutStreetNames.addTo(map);
 
+var openTopoMap = L.tileLayer('https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png', {
+    maxZoom: 19,
+    attribution: 'Map data: © OpenStreetMap contributors, SRTM | Map style: © OpenTopoMap (CC-BY-SA)'
+});
+
 // sets map layers
 let baseMaps = {
     "Detailed Map": osm,
-    "Simple Map": withoutStreetNames
+    "Simple Map": withoutStreetNames,
+    "Topographic": openTopoMap
 }
 
 // instantiates markerList, will be used in many functions to hold

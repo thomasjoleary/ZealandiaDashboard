@@ -55,7 +55,7 @@ class marker {
     }
 
     getFirstImgSrc() {
-        return this.imgData[0].img[0].src
+        return this.imgData[1].img[0].src
     }
 
     getLastImgSrc() {
