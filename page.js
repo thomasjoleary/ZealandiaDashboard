@@ -102,17 +102,20 @@ function showPictures() {
 }
 
 ///////////////////////////////////
-// Slider
+// Date Range
 
-// displays all markers between start and end, where start and end are years
-// from the interval sliders when they are enabled
+// displays all markers between start and end, where start and end are dates
+// from the date inputs when they are enabled
 function displayBetween(start, end) {
     for (let i = 0; i < markerList.length; i++) {
-        if (markerList[i].year >= start && markerList[i].year <= end) {
+        let date = markerList[i].getDate()
+        if (date >= start && date <= end) {
             markerList[i].getLMarker()._icon.style.visibility = 'visible'
         } else {
             markerList[i].getLMarker()._icon.style.visibility = 'hidden'
         }
+        /*console.log(date + ", " + start + ", " + end)
+        console.log(date >= start && date <= end)*/
     }
 }
 
@@ -123,49 +126,41 @@ function displayAll() {
     }
 }
 
-// accesses the starting interval slider
-let startSlider = document.getElementById('dateStart')
-let startSliderval = document.getElementById('startValue')
-// accesses the ending interval slider
-let endSlider = document.getElementById('dateEnd')
-let endSliderval = document.getElementById('endValue')
-// defaults the interval sliders to be disabled
-startSlider.disabled = true
-endSlider.disabled = true
+// accesses the starting date
+let startDate = document.getElementById('dateStart')
+let startDateval = document.getElementById('startValue')
+// accesses the ending date
+let endDate = document.getElementById('dateEnd')
+let endDateval = document.getElementById('endValue')
+// defaults the date inputs to be disabled
+startDate.disabled = true
+endDate.disabled = true
 // accesses the checkbox to enable the interval sliders
-let enableSlider = document.getElementById('intervalCheck')
+let enableDates = document.getElementById('intervalCheck')
 
 // onclick function to enable and disable the interval sliders
-enableSlider.onclick = function() {
-    if (enableSlider.checked === true) {
-        startSlider.disabled = false
-        endSlider.disabled = false
-        displayBetween((1955 + parseInt(startSlider.value)), (1955 + parseInt(endSlider.value)))
-    } else if (enableSlider.checked === false) {
-        startSlider.disabled = true
-        endSlider.disabled = true
+enableDates.onclick = function() {
+    if (enableDates.checked === true) {
+        startDate.disabled = false
+        endDate.disabled = false
+        displayBetween(new Date(startDate.value), new Date(endDate.value))
+    } else if (enableDates.checked === false) {
+        startDate.disabled = true
+        endDate.disabled = true
         displayAll()
     }
 }
 
 // updates the map when the starting interval slider is moved
-startSlider.oninput = function() {
-    let year = 1900 + parseInt(this.value)
-    endSlider.min = this.value
-    let endyear = 1900 + parseInt(endSlider.value)
-    endSliderval.innerHTML = (endyear)
-    startSliderval.innerHTML = (year)
-    displayBetween(year, endyear)
+startDate.oninput = function() {
+    endDate.min = startDate.value
+    displayBetween(new Date(startDate.value), new Date(endDate.value))
 }
 
 // updates the map when the ending interval slider is moved
-endSlider.oninput = function() {
-    let year = 1900 + parseInt(this.value)
-    startSlider.max = this.value
-    let startyear = 1900 + parseInt(startSlider.value)
-    startSliderval.innerHTML = (startyear)
-    endSliderval.innerHTML = (year)
-    displayBetween(startyear, year)
+endDate.oninput = function() {
+    startDate.max = endDate.value
+    displayBetween(new Date(startDate.value), new Date(endDate.value))
 }
 
 
@@ -262,9 +257,9 @@ function dataFromMarker(e) {
 
 // This function makes Markers on the map and ties them to
 // instances of the marker class.
-function markerMaker(name, lat, lng, year) {
+function markerMaker(name, lat, lng, year, month, day) {
     // instance of marker class
-    let constructed = new marker(name, lat, lng, year) 
+    let constructed = new marker(name, lat, lng, year, month, day) 
     // add map Marker instance to the marker class, building using given position
     constructed.setLMarker(L.marker(constructed.getPos(), {icon : defaultIcon}).addTo(map))
     // add onclick function to Marker on map
@@ -347,24 +342,24 @@ popupbutton.addEventListener('click', popupSubmit)
 
 ///////////////////////////////////
 // Sample Markers
-let tangle = markerMaker("Tanglewood", -41.289273, 174.754056, 2020)
-tangle.setData("I can see you. Turn around.")
-let dam = markerMaker("Dam", -41.298383, 174.744959, 2020)
+let tangle = markerMaker("Tanglewood", -41.289273, 174.754056, 2024, 2, 24)
+tangle.setData("I can see you. Turn around. Testing testing 1, 2, 3!")
+let dam = markerMaker("Dam", -41.298383, 174.744959, 2020, 7, 8)
 dam.setData("Dam with a great view and lots of wind.")
-let suspension = markerMaker("John's Suspension Bridge", -41.29768, 174.746854, 2020)
+let suspension = markerMaker("John's Suspension Bridge", -41.29768, 174.746854, 2020, 1, 1)
 suspension.setData("John LOVES this bridge and its steel cable.")
-let estuary = markerMaker("Estuary", -41.260735, 174.789888, 2020)
+let estuary = markerMaker("Estuary", -41.260735, 174.789888, 2020, 6, 24)
 estuary.setData("Where the freshwater meets the saltwater!")
-let fishladder = markerMaker("Fish Ladder", -41.259848, 174.769296, 2025)
+let fishladder = markerMaker("Fish Ladder", -41.259848, 174.769296, 2025, 5, 12)
 fishladder.setData("Fish ladder, but also where the two main branches of the river meet!")
-let karoricemetery = markerMaker("Karori Cemetery", -41.276083, 174.751224, 2025)
+let karoricemetery = markerMaker("Karori Cemetery", -41.276083, 174.751224, 2025, 8, 12)
 karoricemetery.setData("Plastic flowers left at graves here are commonly blown into the Kaiwharawhara.")
-let appleton = markerMaker("Appleton Park", -41.285393, 174.754128, 2025)
+let appleton = markerMaker("Appleton Park", -41.285393, 174.754128, 2025, 12, 25)
 appleton.setData("Built on top a landfill. Leachate from this landfill leaks into the Kaiwharawhara.")
 appleton.setImgSrc("assets/img/historicaldata/appleton/2025.png")
 appleton.setAltTxt("Appleton Park in 2025 pictured from the south.")
 // appleton.setImgData(historicaldata.appleton.timeline)
-let otari = markerMaker("Otari-Wilton's Bush", -41.266592, 174.755824, 2025)
+let otari = markerMaker("Otari-Wilton's Bush", -41.266592, 174.755824, 2025, 6, 1)
 otari.setData("The only place with untouched bush in Wellington!")
 setLMarkerIcon(appleton, cautionIcon)
 appleton.setSIcon(selectedCautionIcon)

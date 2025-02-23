@@ -2,7 +2,7 @@
 // Used on Various Map Markers
 
 class marker {
-    constructor(name, lat, lng, year) {
+    constructor(name, lat, lng, year, month, day) {
         // name of marker
         this.name = name
         // latitude
@@ -38,8 +38,8 @@ class marker {
         this.icon = null
         // selected icon of the map marker (usually just normal icon but doubled in size)
         this.sicon = null
-        // year of the data of the marker
-        this.year = year
+        // date of the data of the marker
+        this.date = new Date(year, (month - 1), day)
     }
 
     getAltTxt() {
@@ -111,12 +111,16 @@ class marker {
         this.imgsrc = src
     }
 
-    getYear() {
-        return this.year
+    getDate() {
+        return this.date
     }
 
-    setYear(year) {
-        this.year = year
+    setDate(year, month, day) {
+        this.date = {
+            "year": year,
+            "day": day,
+            "month": month
+        }
     }
 
     setLMarker(marker) { // The L.Marker object gets set here to tie the two together

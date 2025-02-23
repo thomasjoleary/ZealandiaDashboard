@@ -20,17 +20,17 @@
         <div id="dashboardContainer">
             <div id="optionscontainer">
                 <div id="sideContainer">
-                    <p id="intText">Interval Sliders: </p>
+                    <p id="intText"></p>
                     <div id="checkContainer">
-                        <p id="intText">Enable:</p>
+                        <p id="intText">Enable Date Range:</p>
                         <input id="intervalCheck" type="checkbox"></input>
                     </div>
                 </div>
                 <div class="slidecontainer">
-                    <div id="startValue" class="sliderVal">2000</div>
-                    <input type="range" min="0" max="150" value="100" class="slider" id="dateStart">
-                    <div id="endValue" class="sliderVal">2005</div>
-                    <input type="range" min="0" max="150" value="105" class="slider" id="dateEnd">
+                    <div id="startValue" class="sliderVal">From</div>
+                    <input type="date" id="dateStart">
+                    <div id="endValue" class="sliderVal">To</div>
+                    <input type="date" id="dateEnd">
                 </div>
             </div>
             <div id="dashboard">
