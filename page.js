@@ -238,8 +238,8 @@ function dataFromMarker(e) {
     } else {
         showPictures()
         // set image source and alt text
-        img.src = marker.getFirstImgSrc()
-        img.alt = marker.getAltTxt()
+        img.src = marker.getLatestImgSrc(2020)
+        img.alt = marker.getLatestAltTxt(2020)
         dataView.innerHTML = marker.getEvent()
         marker.getAllImgData(2025)
     }

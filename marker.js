@@ -72,6 +72,67 @@ class marker {
         return this.imgData[this.imgData.length - 1].img.src
     }
 
+    getLatestImgSrc(maxYear) {
+        // if no maxYear is given, make no image appear
+        if (maxYear === null) {
+            clearPictures()
+            return null
+        }
+        // iterate through the imgData array and return the first image that is less than or equal to the maxYear
+        for (let i = this.imgData.length - 1; i >= 0; i--) {
+            if (this.imgData[i].year <= maxYear) {
+                return this.imgData[i].img[0].src
+            }
+        }
+        // if no image is found, make no image appear
+        clearPictures()
+        return null
+    }
+
+    getLatestAltTxt(maxYear) {
+        // if no maxYear is given, return the first alt text
+        if (maxYear === null) {
+            return null
+        }
+        // iterate through the imgData array and return the first alt text that is less than or equal to the maxYear
+        for (let i = this.imgData.length - 1; i >= 0; i--) {
+            if (this.imgData[i].year <= maxYear) {
+                return this.imgData[i].img[0].alt
+            }
+        }
+        // if no alt text is found, make no alt text appear
+        return null
+    }
+
+    getEarliestImgSrc(minYear) {
+        // if no minYear is given, make no image appear
+        if (minYear === null) {
+            clearPictures()
+            return null
+        }
+        for (let i = 0; i < this.imgData.length; i++) {
+            if (this.imgData[i].year >= minYear) {
+                return this.imgData[i].img[0].src
+            }
+        }
+        // if no image is found, make no image appear
+        clearPictures()
+        return null
+    }
+
+    getEarliestAltTxt(minYear) {
+        // if no minYear is given, return the first alt text
+        if (minYear === null) {
+            return null
+        }
+        for (let i = 0; i < this.imgData.length; i++) {
+            if (this.imgData[i].year >= minYear) {
+                return this.imgData[i].img[0].alt
+            }
+        }
+        return null
+    }
+
     getAllImgData(maxYear) {
         let ret = []
         for (let i = 0; i < this.imgData.length; i++) {
