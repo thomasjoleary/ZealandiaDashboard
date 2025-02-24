@@ -51,17 +51,12 @@ class marker {
     }
 
     getImgData() {
-        console.log("Start of getImgData")
-        console.log(this.imgData)
         if (this.imgData.length === 0) {
-            console.log("No image data")
             return null
         }
         if (this.imgData.length >= 1 && this.imgData[0].img.src === null) {
-            console.log("No image data")
             return null
         }
-        console.log(this.imgData)
         return this.imgData
     }
 
@@ -70,7 +65,6 @@ class marker {
     }
 
     getLastImgSrc() {
-        console.log(this.imgData[this.imgData.length - 1].img[0].src)
         return this.imgData[this.imgData.length - 1].img.src
     }
 
@@ -81,9 +75,7 @@ class marker {
                 ret.push(this.imgData[i])
             }
         }
-        console.log(ret)
         ret.sort((a, b) => a.year - b.year)
-        console.log(ret)
         return ret
     }
 
@@ -93,9 +85,7 @@ class marker {
 
     getMostRecentImgData(maxYear) {
         let filtered = this.getAllImgData(maxYear);
-        console.log(filtered);
         let timelinePoint = filtered.sort((a, b) => b.year - a.year)[0];
-        console.log(timelinePoint);
         return timelinePoint.img.src;
     }
 
