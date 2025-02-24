@@ -20,17 +20,17 @@
         <div id="dashboardContainer">
             <div id="optionscontainer">
                 <div id="sideContainer">
-                    <p id="intText">Interval Sliders: </p>
+                    <p id="intText"></p>
                     <div id="checkContainer">
-                        <p id="intText">Enable:</p>
+                        <p id="intText">Enable Date Range:</p>
                         <input id="intervalCheck" type="checkbox"></input>
                     </div>
                 </div>
                 <div class="slidecontainer">
-                    <div id="startValue" class="sliderVal">2000</div>
-                    <input type="range" min="0" max="150" value="100" class="slider" id="dateStart">
-                    <div id="endValue" class="sliderVal">2005</div>
-                    <input type="range" min="0" max="150" value="105" class="slider" id="dateEnd">
+                    <div id="startValue" class="sliderVal">From</div>
+                    <input type="date" id="dateStart">
+                    <div id="endValue" class="sliderVal">To</div>
+                    <input type="date" id="dateEnd">
                 </div>
             </div>
             <div id="dashboard">
@@ -40,13 +40,14 @@
                         <input name="name" id="popupname" class="popuptext"></input>
                         <label for="info">Info</label>
                         <textarea name="info" id="popupinfo" class="popuptext"></textarea>
+                        <label for="date">Date</label>
+                        <input type="date" id="popupdate" class="popuptext"></input>
                         <button id="popupsubmit">Submit</button>
                     </form>
                 </div>
                 <div id="map"></div>
                 <div id="info" style="overflow-y:scroll;">
                     <h2>Kia Mouriora Te Kaiwharawhara Dashboard</h2>
-
                     <h3 id="info-title">To use:</h3>
                     <p id="info-content">Click on a marker to see more information</p>
                     <div id="picturebox">
