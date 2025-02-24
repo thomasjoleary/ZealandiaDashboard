@@ -187,10 +187,10 @@ input[type="range"] {
     display: none;
     position: absolute;
     z-index: 10;
-    top: 5vh;
-    left: 5vw;
-    width: 90vw;
-    height: 90vh;
+    top: 1%;
+    left: 1%;
+    width: 98%;
+    height: 98%;
     background-size: contain;
     background-color: black;
 }
