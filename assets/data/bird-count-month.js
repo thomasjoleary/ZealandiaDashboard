@@ -1,6 +1,6 @@
 const birdCount =
 [
-  { "Title": "Bird Count by Month"},
+  { "Title": "Distinct Bird Species by Month"},
   { data: [
     {
       "Month": "January",

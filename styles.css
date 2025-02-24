@@ -161,16 +161,11 @@ body {
     border: 1px solid #000000;
     background-color: #d0d0d0;
 
-    margin: 20px;
-    width: auto;
+    width: 310px;
     height: 20px;
 
-    position: absolute;
-    bottom: 25px;
-    left: 0px;
-
+    display: relative;
     z-index: 2;
-
 }
 
 #topphoto {
@@ -196,3 +191,30 @@ input[type="range"] {
     margin-bottom: 10px;
 }
 
+#fullscreenImage {
+    display: none;
+    position: absolute;
+    z-index: 10;
+    top: 1%;
+    left: 1%;
+    width: 98%;
+    height: 98%;
+    background-size: contain;
+    background-color: black;
+}
+
+.fullscreenImageX {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 5px;
+    margin: 5px;
+    cursor: grab;
+}
+
+#fullscreenImageSrc {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: center;
+}

@@ -46,14 +46,12 @@
                     </form>
                 </div>
                 <div id="map"></div>
-
                 <div id="info" style="overflow-y:scroll;">
-                    <h2>Kia Mouriora te Kaiwharawhara Dashboard</h2>
-
+                    <h2>Kia Mouriora Te Kaiwharawhara Dashboard</h2>
                     <h3 id="info-title">To use:</h3>
                     <p id="info-content">Click on a marker to see more information</p>
                     <div id="picturebox">
-                        <img id="picture">
+                        <img id="picture" onclick=onImageClick()>
                             <script>
                                 let img = document.getElementById('picture')
                                 img.style.visibility = 'hidden';
@@ -63,14 +61,18 @@
                     </div>
                 </div>
             </div>
+            <div id="coordsbox"> Mouse coordinates: </div>
         </div>
     </div>
-    <div id="coordsbox"> Mouse coordinates: 
-    </div>
+    
     <div id="graph">
         <div id="graphcontent">
             <svg id="graphsvg"></svg>
         </div>
+    </div>
+    <div id="fullscreenImage">
+        <img id="fullscreenImageSrc"></img>
+        <button class="fullscreenImageX" onclick=onFullscreenClick()>Close Image</button>
     </div>
     <script src = "https://d3js.org/d3.v4.min.js"></script>
     <script src = "assets/osm/kaiwharawharastream.js"></script>

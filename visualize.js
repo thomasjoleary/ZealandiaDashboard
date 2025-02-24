@@ -41,8 +41,9 @@ const xScale = d3.scaleLinear()
     .domain([0, d3.max(xdata)])
     .range([axisLeft, axisRight]);
 svg.append("g")
-    .attr("transform", "translate(0, " + axisRight + ")")
-    .call(d3.axisBottom(xScale));
+    .call(d3.axisBottom(xScale))
+    .style("stroke", "white")
+    .attr("transform", "translate(0, " + axisRight + ")");
 // x axis label
 svg.append("text")
     .attr("transform", "translate(" + (xSize/2) + " ," + ySize + ")")
@@ -66,7 +67,7 @@ svg.append("text")
     .attr("dy", "1em")
     .style("text-anchor", "middle")
     .style("font-weight", "bold")
-    .text("Bird Count");
+    .text("Number of Distinct Species");
 
 
 // add dots to svg
