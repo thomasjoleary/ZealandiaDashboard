@@ -406,3 +406,33 @@ zealandiageo.bindPopup("Zealandia");
 zealandiageo.setStyle({fillColor: 'orange', fillOpacity: 0.2, color: 'orange', weight: 3});
 // adds a popup when the kaiwharawhara stream overlay is clicked on
 kaiwharawharageo.bindPopup("Kaiwharawhara Stream");
+
+///////////////////////////////////
+// big picture window
+// functionality: when you click on an image in the right side of the dashboard
+//      the image will be displayed in a larger window
+
+let fullscreenImageOn = false;
+let fullscreenImage = document.getElementById('fullscreenImage');
+let fullscreenImageSrc = document.getElementById('fullscreenImageSrc');
+
+// when an image on the right side of the dashboard is clicked
+function onImageClick() {
+    // if the image is not already fullscreen
+    if (!fullscreenImageOn) {
+        // make the image fullscreen
+        fullscreenImage.style.display = 'block';
+        fullscreenImageOn = true;
+        // set the image source to the clicked image
+        fullscreenImageSrc.src = document.getElementById('picture').src;
+    }
+}
+
+function onFullscreenClick() {
+    // if the image is fullscreen
+    if (fullscreenImageOn) {
+        // make the image not fullscreen
+        fullscreenImage.style.display = 'none';
+        fullscreenImageOn = false;
+    }
+}
