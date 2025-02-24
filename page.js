@@ -257,9 +257,9 @@ function dataFromMarker(e) {
 
 // This function makes Markers on the map and ties them to
 // instances of the marker class.
-function markerMaker(name, lat, lng, year, month, day) {
+function markerMaker(name, lat, lng, date) {
     // instance of marker class
-    let constructed = new marker(name, lat, lng, year, month, day) 
+    let constructed = new marker(name, lat, lng, date) 
     // add map Marker instance to the marker class, building using given position
     constructed.setLMarker(L.marker(constructed.getPos(), {icon : defaultIcon}).addTo(map))
     // add onclick function to Marker on map
@@ -308,7 +308,9 @@ let popupinfo = ""
 // marker will be set wherever the user clicks
 function setMarkerHere(e) {
 
-    let marker = markerMaker(popupname, e.latlng.lat, e.latlng.lng)
+    let popupdate = document.getElementById('popupdate')
+
+    let marker = markerMaker(popupname, e.latlng.lat, e.latlng.lng, new Date(popupdate.value))
     marker.setData(popupinfo)
 
     let popup = document.getElementById('popup')
@@ -317,6 +319,7 @@ function setMarkerHere(e) {
 
     document.getElementById('popupname').value = ""
     document.getElementById('popupinfo').value = ""
+    popupdate.value = ""
 
     map.off('click', setMarkerHere)
     map.on('click', onMapClick)
@@ -342,24 +345,24 @@ popupbutton.addEventListener('click', popupSubmit)
 
 ///////////////////////////////////
 // Sample Markers
-let tangle = markerMaker("Tanglewood", -41.289273, 174.754056, 2024, 2, 24)
+let tangle = markerMaker("Tanglewood", -41.289273, 174.754056, new Date(2024, 2, 24))
 tangle.setData("I can see you. Turn around. Testing testing 1, 2, 3!")
-let dam = markerMaker("Dam", -41.298383, 174.744959, 2020, 7, 8)
+let dam = markerMaker("Dam", -41.298383, 174.744959, new Date(2020, 7, 8))
 dam.setData("Dam with a great view and lots of wind.")
-let suspension = markerMaker("John's Suspension Bridge", -41.29768, 174.746854, 2020, 1, 1)
+let suspension = markerMaker("John's Suspension Bridge", -41.29768, 174.746854, new Date(2020, 1, 1))
 suspension.setData("John LOVES this bridge and its steel cable.")
-let estuary = markerMaker("Estuary", -41.260735, 174.789888, 2020, 6, 24)
+let estuary = markerMaker("Estuary", -41.260735, 174.789888, new Date(2020, 6, 24))
 estuary.setData("Where the freshwater meets the saltwater!")
-let fishladder = markerMaker("Fish Ladder", -41.259848, 174.769296, 2025, 5, 12)
+let fishladder = markerMaker("Fish Ladder", -41.259848, 174.769296, new Date(2025, 5, 12))
 fishladder.setData("Fish ladder, but also where the two main branches of the river meet!")
-let karoricemetery = markerMaker("Karori Cemetery", -41.276083, 174.751224, 2025, 8, 12)
+let karoricemetery = markerMaker("Karori Cemetery", -41.276083, 174.751224, new Date(2025, 8, 12))
 karoricemetery.setData("Plastic flowers left at graves here are commonly blown into the Kaiwharawhara.")
-let appleton = markerMaker("Appleton Park", -41.285393, 174.754128, 2025, 12, 25)
+let appleton = markerMaker("Appleton Park", -41.285393, 174.754128, new Date(2025, 11, 25))
 appleton.setData("Built on top a landfill. Leachate from this landfill leaks into the Kaiwharawhara.")
 appleton.setImgSrc("assets/img/historicaldata/appleton/2025.png")
 appleton.setAltTxt("Appleton Park in 2025 pictured from the south.")
 // appleton.setImgData(historicaldata.appleton.timeline)
-let otari = markerMaker("Otari-Wilton's Bush", -41.266592, 174.755824, 2025, 6, 1)
+let otari = markerMaker("Otari-Wilton's Bush", -41.266592, 174.755824, new Date(2025, 6, 1))
 otari.setData("The only place with untouched bush in Wellington!")
 setLMarkerIcon(appleton, cautionIcon)
 appleton.setSIcon(selectedCautionIcon)
