@@ -240,6 +240,7 @@ function dataFromMarker(e) {
         // set image source and alt text
         img.src = marker.getFirstImgSrc()
         img.alt = marker.getAltTxt()
+        dataView.innerHTML = marker.getEvent()
         marker.getAllImgData(2025)
     }
 
