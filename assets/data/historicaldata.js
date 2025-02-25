@@ -52,10 +52,6 @@ const historicaldata =
                             "src": "assets/img/historicaldata/appleton/2025.png",
                             "alt": "Appleton Park in 2025 pictured from the south."
                         }
-                        // {
-                        //     "src": "assets/img/historicaldata/appleton/2025-2.png",
-                        //     "alt": "Appleton Park in 2025 from a different angle."
-                        // }
                     ]
                 }
             ]
