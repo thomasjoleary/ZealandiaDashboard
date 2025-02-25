@@ -238,10 +238,9 @@ function dataFromMarker(e) {
     } else {
         showPictures()
         // set image source and alt text
-        img.src = marker.getLatestImgSrc(2020)
-        img.alt = marker.getLatestAltTxt(2020)
-        dataView.innerHTML = marker.getEvent()
-        marker.getAllImgData(2025)
+        img.src = marker.getLatestImgSrc(2025)
+        img.alt = marker.getLatestAltTxt(2025)
+        dataView.innerHTML = marker.getLatestEvent(2025)
     }
 
     // if there is a marker currently selected

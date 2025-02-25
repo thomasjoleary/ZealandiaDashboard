@@ -104,6 +104,21 @@ class marker {
         return null
     }
 
+    getLatestEvent(maxYear) {
+        // if no maxYear is given, return the first event
+        if (maxYear === null) {
+            return this.imgData[0].event
+        }
+        // iterate through the imgData array and return the first event that is less than or equal to the maxYear
+        for (let i = this.imgData.length - 1; i >= 0; i--) {
+            if (this.imgData[i].year <= maxYear) {
+                return this.imgData[i].event
+            }
+        }
+        // if no event is found, make no event appear
+        return null
+    }
+
     getEarliestImgSrc(minYear) {
         // if no minYear is given, make no image appear
         if (minYear === null) {
