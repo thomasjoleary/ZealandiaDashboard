@@ -108,11 +108,26 @@ function showPictures() {
 // from the date inputs when they are enabled
 function displayBetween(start, end) {
     for (let i = 0; i < markerList.length; i++) {
+        // if event date is between start and end, display the marker
         let date = markerList[i].getDate()
         if (date >= start && date <= end) {
             markerList[i].getLMarker()._icon.style.visibility = 'visible'
         } else {
-            markerList[i].getLMarker()._icon.style.visibility = 'hidden'
+            // get image data and check if one of the images is in the range
+            // if so, make the marker visible
+            markerList[i].setImgData(getTimeline(markerList[i].getName()))
+            let imgData = markerList[i].getRangeImgData(start, end)
+            if (imgData != null) {
+                if (imgData.length > 0) {
+                    markerList[i].getLMarker()._icon.style.visibility = 'visible'
+                } else {
+                // else hide the marker
+                    markerList[i].getLMarker()._icon.style.visibility = 'hidden'
+                }
+            } else {
+                // else hide the marker
+                markerList[i].getLMarker()._icon.style.visibility = 'hidden'
+            }
         }
         /*console.log(date + ", " + start + ", " + end)
         console.log(date >= start && date <= end)*/
@@ -238,7 +253,6 @@ function dataFromMarker(e) {
     if (marker.getImgData() == null) {
         clearPictures()
     } else {
-        clearPictures()
         showPictures()
         // get bounds of the date range
         if (document.getElementById('intervalCheck').checked) {
