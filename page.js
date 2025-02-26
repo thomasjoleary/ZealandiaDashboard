@@ -129,9 +129,11 @@ function displayAll() {
 // accesses the starting date
 let startDate = document.getElementById('dateStart')
 let startDateval = document.getElementById('startValue')
+startDate.value = "1900-01-01"
 // accesses the ending date
 let endDate = document.getElementById('dateEnd')
 let endDateval = document.getElementById('endValue')
+endDate.value = "2030-12-31"
 // defaults the date inputs to be disabled
 startDate.disabled = true
 endDate.disabled = true
@@ -236,11 +238,27 @@ function dataFromMarker(e) {
     if (marker.getImgData() == null) {
         clearPictures()
     } else {
+        clearPictures()
         showPictures()
-        // set image source and alt text
-        img.src = marker.getLatestImgSrc(2025)
-        img.alt = marker.getLatestAltTxt(2025)
-        dataView.innerHTML = marker.getLatestEvent(2025)
+        // get bounds of the date range
+        if (document.getElementById('intervalCheck').checked) {
+            start = new Date(startDate.value)
+            end = new Date(endDate.value)
+            // display image closest to end of range
+            let data = marker.getMostRecentImgData(start, end)
+
+            img.src = data.img[0].src
+            img.alt = data.img[0].alt
+            dataView.innerHTML = data.event
+        } else {
+            // get first image data
+            let data = marker.getAllImgData(2030)[0];
+
+            // display most recent image
+            img.src = data.img[0].src
+            img.alt = data.img[0].alt
+            dataView.innerHTML = data.event
+        }
     }
 
     // if there is a marker currently selected

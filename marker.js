@@ -159,15 +159,42 @@ class marker {
         return ret
     }
 
-    getRangeImgData(minYear, maxYear) {
-        return this.imgData.filter(e => e.year >= minYear && e.year <= maxYear)
+    getRangeImgData(minDate, maxDate) {
+        return this.imgData.filter(e => new Date(e.year, e.month, e.day) >= minDate && new Date(e.year, e.month, e.day) <= maxDate);
     }
 
-    getMostRecentImgData(maxYear) {
-        let filtered = this.getAllImgData(maxYear);
-        let timelinePoint = filtered.sort((a, b) => b.year - a.year)[0];
-        return timelinePoint.img.src;
+    getMostRecentImgData(minDate, maxDate) {
+        let filtered = this.getRangeImgData(minDate, maxDate)
+        let sorted = filtered.sort((a, b) => new Date(b.year, b.month, b.day) - new Date(a.year, a.month, a.day))
+        if (sorted.length === 0) {
+            return null
+        }
+        return sorted[0]
     }
+
+    getEarliestImgData(minDate, maxDate) {
+        let filtered = getRangeImgData(minDate, maxDate)
+        let sorted = filtered.sort((a, b) => new Date(a.year, a.month, a.day) - new Date(b.year, b.month, b.day))
+        if (sorted.length === 0) {
+            return null
+        }
+        return sorted[0]
+    }
+
+    getLastImgData() {
+        return this.imgData.sort((a, b) => new Date(b.year, b.month, b.day) - new Date(a.year, a.month, a.day))[0]
+    }
+
+    getFirstImgData() {
+        return this.imgData.sort((a, b) => new Date(a.year, a.month, a.day) - new Date(b.year, b.month, b.day))[0]
+    }
+
+    // getMostRecentImgData(maxYear) {
+    //     let filtered = this.getAllImgData(maxYear);
+    //     let timelinePoint = filtered.sort((a, b) => b.year - a.year)[0];
+    //     console.log(timelinePoint.img[0]);
+    //     return timelinePoint.img[0];
+    // }
 
     isEmptyImgData() {
         return this.imgData.length === 0
