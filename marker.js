@@ -160,12 +160,12 @@ class marker {
     }
 
     getRangeImgData(minDate, maxDate) {
-        return this.imgData.filter(e => new Date(e.year, e.month, e.day) >= minDate && new Date(e.year, e.month, e.day) <= maxDate);
+        return this.imgData.filter(e => new Date(e.year, e.month-1, e.day) >= minDate && new Date(e.year, e.month-1, e.day) <= maxDate);
     }
 
     getMostRecentImgData(minDate, maxDate) {
         let filtered = this.getRangeImgData(minDate, maxDate)
-        let sorted = filtered.sort((a, b) => new Date(b.year, b.month, b.day) - new Date(a.year, a.month, a.day))
+        let sorted = filtered.sort((a, b) => new Date(b.year, b.month-1, b.day) - new Date(a.year, a.month-1, a.day))
         if (sorted.length === 0) {
             return null
         }
@@ -174,7 +174,7 @@ class marker {
 
     getEarliestImgData(minDate, maxDate) {
         let filtered = getRangeImgData(minDate, maxDate)
-        let sorted = filtered.sort((a, b) => new Date(a.year, a.month, a.day) - new Date(b.year, b.month, b.day))
+        let sorted = filtered.sort((a, b) => new Date(a.year, a.month-1, a.day) - new Date(b.year, b.month-1, b.day))
         if (sorted.length === 0) {
             return null
         }
@@ -182,11 +182,11 @@ class marker {
     }
 
     getLastImgData() {
-        return this.imgData.sort((a, b) => new Date(b.year, b.month, b.day) - new Date(a.year, a.month, a.day))[0]
+        return this.imgData.sort((a, b) => new Date(b.year, b.month-1, b.day) - new Date(a.year, a.month-1, a.day))[0]
     }
 
     getFirstImgData() {
-        return this.imgData.sort((a, b) => new Date(a.year, a.month, a.day) - new Date(b.year, b.month, b.day))[0]
+        return this.imgData.sort((a, b) => new Date(a.year, a.month-1, a.day) - new Date(b.year, b.month-1, b.day))[0]
     }
 
     // getMostRecentImgData(maxYear) {
@@ -246,8 +246,9 @@ class marker {
         return this.date
     }
 
+    // year = xxxx, month = 1-12, day = 1-31
     setDate(year, month, day) {
-        this.date = new Date(year, month, day)
+        this.date = new Date(year, month-1, day)
     }
 
     setLMarker(marker) { // The L.Marker object gets set here to tie the two together
