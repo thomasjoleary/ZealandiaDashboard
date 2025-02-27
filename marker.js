@@ -149,6 +149,22 @@ class marker {
         eventData.date = date
     }
 
+    containsDateWithinRange(minDate, maxDate) {
+        for (let i = 0; i < this.eventData.length; i++) {
+            if (this.eventData[i].date >= minDate && this.eventData[i].date <= maxDate) {
+                return true
+            }
+        }
+    }
+
+    getLastEventDate() {
+        return this.eventData.sort((a, b) => new Date(b.date) - new Date(a.date))[0].date
+    }
+
+    getFirstEventDate() {
+        return this.eventData.sort((a, b) => new Date(a.date) - new Date(b.date))[0].date
+    }
+
     getEventDesc(eventData) {
         return eventData.desc
     }
@@ -159,6 +175,10 @@ class marker {
 
     getEventImg(eventData) {
         return eventData.img
+    }
+
+    setEventImg(eventData, img) {
+        eventData.img = img
     }
 
     // return all images in the eventData
@@ -184,17 +204,17 @@ class marker {
     }
 
     // return the most recent image in the eventData that falls within the given date range
-    getLatestEventImg(maxDate) {
+    getLatestEventImg(minDate, maxDate) {
         return this.getLatestEventData(minDate, maxDate).img
     }
 
     // return the earliest image in the eventData that falls within the given date range
-    getEarliestEventImg(minDate) {
+    getEarliestEventImg(minDate, maxDate) {
         return this.getEarliestEventData(minDate, maxDate).img
     }
 
-    setEventImg(eventData, img) {
-        eventData.img = img
+    setImgData(timeline) {
+        // TODO: implement
     }
 
     getEventTags(eventData) {
@@ -299,6 +319,25 @@ class marker {
         this.markerData.color = color
     }
 }
+
+
+
+
+
+
+
+
+// ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
 
 class marker0 {
     constructor(name, lat, lng, date) {
