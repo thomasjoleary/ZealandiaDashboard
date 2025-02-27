@@ -141,6 +141,14 @@ class marker {
         return sorted[0]
     }
 
+    getFirstEventData() {
+        return this.eventData.sort((a, b) => new Date(a.date) - new Date(b.date))[0]
+    }
+
+    getLastEventData() {
+        return this.eventData.sort((a, b) => new Date(b.date) - new Date(a.date))[0]
+    }
+
     getEventDate(eventData) {
         return eventData.date
     }
@@ -183,21 +191,21 @@ class marker {
 
 
     // image src and alt
-    
-    getEventImgSrc() {
-        return this.eventData.img.src
+
+    getEventImgSrc(eventData) {
+        return eventData.img.src
     }
 
-    setEventImgSrc(src) {
-        this.eventData.img.src = src
+    setEventImgSrc(eventData, src) {
+        eventData.img.src = src
     }
 
-    getEventImgAlt() {
-        return this.eventData.img.alt
+    getEventImgAlt(eventData) {
+        return eventData.img.alt
     }
 
-    setEventImgAlt(alt) {
-        this.eventData.img.alt = alt
+    setEventImgAlt(eventData, alt) {
+        eventData.img.alt = alt
     }
 
     // return all images in the eventData
@@ -230,6 +238,14 @@ class marker {
     // return the earliest image in the eventData that falls within the given date range
     getEarliestEventImg(minDate, maxDate) {
         return this.getEarliestEventData(minDate, maxDate).img
+    }
+
+    getFirstEventImg() {
+        return this.eventData.sort((a, b) => a.date - b.date)[0].img
+    }
+
+    getLastEventImg() {
+        return this.eventData.sort((a, b) => b.date - a.date)[0].img
     }
 
     setImgData(timeline) {
