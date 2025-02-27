@@ -234,6 +234,16 @@ function setLMarkerIcon(marker, icon) {
     marker.setLIcon(icon)
 }
 
+function yearDisplay(title, data) {
+    if (data.month != null && data.day != null) {
+        title.innerHTML = title.innerHTML + " (" + data.day + "-" + data.month + "-" + data.year + ")"
+    } else if (data.month != null) {
+        title.innerHTML = title.innerHTML + " (" + data.month + "-" + data.year + ")"
+    } else {
+    title.innerHTML = title.innerHTML + " (" + data.year + ")"
+    }
+}
+
 // gets data from a marker class instance given an onclicked map Marker
 function dataFromMarker(e) {
     // gets the pieces of the info section on the right of the dashboard
@@ -263,6 +273,7 @@ function dataFromMarker(e) {
 
             img.src = data.img[0].src
             img.alt = data.img[0].alt
+            yearDisplay(title, data)
             dataView.innerHTML = data.event
         } else {
             // get first image data
@@ -271,6 +282,7 @@ function dataFromMarker(e) {
             // display most recent image
             img.src = data.img[0].src
             img.alt = data.img[0].alt
+            yearDisplay(title, data)
             dataView.innerHTML = data.event
         }
     }
@@ -375,6 +387,12 @@ function popupSubmit(e) {
 // adds the submit functionality to the popup's submit button
 let popupbutton = document.getElementById('popupsubmit')
 popupbutton.addEventListener('click', popupSubmit)
+
+///////////////////////////////////
+// Move through Marker data
+
+
+
 
 ///////////////////////////////////
 // Sample Markers
