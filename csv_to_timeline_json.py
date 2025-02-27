@@ -7,6 +7,8 @@ import json
 # given a csv with the following format, convert to json
 # csv:
 #    place name,latitude,longitude,year,month,day,event details,image link,relevant citations
+
+
 def csv_to_json(csv_file, json_file):
     # read csv file
     with open(csv_file, 'r', encoding='utf-8') as f:
@@ -31,7 +33,7 @@ def csv_to_json(csv_file, json_file):
             locations.append({
                 'name': row[0],
                 'lat': float(row[1]),
-                'lng': float(row[2]),
+                'lng': fix_long(float(row[2])),
                 'timeline': []
             })
             loc_index = len(locations) - 1
@@ -52,3 +54,11 @@ def csv_to_json(csv_file, json_file):
     # write to json file
     with open(json_file, 'w', encoding='utf-8') as f:
         json.dump({'locations': locations}, f, indent=4)
+
+# helper function to resolve out of bounds longitudes
+def fix_long(lat):
+    if lat < -180:
+        return lat + 360
+    if lat > 180:
+        return lat - 360
+    return lat
