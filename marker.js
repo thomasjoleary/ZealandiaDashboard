@@ -14,9 +14,9 @@ class marker {
         // eventData
         this.eventData = [
             {
-                "date": null,
+                "date": null, // Date() object
                 "desc": null,
-                "img": null,
+                "img": null, // Image() object
                 "tags": []
             }
         ]
@@ -161,24 +161,36 @@ class marker {
         return eventData.img
     }
 
-    getAllEventImg(eventData) {
-        // TODO return all images
-        return null
+    // return all images in the eventData
+    // the images are sorted by year, earliest first
+    getAllEventImg() {
+        ret = []
+        this.sortEventData()
+        for (let i = 0; i < this.eventData.length; i++) {
+            ret.push(this.eventData[i].img)
+        }
+        return ret
     }
 
-    getRangeEventImg(eventData, minYear, maxYear) {
-        // TODO return list of images that fall within the given date range
-        return null
+    // return all images in the eventData that fall within the given date range
+    // the images are sorted by year, earliest first
+    getRangeEventImg(minDate, maxDate) {
+        ret = []
+        let filtered = this.getRangeEventData(minDate, maxDate)
+        for (let i = 0; i < filtered.length; i++) {
+            ret.push(filtered[i].img)
+        }
+        return ret
     }
 
-    getLatestEventImg(eventData, maxYear) {
-        // TODO return most recent image that falls within the given date range
-        return null
+    // return the most recent image in the eventData that falls within the given date range
+    getLatestEventImg(maxDate) {
+        return this.getLatestEventData(minDate, maxDate).img
     }
 
-    getEarliestEventImg(eventData, minYear) {
-        // TODO return earliest image that falls within the given date range
-        return null
+    // return the earliest image in the eventData that falls within the given date range
+    getEarliestEventImg(minDate) {
+        return this.getEarliestEventData(minDate, maxDate).img
     }
 
     setEventImg(eventData, img) {
@@ -286,15 +298,6 @@ class marker {
     setColor(color) {
         this.markerData.color = color
     }
-
-
-    // markerData
-    // this.markerData = {
-    //     "LMarker": null,
-    //     "icon": null,
-    //     "sicon": null,
-    //     "color": null
-    // }
 }
 
 class marker0 {
