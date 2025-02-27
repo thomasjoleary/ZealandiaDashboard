@@ -102,6 +102,17 @@ function showPictures() {
 }
 
 ///////////////////////////////////
+// Introduction Popup
+
+function hideIntro(e) {
+    document.getElementById('introduction').style.display = 'none'
+}
+
+let introClose = document.getElementById('closeIntroButton')
+
+introClose.addEventListener("click", hideIntro)
+
+///////////////////////////////////
 // Date Range
 
 // displays all markers between start and end, where start and end are dates
