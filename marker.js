@@ -87,20 +87,24 @@ class marker {
     // direction = 1 for ascending (earliest first), -1 for descending (latest first)
     // if a different direction value is given, the data will be sorted in ascending order
     // if no direction is given, the data will be sorted in ascending order
-    sortEventData(direction) {
+    sortEventData(direction = 1) {
         if (direction === -1) {
-            this.eventData.sort((a, b) => new Date(b.date) - new Date(a.date))
+            return this.eventData.sort((a, b) => new Date(b.date) - new Date(a.date))
         }
         else {
-            this.eventData.sort((a, b) => new Date(a.date) - new Date(b.date))
+            return this.eventData.sort((a, b) => new Date(a.date) - new Date(b.date))
         }
     }
 
+    // return the set of event data that falls within the given date range
+    // the set is sorted by date, earliest first
     getRangeEventData(minDate, maxDate) {
-        this.sortEventData(1)
-        return this.eventData.filter(e => new Date(e.date) >= minDate && new Date(e.date) <= maxDate);
+        this.sortEventData()
+        return this.eventData.filter(e => new Date(e.date) >= minDate && new Date(e.date) <= maxDate)
     }
 
+    // return the most recent event data that falls within the given date range
+    // if no event data is found, return null
     getEarliestEventData(minDate, maxDate) {
         // filter by date range
         let filtered = this.getRangeEventData(minDate, maxDate)
@@ -112,6 +116,8 @@ class marker {
         return sorted[0]
     }
 
+    // return the most recent event data that falls within the given date range
+    // if no event data is found, return null
     getLatestEventData(minDate, maxDate) {
         // filter by date range
         let filtered = this.getRangeEventData(minDate, maxDate)
