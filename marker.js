@@ -181,6 +181,25 @@ class marker {
         eventData.img = img
     }
 
+
+    // image src and alt
+    
+    getEventImgSrc() {
+        return this.eventData.img.src
+    }
+
+    setEventImgSrc(src) {
+        this.eventData.img.src = src
+    }
+
+    getEventImgAlt() {
+        return this.eventData.img.alt
+    }
+
+    setEventImgAlt(alt) {
+        this.eventData.img.alt = alt
+    }
+
     // return all images in the eventData
     // the images are sorted by year, earliest first
     getAllEventImg() {
