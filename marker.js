@@ -2,6 +2,130 @@
 // Used on Various Map Markers
 
 class marker {
+    constructor(name, lat, lng) {
+        // placeData
+        this.placeData = {
+            "name": name,
+            "lat": lat,
+            "lng": lng,
+            "info": null
+        }
+
+        // eventData
+        this.eventData = [
+            {
+                "date": null,
+                "desc": null,
+                "img": null,
+                "tags": []
+            }
+        ]
+
+        // markerData
+        this.markerData = {
+            "LMarker": null,
+            "icon": null,
+            "sicon": null,
+            "color": null
+        }
+    }
+
+    getPlaceData() {
+        return this.placeData
+    }
+
+    setPlaceData(name, lat, lng, info) {
+        this.placeData = {
+            "name": name,
+            "lat": lat,
+            "lng": lng,
+            "info": info
+        }
+    }
+
+    getPlaceName() {
+        return this.placeData.name
+    }
+
+    setPlaceName(name) {
+        this.placeData.name = name
+    }
+
+    getPlaceLat() {
+        return this.placeData.lat
+    }
+
+    setPlaceLat(lat) {
+        this.placeData.lat = lat
+    }
+
+    getPlaceLng() {
+        return this.placeData.lng
+    }
+
+    setPlaceLng(lng) {
+        this.placeData.lng = lng
+    }
+
+    getPlaceInfo() {
+        return this.placeData.info
+    }
+
+    setPlaceInfo(info) {
+        this.placeData.info = info
+    }
+
+    getEventData() {
+        return this.eventData
+    }
+
+    setEventData(data) {
+        this.eventData = data
+    }
+
+    // sort the eventData by date
+    // direction = 1 for ascending (earliest first), -1 for descending (latest first)
+    // if a different direction value is given, the data will be sorted in ascending order
+    // if no direction is given, the data will be sorted in ascending order
+    sortEventData(direction) {
+        if (direction === -1) {
+            this.eventData.sort((a, b) => new Date(b.date) - new Date(a.date))
+        }
+        else {
+            this.eventData.sort((a, b) => new Date(a.date) - new Date(b.date))
+        }
+    }
+
+    getRangeEventData(minDate, maxDate) {
+        this.sortEventData(1)
+        return this.eventData.filter(e => new Date(e.date) >= minDate && new Date(e.date) <= maxDate);
+    }
+
+    getEarliestEventData(minDate, maxDate) {
+        // filter by date range
+        let filtered = this.getRangeEventData(minDate, maxDate)
+        if (filtered.length === 0) {
+            return null
+        }
+        // sort by date, earliest first
+        let sorted = filtered.sort((a, b) => new Date(a.date) - new Date(b.date))
+        return sorted[0]
+    }
+
+    getLatestEventData(minDate, maxDate) {
+        // filter by date range
+        let filtered = this.getRangeEventData(minDate, maxDate)
+        if (filtered.length === 0) {
+            return null
+        }
+        // sort by date, latest first
+        let sorted = filtered.sort((a, b) => new Date(b.date) - new Date(a.date))
+        return sorted[0]
+    }
+ 
+}
+
+class marker0 {
     constructor(name, lat, lng, date) {
         // name of marker
         this.name = name
@@ -42,13 +166,6 @@ class marker {
         this.date = date
     }
 
-    getAltTxt() {
-        return this.alttxt
-    }
-
-    setAltTxt(txt) {
-        this.alttxt = txt
-    }
 
     getImgData() {
         if (this.imgData.length === 0) {
