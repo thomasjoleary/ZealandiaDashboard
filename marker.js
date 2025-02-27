@@ -91,6 +91,15 @@ class marker {
         this.eventData = data
     }
 
+    addEventData(date, desc, img, tags) {
+        this.eventData.push({
+            "date": date,
+            "desc": desc,
+            "img": img,
+            "tags": tags
+        })
+    }
+
     isEventDataEmpty() {
         return this.eventData.length === 0
     }
