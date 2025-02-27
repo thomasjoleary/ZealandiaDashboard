@@ -62,5 +62,3 @@ def fix_long(lat):
     if lat > 180:
         return lat - 360
     return lat
-
-csv_to_json('convert.csv', 'out.json')
