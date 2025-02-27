@@ -30,6 +30,10 @@ class marker {
         }
     }
 
+
+
+    // placeData
+
     getPlaceData() {
         return this.placeData
     }
@@ -75,12 +79,20 @@ class marker {
         this.placeData.info = info
     }
 
+
+
+    // eventData
+
     getEventData() {
         return this.eventData
     }
 
     setEventData(data) {
         this.eventData = data
+    }
+
+    isEventDataEmpty() {
+        return this.eventData.length === 0
     }
 
     // sort the eventData by date
@@ -128,7 +140,161 @@ class marker {
         let sorted = filtered.sort((a, b) => new Date(b.date) - new Date(a.date))
         return sorted[0]
     }
- 
+
+    getEventDate(eventData) {
+        return eventData.date
+    }
+
+    setEventDate(eventData, date) {
+        eventData.date = date
+    }
+
+    getEventDesc(eventData) {
+        return eventData.desc
+    }
+
+    setEventDesc(eventData, desc) {
+        eventData.desc = desc
+    }
+
+    getEventImg(eventData) {
+        return eventData.img
+    }
+
+    getAllEventImg(eventData) {
+        // TODO return all images
+        return null
+    }
+
+    getRangeEventImg(eventData, minYear, maxYear) {
+        // TODO return list of images that fall within the given date range
+        return null
+    }
+
+    getLatestEventImg(eventData, maxYear) {
+        // TODO return most recent image that falls within the given date range
+        return null
+    }
+
+    getEarliestEventImg(eventData, minYear) {
+        // TODO return earliest image that falls within the given date range
+        return null
+    }
+
+    setEventImg(eventData, img) {
+        eventData.img = img
+    }
+
+    getEventTags(eventData) {
+        return eventData.tags
+    }
+
+    setEventTags(eventData, tags) {
+        eventData.tags = tags
+    }
+
+    addEventTag(eventData, tag) {
+        eventData.tags.push(tag)
+    }
+
+    removeSpecificEventTag(eventData, tag) {
+        eventData.tags = eventData.tags.filter(e => e !== tag)
+    }
+
+    removeDuplicateEventTags(eventData) {
+        eventData.tags = [...new Set(eventData.tags)]
+    }
+
+    clearEventTags(eventData) {
+        eventData.tags = []
+    }
+
+    getAllEventTags() {
+        let tags = []
+        for (let i = 0; i < this.eventData.length; i++) {
+            for (let j = 0; j < this.eventData[i].tags.length; j++) {
+                tags.push(this.eventData[i].tags[j])
+            }
+        }
+        return [...new Set(tags)]
+    }
+
+    isSpecificEventTagsEmpty(eventData) {
+        return eventData.tags.length === 0
+    }
+
+    isAllEventTagsEmpty() {
+        return this.getAllEventTags().length === 0
+    }
+
+    countEventTags(eventData) {
+        return eventData.tags.length
+    }
+
+    countAllEventTags() {
+        return this.getAllEventTags().length
+    }
+
+    checkEventTagsFor(eventData, tag) {
+        return eventData.tags.includes(tag)
+    }
+
+    checkAllEventTagsFor(tag) {
+        return this.getAllEventTags().includes(tag)
+    }
+
+
+
+    // markerData
+
+    getMarkerData() {
+        return this.markerData
+    }
+
+    setMarkerData(data) {
+        this.markerData = data
+    }
+
+    getLMarker() {
+        return this.markerData.LMarker
+    }
+
+    setLMarker(marker) {
+        this.markerData.LMarker = marker
+    }
+
+    getLIcon() {
+        return this.markerData.icon
+    }
+
+    setLIcon(icon) {
+        this.markerData.icon = icon
+    }
+
+    getSIcon() {
+        return this.markerData.sicon
+    }
+
+    setSIcon(icon) {
+        this.markerData.sicon = icon
+    }
+
+    getColor() {
+        return this.markerData.color
+    }
+
+    setColor(color) {
+        this.markerData.color = color
+    }
+
+
+    // markerData
+    // this.markerData = {
+    //     "LMarker": null,
+    //     "icon": null,
+    //     "sicon": null,
+    //     "color": null
+    // }
 }
 
 class marker0 {
