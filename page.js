@@ -112,21 +112,22 @@ function displayBetween(start, end) {
         if (markerList[i].containsDateWithinRange(start, end)) {
             markerList[i].getLMarker()._icon.style.visibility = 'visible'
         } else {
-            // get image data and check if one of the images is in the range
-            // if so, make the marker visible
-            markerList[i].setEventDataFromTimeline(getTimeline(markerList[i].getName()))
-            let imgData = markerList[i].getRangeEventImg(start, end)
-            if (imgData != null) {
-                if (imgData.length > 0) {
-                    markerList[i].getLMarker()._icon.style.visibility = 'visible'
-                } else {
-                // else hide the marker
-                    markerList[i].getLMarker()._icon.style.visibility = 'hidden'
-                }
-            } else {
-                // else hide the marker
-                markerList[i].getLMarker()._icon.style.visibility = 'hidden'
-            }
+            markerList[i].getLMarker()._icon.style.visibility = 'hidden'
+            // // get image data and check if one of the images is in the range
+            // // if so, make the marker visible
+            // markerList[i].setEventDataFromTimeline(getTimeline(markerList[i].getName()))
+            // let imgData = markerList[i].getRangeEventImg(start, end)
+            // if (imgData != null) {
+            //     if (imgData.length > 0) {
+            //         markerList[i].getLMarker()._icon.style.visibility = 'visible'
+            //     } else {
+            //     // else hide the marker
+            //         markerList[i].getLMarker()._icon.style.visibility = 'hidden'
+            //     }
+            // } else {
+            //     // else hide the marker
+            //     markerList[i].getLMarker()._icon.style.visibility = 'hidden'
+            // }
         }
     }
 }
@@ -249,6 +250,7 @@ function dataFromMarker(e) {
     // if there is an image, make the image box visible and sizeable and display the image
     if (marker.getAllEventImg() == null) {
         clearPictures()
+        console.log("No image data")
     } else {
         showPictures()
         // get bounds of the date range
@@ -257,18 +259,28 @@ function dataFromMarker(e) {
             end = new Date(endDate.value)
             // display image closest to end of range
             let data = marker.getLatestEventImg(start, end)
+            console.log(data)
+            console.log(marker.getEventData())
 
+            if (data === null) {
+                console.log("No image in range")
+                clearPictures()
+                return
+            }
             img.src = data.src
             img.alt = data.alt
-            dataView.innerHTML = marker.getEventDesc()
+            dataView.innerHTML = marker.getLatestEventDesc()
         } else {
             // get last image data
             let data = marker.getLastEventImg()
-
-            // display most recent image
-            img.src = data.src
-            img.alt = data.alt
-            dataView.innerHTML = marker.getLastEventData().desc
+            if (data === null) {
+                console.log("No image data")
+                clearPictures()
+            } else { // display last image
+                img.src = data.src
+                img.alt = data.alt
+                dataView.innerHTML = marker.getLastEventDesc()
+            }
         }
     }
 
@@ -291,7 +303,7 @@ function markerMaker(name, lat, lng) {
     // instance of marker class
     let constructed = new marker(name, lat, lng) 
     // add map Marker instance to the marker class, building using given position
-    constructed.setLMarker(L.marker(constructed.getPos(), {icon : defaultIcon}).addTo(map))
+    constructed.setLMarker(L.marker(constructed.getPlacePos(), {icon : defaultIcon}).addTo(map))
     // add onclick function to Marker on map
     constructed.getLMarker().on('click', dataFromMarker)
     // add the marker class instance to markerList
@@ -389,7 +401,7 @@ let karoricemetery = markerMaker("Karori Cemetery", -41.276083, 174.751224)
 karoricemetery.setPlaceInfo("Plastic flowers left at graves here are commonly blown into the Kaiwharawhara.")
 let appleton = markerMaker("Appleton Park", -41.285393, 174.754128)
 appleton.setPlaceInfo("Built on top a landfill. Leachate from this landfill leaks into the Kaiwharawhara.")
-const appletonimg = Image()
+const appletonimg = new Image()
 appletonimg.src = "assets/img/historicaldata/appleton/2025.png"
 appletonimg.alt = "Appleton Park in 2025 pictured from the south."
 appleton.addEventData(new Date(2025, 1, 12), "Appleton Park in 2025", appletonimg, [])

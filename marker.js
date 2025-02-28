@@ -71,6 +71,10 @@ class marker {
         this.placeData.lng = lng
     }
 
+    getPlacePos() {
+        return [this.placeData.lat, this.placeData.lng]
+    }
+
     getPlaceInfo() {
         return this.placeData.info
     }
@@ -190,6 +194,30 @@ class marker {
         eventData.desc = desc
     }
 
+    getFirstEventDesc() {
+        return this.eventData.sort((a, b) => a.date - b.date)[0].desc
+    }
+
+    getLastEventDesc() {
+        return this.eventData.sort((a, b) => b.date - a.date)[0].desc
+    }
+
+    getEarliestEventDesc(minDate, maxDate) {
+        let earliest = this.getEarliestEventData(minDate, maxDate)
+        if (earliest === null) {
+            return null
+        }
+        return earliest.desc
+    }
+
+    getLatestEventDesc(minDate, maxDate) {
+        let latest = this.getLatestEventData(minDate, maxDate)
+        if (latest === null) {
+            return null
+        }
+        return latest.desc
+    }
+
     getEventImg(eventData) {
         return eventData.img
     }
@@ -220,10 +248,13 @@ class marker {
     // return all images in the eventData
     // the images are sorted by year, earliest first
     getAllEventImg() {
-        ret = []
+        let ret = []
         this.sortEventData()
         for (let i = 0; i < this.eventData.length; i++) {
             ret.push(this.eventData[i].img)
+        }
+        if (ret.length === 0) {
+            return null
         }
         return ret
     }
@@ -231,7 +262,7 @@ class marker {
     // return all images in the eventData that fall within the given date range
     // the images are sorted by year, earliest first
     getRangeEventImg(minDate, maxDate) {
-        ret = []
+        let ret = []
         let filtered = this.getRangeEventData(minDate, maxDate)
         for (let i = 0; i < filtered.length; i++) {
             ret.push(filtered[i].img)
@@ -241,20 +272,48 @@ class marker {
 
     // return the most recent image in the eventData that falls within the given date range
     getLatestEventImg(minDate, maxDate) {
-        return this.getLatestEventData(minDate, maxDate).img
+        let latest = this.getLatestEventData(minDate, maxDate)
+        if (latest === null) {
+            return null
+        }
+        if (latest.img === null) {
+            return null
+        }
+        return latest.img
     }
 
     // return the earliest image in the eventData that falls within the given date range
     getEarliestEventImg(minDate, maxDate) {
-        return this.getEarliestEventData(minDate, maxDate).img
+        let earliest = this.getEarliestEventData(minDate, maxDate)
+        if (earliest === null) {
+            return null
+        }
+        if (earliest.img === null) {
+            return null
+        }
+        return earliest.img
     }
 
     getFirstEventImg() {
-        return this.eventData.sort((a, b) => a.date - b.date)[0].img
+        let first = this.getFirstEventData()
+        if (first === null) {
+            return null
+        }
+        if (first.img === null) {
+            return null
+        }
+        return first.img
     }
 
     getLastEventImg() {
-        return this.eventData.sort((a, b) => b.date - a.date)[0].img
+        let last = this.getLastEventData()
+        if (last === null) {
+            return null
+        }
+        if (last.img === null) {
+            return null
+        }
+        return last.img
     }
 
     setEventDataFromTimeline(timeline) {
@@ -271,14 +330,19 @@ class marker {
         }
         // else iterate through the timeline and push the data once for every picture
         // only one picture per event is supported, so there is a new eventData for every picture
+        console.log("timeline adding")
         for (let i = 0; i < timeline.length; i++) {
             for (let j = 0; j < timeline[i].img.length; j++) {
+                let image = new Image()
+                image.src = timeline[i].img[j].src
+                image.alt = timeline[i].img[j].alt
                 this.eventData.push({
                     "date": new Date(timeline[i].year, timeline[i].month-1, timeline[i].day),
                     "desc": timeline[i].event,
-                    "img": new Image(timeline[i].img[j].src, timeline[i].img[j].alt),
+                    "img": image,
                     "tags": [] // TODO implement tags into the timeline JSON
                 })
+                console.log(new Date(timeline[i].year, timeline[i].month-1, timeline[i].day), timeline[i].event, image)
             }
         }
     }
