@@ -111,7 +111,9 @@ function displayBetween(start, end) {
         // if event date is between start and end, display the marker
         if (markerList[i].containsDateWithinRange(start, end)) {
             markerList[i].getLMarker()._icon.style.visibility = 'visible'
+            console.log("Displaying " + markerList[i].getPlaceName())
         } else {
+            console.log("Hiding " + markerList[i].getPlaceName())
             markerList[i].getLMarker()._icon.style.visibility = 'hidden'
             // // get image data and check if one of the images is in the range
             // // if so, make the marker visible
@@ -258,6 +260,9 @@ function dataFromMarker(e) {
             start = new Date(startDate.value)
             end = new Date(endDate.value)
             // display image closest to end of range
+            console.log(marker.getEventData())
+            console.log("Displaying image closest to end of range")
+            console.log("Img: " + marker.getLatestEventImg(start, end).src)
             let data = marker.getLatestEventImg(start, end)
             console.log(data)
             console.log(marker.getEventData())
@@ -269,7 +274,7 @@ function dataFromMarker(e) {
             }
             img.src = data.src
             img.alt = data.alt
-            dataView.innerHTML = marker.getLatestEventDesc()
+            dataView.innerHTML = marker.getLatestEventDesc(start, end)
         } else {
             // get last image data
             let data = marker.getLastEventImg()
@@ -407,8 +412,6 @@ appletonimg.alt = "Appleton Park in 2025 pictured from the south."
 appleton.addEventData(new Date(2025, 1, 12), "Appleton Park in 2025", appletonimg, [])
 let otari = markerMaker("Otari-Wilton's Bush", -41.266592, 174.755824)
 otari.setPlaceInfo("The only place with untouched bush in Wellington!")
-setLMarkerIcon(appleton, cautionIcon)
-appleton.setSIcon(selectedCautionIcon)
 ///////////////////////////////////
 
 

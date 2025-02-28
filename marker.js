@@ -144,14 +144,23 @@ class marker {
     // return the most recent event data that falls within the given date range
     // if no event data is found, return null
     getLatestEventData(minDate, maxDate) {
+        console.log("getLatestEventData")
         // filter by date range
         let filtered = this.getRangeEventData(minDate, maxDate)
+        console.log("filtered", filtered)
         if (filtered.length === 0) {
             return null
         }
         // sort by date, latest first
         let sorted = filtered.sort((a, b) => new Date(b.date) - new Date(a.date))
-        return sorted[0]
+        console.log("sorted", sorted)
+        for (let i = 0; i < sorted.length; i++) {
+            if (sorted[i].date === null) {
+                continue
+            } else {
+                return sorted[i]
+            }
+        } return null
     }
 
     getFirstEventData() {
@@ -172,10 +181,13 @@ class marker {
 
     containsDateWithinRange(minDate, maxDate) {
         for (let i = 0; i < this.eventData.length; i++) {
-            if (this.eventData[i].date >= minDate && this.eventData[i].date <= maxDate) {
+            if (this.eventData[i].date === null) {
+                continue
+            } else if (this.eventData[i].date >= minDate && this.eventData[i].date <= maxDate) {
                 return true
             }
         }
+        return false
     }
 
     getLastEventDate() {
@@ -272,6 +284,7 @@ class marker {
 
     // return the most recent image in the eventData that falls within the given date range
     getLatestEventImg(minDate, maxDate) {
+        console.log("getLatestEventImg")
         let latest = this.getLatestEventData(minDate, maxDate)
         if (latest === null) {
             return null
