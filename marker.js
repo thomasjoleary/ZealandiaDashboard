@@ -257,8 +257,30 @@ class marker {
         return this.eventData.sort((a, b) => b.date - a.date)[0].img
     }
 
-    setImgData(timeline) {
-        // TODO: implement
+    setEventDataFromTimeline(timeline) {
+        this.EventData = []
+        // if there is no timeline, push a single event with the place info
+        if (timeline === null || timeline === undefined) {
+            this.eventData.push({
+                "date": null,
+                "desc": this.getPlaceInfo(),
+                "img": null,
+                "tags": []
+            })
+            return
+        }
+        // else iterate through the timeline and push the data once for every picture
+        // only one picture per event is supported, so there is a new eventData for every picture
+        for (let i = 0; i < timeline.length; i++) {
+            for (let j = 0; j < timeline[i].img.length; j++) {
+                this.eventData.push({
+                    "date": new Date(timeline[i].year, timeline[i].month-1, timeline[i].day),
+                    "desc": timeline[i].event,
+                    "img": new Image(timeline[i].img[j].src, timeline[i].img[j].alt),
+                    "tags": [] // TODO implement tags into the timeline JSON
+                })
+            }
+        }
     }
 
     getEventTags(eventData) {
