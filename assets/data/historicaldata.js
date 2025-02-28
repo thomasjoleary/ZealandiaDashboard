@@ -37,7 +37,7 @@ const historicaldata =
                     "event": "Appleton Park landfill is covered in grass.",
                     "img": [
                         {
-                            "src": "assets/img/historicaldata/appleton/1965.jpg",
+                            "src": "assets/img/historicaldata/appleton/1965.png",
                             "alt": "Appleton Park in 1965."
                         }
                     ]
@@ -68,7 +68,7 @@ const historicaldata =
                     "event": "The Kaiwharawhara estuary is not reachable by civilians. The rail line and the motorway cut off access.",
                     "img": [
                         {
-                            "src": "assets/img/historicaldata/estuary/2025.jpg",
+                            "src": "assets/img/historicaldata/estuary/2025.png",
                             "alt": "Estuary in 2025, looking upstream from the rail line."
                         }
                     ]

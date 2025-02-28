@@ -91,14 +91,12 @@ function clearInfo() {
 function clearPictures() {
     let img = document.getElementById('picture')
     img.style.visibility = 'hidden';
-    img.style.maxHeight = '0px';
 }
 
 // show pictures on right side of the dashboard
 function showPictures() {
     let img = document.getElementById('picture')
     img.style.visibility = 'visible';
-    img.style.maxHeight = '100%';
 }
 
 ///////////////////////////////////
@@ -284,6 +282,7 @@ function dataFromMarker(e) {
 
             img.src = data.img[0].src
             img.alt = data.img[0].alt
+            img.style.objectFit = "contain"
             yearDisplay(title, data)
             dataView.innerHTML = data.event
         } else {
@@ -293,6 +292,7 @@ function dataFromMarker(e) {
             // display most recent image
             img.src = data.img[0].src
             img.alt = data.img[0].alt
+            img.style.objectFit = "contain"
             yearDisplay(title, data)
             dataView.innerHTML = data.event
         }
