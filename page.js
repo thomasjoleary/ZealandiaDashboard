@@ -111,9 +111,13 @@ function displayBetween(start, end) {
         // if event date is between start and end, display the marker
         if (markerList[i].containsDateWithinRange(start, end)) {
             markerList[i].getLMarker()._icon.style.visibility = 'visible'
-            console.log("Displaying " + markerList[i].getPlaceName())
+            if (markerList[i].getLMarker()._icon.style.visibility === 'hidden') {
+                console.log("Displaying " + markerList[i].getPlaceName())
+            }
         } else {
-            console.log("Hiding " + markerList[i].getPlaceName())
+            if (markerList[i].getLMarker()._icon.style.visibility === 'visible') {
+                console.log("Hiding " + markerList[i].getPlaceName())
+            }
             markerList[i].getLMarker()._icon.style.visibility = 'hidden'
             // // get image data and check if one of the images is in the range
             // // if so, make the marker visible

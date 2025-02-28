@@ -96,6 +96,19 @@ class marker {
     }
 
     addEventData(date, desc, img, tags) {
+        // if fields are null, do not push
+        if (date === null && desc === null && img === null && tags === null) {
+            console.log("Event data is null" + date + desc + img + tags)
+            return
+        }
+        // if eventData is repeat, do not push
+        for (let i = 0; i < this.eventData.length; i++) {
+            if (this.eventData[i].date === date && this.eventData[i].desc === desc && this.eventData[i].img === img && this.eventData[i].tags === tags) {
+                console.log("Event data already exists" + date + desc + img + tags)
+                return
+            }
+        }
+        // otherwise push the eventData
         this.eventData.push({
             "date": date,
             "desc": desc,
@@ -333,7 +346,7 @@ class marker {
         this.EventData = []
         // if there is no timeline, push a single event with the place info
         if (timeline === null || timeline === undefined) {
-            this.eventData.push({
+            this.addEventData({
                 "date": null,
                 "desc": this.getPlaceInfo(),
                 "img": null,
@@ -349,7 +362,7 @@ class marker {
                 let image = new Image()
                 image.src = timeline[i].img[j].src
                 image.alt = timeline[i].img[j].alt
-                this.eventData.push({
+                this.addEventData({
                     "date": new Date(timeline[i].year, timeline[i].month-1, timeline[i].day),
                     "desc": timeline[i].event,
                     "img": image,
@@ -358,6 +371,8 @@ class marker {
                 console.log(new Date(timeline[i].year, timeline[i].month-1, timeline[i].day), timeline[i].event, image)
             }
         }
+        console.log("timeline added...")
+        console.log(this.eventData)
     }
 
     getEventTags(eventData) {
