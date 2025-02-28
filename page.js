@@ -109,14 +109,13 @@ function showPictures() {
 function displayBetween(start, end) {
     for (let i = 0; i < markerList.length; i++) {
         // if event date is between start and end, display the marker
-        let date = markerList[i].getDate()
-        if (date >= start && date <= end) {
+        if (markerList[i].containsDateWithinRange(start, end)) {
             markerList[i].getLMarker()._icon.style.visibility = 'visible'
         } else {
             // get image data and check if one of the images is in the range
             // if so, make the marker visible
-            markerList[i].setImgData(getTimeline(markerList[i].getName()))
-            let imgData = markerList[i].getRangeImgData(start, end)
+            markerList[i].setEventDataFromTimeline(getTimeline(markerList[i].getName()))
+            let imgData = markerList[i].getRangeEventImg(start, end)
             if (imgData != null) {
                 if (imgData.length > 0) {
                     markerList[i].getLMarker()._icon.style.visibility = 'visible'
@@ -129,8 +128,6 @@ function displayBetween(start, end) {
                 markerList[i].getLMarker()._icon.style.visibility = 'hidden'
             }
         }
-        /*console.log(date + ", " + start + ", " + end)
-        console.log(date >= start && date <= end)*/
     }
 }
 
@@ -243,14 +240,14 @@ function dataFromMarker(e) {
     // gets the clicked map Marker's marker class instance
     let marker = findMarkerinList(e.target)
     // sets the info section to the marker
-    title.innerHTML = marker.getName()
-    dataView.innerHTML = marker.getData()
+    title.innerHTML = marker.getPlaceName()
+    dataView.innerHTML = marker.getPlaceInfo()
 
     // set image data
-    marker.setImgData(getTimeline(marker.getName()))
+    marker.setEventDataFromTimeline(getTimeline(marker.getPlaceName()))
     // if there is no image, make the image box invisible and sizeless
     // if there is an image, make the image box visible and sizeable and display the image
-    if (marker.getImgData() == null) {
+    if (marker.getAllEventImg() == null) {
         clearPictures()
     } else {
         showPictures()
@@ -259,19 +256,19 @@ function dataFromMarker(e) {
             start = new Date(startDate.value)
             end = new Date(endDate.value)
             // display image closest to end of range
-            let data = marker.getMostRecentImgData(start, end)
+            let data = marker.getLatestEventImg(start, end)
 
-            img.src = data.img[0].src
-            img.alt = data.img[0].alt
-            dataView.innerHTML = data.event
+            img.src = data.src
+            img.alt = data.alt
+            dataView.innerHTML = marker.getEventDesc()
         } else {
-            // get first image data
-            let data = marker.getAllImgData(2030)[0];
+            // get last image data
+            let data = marker.getLastEventImg()
 
             // display most recent image
-            img.src = data.img[0].src
-            img.alt = data.img[0].alt
-            dataView.innerHTML = data.event
+            img.src = data.src
+            img.alt = data.alt
+            dataView.innerHTML = marker.getLastEventData().desc
         }
     }
 
@@ -290,9 +287,9 @@ function dataFromMarker(e) {
 
 // This function makes Markers on the map and ties them to
 // instances of the marker class.
-function markerMaker(name, lat, lng, date) {
+function markerMaker(name, lat, lng) {
     // instance of marker class
-    let constructed = new marker(name, lat, lng, date) 
+    let constructed = new marker(name, lat, lng) 
     // add map Marker instance to the marker class, building using given position
     constructed.setLMarker(L.marker(constructed.getPos(), {icon : defaultIcon}).addTo(map))
     // add onclick function to Marker on map
@@ -343,8 +340,8 @@ function setMarkerHere(e) {
 
     let popupdate = document.getElementById('popupdate')
 
-    let marker = markerMaker(popupname, e.latlng.lat, e.latlng.lng, new Date(popupdate.value))
-    marker.setData(popupinfo)
+    let marker = markerMaker(popupname, e.latlng.lat, e.latlng.lng)
+    marker.setPlaceInfo(popupinfo)
 
     let popup = document.getElementById('popup')
     popup.style.display = "none"
@@ -378,25 +375,26 @@ popupbutton.addEventListener('click', popupSubmit)
 
 ///////////////////////////////////
 // Sample Markers
-let tangle = markerMaker("Tanglewood", -41.289273, 174.754056, new Date(2024, 1, 24))
-tangle.setData("I can see you. Turn around. Testing testing 1, 2, 3!")
-let dam = markerMaker("Dam", -41.298383, 174.744959, new Date(2020, 6, 8))
-dam.setData("Dam with a great view and lots of wind.")
-let suspension = markerMaker("John's Suspension Bridge", -41.29768, 174.746854, new Date(2020, 0, 1))
-suspension.setData("John LOVES this bridge and its steel cable.")
-let estuary = markerMaker("Estuary", -41.260735, 174.789888, new Date(2020, 5, 24))
-estuary.setData("Where the freshwater meets the saltwater!")
-let fishladder = markerMaker("Fish Ladder", -41.259848, 174.769296, new Date(2025, 4, 12))
-fishladder.setData("Fish ladder, but also where the two main branches of the river meet!")
-let karoricemetery = markerMaker("Karori Cemetery", -41.276083, 174.751224, new Date(2025, 7, 12))
-karoricemetery.setData("Plastic flowers left at graves here are commonly blown into the Kaiwharawhara.")
-let appleton = markerMaker("Appleton Park", -41.285393, 174.754128, new Date(2025, 10, 25))
-appleton.setData("Built on top a landfill. Leachate from this landfill leaks into the Kaiwharawhara.")
-appleton.setImgSrc("assets/img/historicaldata/appleton/2025.png")
-appleton.setAltTxt("Appleton Park in 2025 pictured from the south.")
-// appleton.setImgData(historicaldata.appleton.timeline)
-let otari = markerMaker("Otari-Wilton's Bush", -41.266592, 174.755824, new Date(2025, 5, 1))
-otari.setData("The only place with untouched bush in Wellington!")
+let tangle = markerMaker("Tanglewood", -41.289273, 174.754056)
+tangle.setPlaceInfo("I can see you. Turn around. Testing testing 1, 2, 3!")
+let dam = markerMaker("Dam", -41.298383, 174.744959)
+dam.setPlaceInfo("Dam with a great view and lots of wind.")
+let suspension = markerMaker("John's Suspension Bridge", -41.29768, 174.746854)
+suspension.setPlaceInfo("John LOVES this bridge and its steel cable.")
+let estuary = markerMaker("Estuary", -41.260735, 174.789888)
+estuary.setPlaceInfo("Where the freshwater meets the saltwater!")
+let fishladder = markerMaker("Fish Ladder", -41.259848, 174.769296)
+fishladder.setPlaceInfo("Fish ladder, but also where the two main branches of the river meet!")
+let karoricemetery = markerMaker("Karori Cemetery", -41.276083, 174.751224)
+karoricemetery.setPlaceInfo("Plastic flowers left at graves here are commonly blown into the Kaiwharawhara.")
+let appleton = markerMaker("Appleton Park", -41.285393, 174.754128)
+appleton.setPlaceInfo("Built on top a landfill. Leachate from this landfill leaks into the Kaiwharawhara.")
+const appletonimg = Image()
+appletonimg.src = "assets/img/historicaldata/appleton/2025.png"
+appletonimg.alt = "Appleton Park in 2025 pictured from the south."
+appleton.addEventData(new Date(2025, 1, 12), "Appleton Park in 2025", appletonimg, [])
+let otari = markerMaker("Otari-Wilton's Bush", -41.266592, 174.755824)
+otari.setPlaceInfo("The only place with untouched bush in Wellington!")
 setLMarkerIcon(appleton, cautionIcon)
 appleton.setSIcon(selectedCautionIcon)
 ///////////////////////////////////
