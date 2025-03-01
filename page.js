@@ -110,30 +110,13 @@ function displayBetween(start, end) {
     for (let i = 0; i < markerList.length; i++) {
         // if event date is between start and end, display the marker
         if (markerList[i].containsDateWithinRange(start, end)) {
+            console.log("Displaying " + markerList[i].getPlaceName())
+            console.log(markerList[i].getEventData())
             markerList[i].getLMarker()._icon.style.visibility = 'visible'
-            if (markerList[i].getLMarker()._icon.style.visibility === 'hidden') {
-                console.log("Displaying " + markerList[i].getPlaceName())
-            }
         } else {
-            if (markerList[i].getLMarker()._icon.style.visibility === 'visible') {
-                console.log("Hiding " + markerList[i].getPlaceName())
-            }
+            console.log("Hiding " + markerList[i].getPlaceName())
+            console.log(markerList[i].getEventData())
             markerList[i].getLMarker()._icon.style.visibility = 'hidden'
-            // // get image data and check if one of the images is in the range
-            // // if so, make the marker visible
-            // markerList[i].setEventDataFromTimeline(getTimeline(markerList[i].getName()))
-            // let imgData = markerList[i].getRangeEventImg(start, end)
-            // if (imgData != null) {
-            //     if (imgData.length > 0) {
-            //         markerList[i].getLMarker()._icon.style.visibility = 'visible'
-            //     } else {
-            //     // else hide the marker
-            //         markerList[i].getLMarker()._icon.style.visibility = 'hidden'
-            //     }
-            // } else {
-            //     // else hide the marker
-            //     markerList[i].getLMarker()._icon.style.visibility = 'hidden'
-            // }
         }
     }
 }

@@ -81,6 +81,7 @@ const historicaldata =
 function getTimeline(location) {
     for (let i = 0; i < historicaldata.locations.length; i++) {
         if (historicaldata.locations[i].name === location) {
+            console.log("getting timeline of " + location)
             return historicaldata.locations[i].timeline
         }
     }
