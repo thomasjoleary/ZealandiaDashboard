@@ -1,5 +1,5 @@
-# Kia Mouriora Te Kaiwharawhara Dashboard
-In-dev dashboard for the Sanctuary to Sea initiative
+# Kia Mouriora te Kaiwharawhara Dashboard
+In-dev dashboard for the Kia Mouriora te Kaiwharawhara - Sanctuary to Sea initiative<br>
 Contributors:
 - Thomas O'Leary
 - Grant Kortfelt
