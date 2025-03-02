@@ -236,7 +236,7 @@ function getMonthName(month) {
     let monthNames = ["January", "February", "March", "April", "May", "June",
                         "July", "August", "September", "October", "November", "December"]
     return monthNames[month]
-
+}
 
 function yearDisplay(title, data) {
     if (data.month != null && data.day != null) {
