@@ -1,3 +1,12 @@
+function getTimeline(location) {
+    for (let i = 0; i < historicaldata.locations.length; i++) {
+        if (historicaldata.locations[i].name === location) {
+            console.log("getting timeline of " + location)
+            return historicaldata.locations[i].timeline
+        }
+    }
+}
+
 const historicaldata =
 {
     "locations": [
@@ -14,8 +23,8 @@ const historicaldata =
                     "event": "The Appleton Park area before dumping was a wooded valley.",
                     "img": [
                         {
-                            "src": "assets/img/historicaldata/appleton/1965.png",
-                            "alt": "Appleton Park 1929-null-null"
+                            "src": "assets/img/historicaldata/appleton/1929.png",
+                            "alt": "Appleton Park 1929"
                         }
                     ]
                 },
@@ -26,8 +35,8 @@ const historicaldata =
                     "event": "Dumping begins at Appleton Park landfill. Toxic wastes include heavy metals, asbestos, and other hazardous materials.",
                     "img": [
                         {
-                            "src": "assets/img/historicaldata/appleton/1965.png",
-                            "alt": "Appleton Park 1935-null-null"
+                            "src": "assets/img/historicaldata/appleton/1935.png",
+                            "alt": "Appleton Park 1935"
                         }
                     ]
                 },
@@ -38,8 +47,8 @@ const historicaldata =
                     "event": "Appleton Park in 1965, now covered in grass.",
                     "img": [
                         {
-                            "src": "assets/img/historicaldata/appleton/1965.jpg",
-                            "alt": "Appleton Park in 1965."
+                            "src": "assets/img/historicaldata/appleton/1965.png",
+                            "alt": "Appleton Park 1965-8-17"
                         }
                     ]
                 },
@@ -62,8 +71,8 @@ const historicaldata =
                     "event": "Appleton Park at Chaytor Street tip was used as a rubbish dump. According to GWRC and WCC, the site was filled with fuel oil, corrugated iron, petrol tines, lubricating drums, steam boilers, tar drums, iron castings, car bodies, sheep carcasses and discards from an electricity powerhouse. The site was closed in 1940, covered with a layer of clay, and grass was planted on top. More information about this location can be found on the WCC archives.",
                     "img": [
                         {
-                            "src": "https://archivesonline.wcc.govt.nz/nodes/view/738450?keywords=Birdwood+street+chaytor+tip&type=all&highlights=eyIwIjoiYmlyZHdvb2QiLCIxIjoic3RyZWV0IiwiMiI6ImNoYXl0b3IiLCI0IjoidGlwIiwiNiI6InRpcCwiLCIxMCI6InN0cmVldC4iLCIxMyI6InRpcC4iLCIzMSI6InRpcHMiLCI1NCI6InRpcDoiLCI1NiI6InN0cmVldCwifQ%3D%3D ",
-                            "alt": "Appleton Park 2025-null-null"
+                            "src": "assets/img/historicaldata/estuary/2025.png",
+                            "alt": "Appleton Park 2025"
                         }
                     ]
                 }
@@ -82,7 +91,7 @@ const historicaldata =
                     "event": "The Kaiwharawhara estuary is an important place for Inanga to lay their eggs. Inanga lay their eggs in low-hanging vegetation to protect them from predators. Restoring native vegetation along the estuary is super important for increasing inanga population. Unfortunately, the estuary collects lots of pollution, which can be harmful to the species that rely on it.",
                     "img": [
                         {
-                            "src": "assets/img/historicaldata/estuary/2025.jpg",
+                            "src": "assets/img/historicaldata/estuary/2025.png",
                             "alt": "Estuary 2025-1-16"
                         }
                     ]
@@ -102,8 +111,8 @@ const historicaldata =
                     "event": "From 1946 to 1973, Ian Galloway Park operated as a rubbish dump. According to GWRC, a variety of industrial wastes were dumped here, including 500 kg of cyanide ( a poisonous chemical) encased in concrete drums. Also, large quantities of industrial waste from the demolition of Miramar Gasworks are known to be disposed of at this site. ",
                     "img": [
                         {
-                            "src": "https://www.gw.govt.nz/assets/Documents/1998/10/Landfills-in-the-Wellington-Region.pdf",
-                            "alt": "Ian Galloway Park 2025-null-null"
+                            "src": "",
+                            "alt": "Ian Galloway Park 2025"
                         }
                     ]
                 }
@@ -123,7 +132,7 @@ const historicaldata =
                     "img": [
                         {
                             "src": "link",
-                            "alt": "\u014ctari- Wilton's bush 1995-null-null"
+                            "alt": "\u014ctari- Wilton's bush 1995"
                         }
                     ]
                 }
@@ -143,7 +152,7 @@ const historicaldata =
                     "img": [
                         {
                             "src": "",
-                            "alt": "Karori Cemetary 2025-null-null"
+                            "alt": "Karori Cemetary 2025"
                         }
                     ]
                 }
@@ -163,7 +172,7 @@ const historicaldata =
                     "img": [
                         {
                             "src": "",
-                            "alt": "Trelissick Park 2025-null-null"
+                            "alt": "Trelissick Park 2025"
                         }
                     ]
                 }
@@ -183,7 +192,7 @@ const historicaldata =
                     "img": [
                         {
                             "src": "https://www.stuff.co.nz/national/129677712/massive-sports-ground-slip-like-porridge  ",
-                            "alt": "\u014ctari land slip 2022-null-null"
+                            "alt": "\u014ctari land slip 2022"
                         }
                     ]
                 }
@@ -203,7 +212,7 @@ const historicaldata =
                     "img": [
                         {
                             "src": "",
-                            "alt": "St John's Pool 2025-null-null"
+                            "alt": "St John's Pool 2025"
                         }
                     ]
                 }
@@ -259,7 +268,7 @@ const historicaldata =
                     "img": [
                         {
                             "src": "^",
-                            "alt": "K\u0101kahi/Freshwater Mussel Relocation 2022-null-null"
+                            "alt": "K\u0101kahi/Freshwater Mussel Relocation 2022"
                         }
                     ]
                 }
@@ -279,7 +288,7 @@ const historicaldata =
                     "img": [
                         {
                             "src": "https://zealandia1.sharepoint.com/S/ConservationResearch/Forms/AllItems.aspx?id=%2FS%2FConservationResearch%2Fh%29%20Species%20Overviews%20%26%20How%2Dto%27s%2FSpecies%20Overviews%2FFauna%2F20241224%20Toitoi%2DGobiomorphus%20cotidianus%20Overview%2Edocx&viewid=18821017%2D10cc%2D4f88%2D929e%2Dc2cfa6fc8c2f&parent=%2FS%2FConservationResearch%2Fh%29%20Species%20Overviews%20%26%20How%2Dto%27s%2FSpecies%20Overviews%2FFauna",
-                            "alt": "Toitoi/Common Bully Relocation 2023-null-null"
+                            "alt": "Toitoi/Common Bully Relocation 2023"
                         }
                     ]
                 },
@@ -291,7 +300,7 @@ const historicaldata =
                     "img": [
                         {
                             "src": "^",
-                            "alt": "Toitoi/Common Bully Relocation 2024-null-null"
+                            "alt": "Toitoi/Common Bully Relocation 2024"
                         }
                     ]
                 },
@@ -303,7 +312,7 @@ const historicaldata =
                     "img": [
                         {
                             "src": "^",
-                            "alt": "Toitoi/Common Bully Relocation 2025-null-null"
+                            "alt": "Toitoi/Common Bully Relocation 2025"
                         }
                     ]
                 }
@@ -367,7 +376,7 @@ const historicaldata =
                     "img": [
                         {
                             "src": "^^",
-                            "alt": "Pirita/Green Mistletoe Relocation 2022-10-null"
+                            "alt": "Pirita/Green Mistletoe Relocation 2022"
                         }
                     ]
                 },
@@ -399,7 +408,7 @@ const historicaldata =
                     "img": [
                         {
                             "src": "^^",
-                            "alt": "Pirita/Mistletoe Relocation 2024-11-null"
+                            "alt": "Pirita/Mistletoe Relocation 2024"
                         }
                     ]
                 }
@@ -439,7 +448,7 @@ const historicaldata =
                     "img": [
                         {
                             "src": "https://zealandia1.sharepoint.com/S/ConservationResearch/Forms/AllItems.aspx?id=%2FS%2FConservationResearch%2Ff%29%20Projects%2Fk%29%20Lake%20Rehabilitation%2FLower%20lake%20eradication%202020%2Fb%29%20operations%20%26%20planning%2FField%20operations%2FField%5Fsurveys%2Felectric%20fishing%20report%2FRemoval%20of%20perch%20from%20Roto%20Kawau%202020%2Epdf&viewid=18821017%2D10cc%2D4f88%2D929e%2Dc2cfa6fc8c2f&q=eurasian%20perch&parent=%2FS%2FConservationResearch&parentview=7",
-                            "alt": "Eurasian Perch Removal 1874-null-null"
+                            "alt": "Eurasian Perch Removal 1874"
                         }
                     ]
                 },
@@ -451,7 +460,7 @@ const historicaldata =
                     "img": [
                         {
                             "src": "^",
-                            "alt": "Eurasian Perch Removal 2007-null-null"
+                            "alt": "Eurasian Perch Removal 2007"
                         }
                     ]
                 },
@@ -463,7 +472,7 @@ const historicaldata =
                     "img": [
                         {
                             "src": "^",
-                            "alt": "Eurasian Perch Removal 2008-null-null"
+                            "alt": "Eurasian Perch Removal 2008"
                         }
                     ]
                 },
@@ -475,7 +484,7 @@ const historicaldata =
                     "img": [
                         {
                             "src": "^",
-                            "alt": "Eurasian Perch Removal 2009-null-null"
+                            "alt": "Eurasian Perch Removal 2009"
                         }
                     ]
                 },
@@ -487,7 +496,7 @@ const historicaldata =
                     "img": [
                         {
                             "src": "^",
-                            "alt": "Eurasian Perch Removal 2011-null-null"
+                            "alt": "Eurasian Perch Removal 2011"
                         }
                     ]
                 },
@@ -551,20 +560,11 @@ const historicaldata =
                     "img": [
                         {
                             "src": "https://zealandia1.sharepoint.com/S/ConservationResearch/Forms/AllItems.aspx?id=%2FS%2FConservationResearch%2Fh%29%20Species%20Overviews%20%26%20How%2Dto%27s%2FSpecies%20Overviews%2FFauna%2F20241224%20Toitoi%2DGobiomorphus%20cotidianus%20Overview%2Edocx&viewid=18821017%2D10cc%2D4f88%2D929e%2Dc2cfa6fc8c2f&parent=%2FS%2FConservationResearch%2Fh%29%20Species%20Overviews%20%26%20How%2Dto%27s%2FSpecies%20Overviews%2FFauna",
-                            "alt": "Brown Trout Removal 2011-null-null"
+                            "alt": "Brown Trout Removal 2011"
                         }
                     ]
                 }
             ]
         }
     ]
-}
-
-function getTimeline(location) {
-    for (let i = 0; i < historicaldata.locations.length; i++) {
-        if (historicaldata.locations[i].name === location) {
-            console.log("getting timeline of " + location)
-            return historicaldata.locations[i].timeline
-        }
-    }
 }
