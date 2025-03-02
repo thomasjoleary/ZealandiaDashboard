@@ -118,28 +118,15 @@ introClose.addEventListener("click", hideIntro)
 function displayBetween(start, end) {
     for (let i = 0; i < markerList.length; i++) {
         // if event date is between start and end, display the marker
-        let date = markerList[i].getDate()
-        if (date >= start && date <= end) {
+        if (markerList[i].containsDateWithinRange(start, end)) {
+            console.log("Displaying " + markerList[i].getPlaceName())
+            console.log(markerList[i].getEventData())
             markerList[i].getLMarker()._icon.style.visibility = 'visible'
         } else {
-            // get image data and check if one of the images is in the range
-            // if so, make the marker visible
-            markerList[i].setImgData(getTimeline(markerList[i].getName()))
-            let imgData = markerList[i].getRangeImgData(start, end)
-            if (imgData != null) {
-                if (imgData.length > 0) {
-                    markerList[i].getLMarker()._icon.style.visibility = 'visible'
-                } else {
-                // else hide the marker
-                    markerList[i].getLMarker()._icon.style.visibility = 'hidden'
-                }
-            } else {
-                // else hide the marker
-                markerList[i].getLMarker()._icon.style.visibility = 'hidden'
-            }
+            console.log("Hiding " + markerList[i].getPlaceName())
+            console.log(markerList[i].getEventData())
+            markerList[i].getLMarker()._icon.style.visibility = 'hidden'
         }
-        /*console.log(date + ", " + start + ", " + end)
-        console.log(date >= start && date <= end)*/
     }
 }
 
@@ -153,7 +140,7 @@ function displayAll() {
 // accesses the starting date
 let startDate = document.getElementById('dateStart')
 let startDateval = document.getElementById('startValue')
-startDate.value = "1900-01-01"
+startDate.value = "1850-01-01"
 // accesses the ending date
 let endDate = document.getElementById('dateEnd')
 let endDateval = document.getElementById('endValue')
@@ -243,6 +230,14 @@ function setLMarkerIcon(marker, icon) {
     marker.setLIcon(icon)
 }
 
+
+// helper function get month name from month number
+function getMonthName(month) {
+    let monthNames = ["January", "February", "March", "April", "May", "June",
+                        "July", "August", "September", "October", "November", "December"]
+    return monthNames[month]
+
+
 function yearDisplay(title, data) {
     if (data.month != null && data.day != null) {
         title.innerHTML = title.innerHTML + " (" + data.day + "-" + data.month + "-" + data.year + ")"
@@ -262,15 +257,17 @@ function dataFromMarker(e) {
     // gets the clicked map Marker's marker class instance
     let marker = findMarkerinList(e.target)
     // sets the info section to the marker
-    title.innerHTML = marker.getName()
-    dataView.innerHTML = marker.getData()
+    let time = marker.getLatestEventDate(new Date(startDate.value), new Date(endDate.value))
+    title.innerHTML = marker.getPlaceName() + " — " + time.getDate() + " " + (getMonthName(time.getMonth())) + " " + time.getFullYear()
+    dataView.innerHTML = marker.getPlaceInfo()
 
     // set image data
-    marker.setImgData(getTimeline(marker.getName()))
+    marker.setEventDataFromTimeline(getTimeline(marker.getPlaceName()))
     // if there is no image, make the image box invisible and sizeless
     // if there is an image, make the image box visible and sizeable and display the image
-    if (marker.getImgData() == null) {
+    if (marker.getAllEventImg() == null) {
         clearPictures()
+        console.log("No image data")
     } else {
         showPictures()
         // get bounds of the date range
@@ -278,23 +275,32 @@ function dataFromMarker(e) {
             start = new Date(startDate.value)
             end = new Date(endDate.value)
             // display image closest to end of range
-            let data = marker.getMostRecentImgData(start, end)
+            console.log(marker.getEventData())
+            console.log("Displaying image closest to end of range")
+            console.log("Img: " + marker.getLatestEventImg(start, end).src)
+            let data = marker.getLatestEventImg(start, end)
+            console.log(data)
+            console.log(marker.getEventData())
 
-            img.src = data.img[0].src
-            img.alt = data.img[0].alt
-            img.style.objectFit = "contain"
-            yearDisplay(title, data)
-            dataView.innerHTML = data.event
+            if (data === null) {
+                console.log("No image in range")
+                clearPictures()
+                return
+            }
+            img.src = data.src
+            img.alt = data.alt
+            dataView.innerHTML = marker.getLatestEventDesc(start, end)
         } else {
-            // get first image data
-            let data = marker.getAllImgData(2030)[0];
-
-            // display most recent image
-            img.src = data.img[0].src
-            img.alt = data.img[0].alt
-            img.style.objectFit = "contain"
-            yearDisplay(title, data)
-            dataView.innerHTML = data.event
+            // get last image data
+            let data = marker.getLastEventImg()
+            if (data === null) {
+                console.log("No image data")
+                clearPictures()
+            } else { // display last image
+                img.src = data.src
+                img.alt = data.alt
+                dataView.innerHTML = marker.getLastEventDesc()
+            }
         }
     }
 
@@ -313,11 +319,11 @@ function dataFromMarker(e) {
 
 // This function makes Markers on the map and ties them to
 // instances of the marker class.
-function markerMaker(name, lat, lng, date) {
+function markerMaker(name, lat, lng) {
     // instance of marker class
-    let constructed = new marker(name, lat, lng, date) 
+    let constructed = new marker(name, lat, lng) 
     // add map Marker instance to the marker class, building using given position
-    constructed.setLMarker(L.marker(constructed.getPos(), {icon : defaultIcon}).addTo(map))
+    constructed.setLMarker(L.marker(constructed.getPlacePos(), {icon : defaultIcon}).addTo(map))
     // add onclick function to Marker on map
     constructed.getLMarker().on('click', dataFromMarker)
     // add the marker class instance to markerList
@@ -366,8 +372,8 @@ function setMarkerHere(e) {
 
     let popupdate = document.getElementById('popupdate')
 
-    let marker = markerMaker(popupname, e.latlng.lat, e.latlng.lng, new Date(popupdate.value))
-    marker.setData(popupinfo)
+    let marker = markerMaker(popupname, e.latlng.lat, e.latlng.lng)
+    marker.setPlaceInfo(popupinfo)
 
     let popup = document.getElementById('popup')
     popup.style.display = "none"
@@ -400,35 +406,23 @@ let popupbutton = document.getElementById('popupsubmit')
 popupbutton.addEventListener('click', popupSubmit)
 
 ///////////////////////////////////
-// Move through Marker data
-
-
-
-
-///////////////////////////////////
-// Sample Markers
-let tangle = markerMaker("Tanglewood", -41.289273, 174.754056, new Date(2024, 1, 24))
-tangle.setData("I can see you. Turn around. Testing testing 1, 2, 3!")
-let dam = markerMaker("Dam", -41.298383, 174.744959, new Date(2020, 6, 8))
-dam.setData("Dam with a great view and lots of wind.")
-let suspension = markerMaker("John's Suspension Bridge", -41.29768, 174.746854, new Date(2020, 0, 1))
-suspension.setData("John LOVES this bridge and its steel cable.")
-let estuary = markerMaker("Estuary", -41.260735, 174.789888, new Date(2020, 5, 24))
-estuary.setData("Where the freshwater meets the saltwater!")
-let fishladder = markerMaker("Fish Ladder", -41.259848, 174.769296, new Date(2025, 4, 12))
-fishladder.setData("Fish ladder, but also where the two main branches of the river meet!")
-let karoricemetery = markerMaker("Karori Cemetery", -41.276083, 174.751224, new Date(2025, 7, 12))
-karoricemetery.setData("Plastic flowers left at graves here are commonly blown into the Kaiwharawhara.")
-let appleton = markerMaker("Appleton Park", -41.285393, 174.754128, new Date(2025, 10, 25))
-appleton.setData("Built on top a landfill. Leachate from this landfill leaks into the Kaiwharawhara.")
-appleton.setImgSrc("assets/img/historicaldata/appleton/2025.png")
-appleton.setAltTxt("Appleton Park in 2025 pictured from the south.")
-// appleton.setImgData(historicaldata.appleton.timeline)
-let otari = markerMaker("Otari-Wilton's Bush", -41.266592, 174.755824, new Date(2025, 5, 1))
-otari.setData("The only place with untouched bush in Wellington!")
-setLMarkerIcon(appleton, cautionIcon)
-appleton.setSIcon(selectedCautionIcon)
-///////////////////////////////////
+// Markers from JSON
+// function to add markers from JSON data
+function addMarkersFromJSON(data) {
+    let obj = data.locations // get locations into obj
+    for (let i = 0; i < obj.length; i++) {
+        let marker = markerMaker(obj[i].name, obj[i].lat, obj[i].lng)
+        marker.setPlaceInfo(obj[i].info) // todo add this column to the json
+        // get timeline data from historicaldata.js
+        marker.setEventDataFromTimeline(getTimeline(obj[i].name)) // todo read tags and place info from timeline data
+        console.log("--------------------")
+        console.log(marker.getEventData())
+    }
+}
+// run the function to add markers from JSON data
+addMarkersFromJSON(historicaldata)
+// todo - if a marker is selected and then the date filter is enabled,
+//      the marker should become unselected and the sidebar text should change to default
 
 
 ///////////////////////////////////
