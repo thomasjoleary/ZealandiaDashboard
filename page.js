@@ -131,7 +131,7 @@ function displayAll() {
 // accesses the starting date
 let startDate = document.getElementById('dateStart')
 let startDateval = document.getElementById('startValue')
-startDate.value = "1900-01-01"
+startDate.value = "1850-01-01"
 // accesses the ending date
 let endDate = document.getElementById('dateEnd')
 let endDateval = document.getElementById('endValue')
@@ -221,6 +221,13 @@ function setLMarkerIcon(marker, icon) {
     marker.setLIcon(icon)
 }
 
+// helper function get month name from month number
+function getMonthName(month) {
+    let monthNames = ["January", "February", "March", "April", "May", "June",
+                        "July", "August", "September", "October", "November", "December"]
+    return monthNames[month]
+}
+
 // gets data from a marker class instance given an onclicked map Marker
 function dataFromMarker(e) {
     // gets the pieces of the info section on the right of the dashboard
@@ -230,7 +237,8 @@ function dataFromMarker(e) {
     // gets the clicked map Marker's marker class instance
     let marker = findMarkerinList(e.target)
     // sets the info section to the marker
-    title.innerHTML = marker.getPlaceName()
+    let time = marker.getLatestEventDate(new Date(startDate.value), new Date(endDate.value))
+    title.innerHTML = marker.getPlaceName() + " — " + time.getDate() + " " + (getMonthName(time.getMonth())) + " " + time.getFullYear()
     dataView.innerHTML = marker.getPlaceInfo()
 
     // set image data
@@ -378,24 +386,6 @@ let popupbutton = document.getElementById('popupsubmit')
 popupbutton.addEventListener('click', popupSubmit)
 
 ///////////////////////////////////
-// Sample Markers
-// let tangle = markerMaker("Tanglewood", -41.289273, 174.754056)
-// tangle.setPlaceInfo("I can see you. Turn around. Testing testing 1, 2, 3!")
-// let dam = markerMaker("Dam", -41.298383, 174.744959)
-// dam.setPlaceInfo("Dam with a great view and lots of wind.")
-// let suspension = markerMaker("John's Suspension Bridge", -41.29768, 174.746854)
-// suspension.setPlaceInfo("John LOVES this bridge and its steel cable.")
-// let estuary = markerMaker("Estuary", -41.260735, 174.789888)
-// estuary.setPlaceInfo("Where the freshwater meets the saltwater!")
-// let fishladder = markerMaker("Fish Ladder", -41.259848, 174.769296)
-// fishladder.setPlaceInfo("Fish ladder, but also where the two main branches of the river meet!")
-// let karoricemetery = markerMaker("Karori Cemetery", -41.276083, 174.751224)
-// karoricemetery.setPlaceInfo("Plastic flowers left at graves here are commonly blown into the Kaiwharawhara.")
-// let appleton = markerMaker("Appleton Park", -41.285393, 174.754128)
-// appleton.setPlaceInfo("Built on top a landfill. Leachate from this landfill leaks into the Kaiwharawhara.")
-// let otari = markerMaker("Otari-Wilton's Bush", -41.266592, 174.755824)
-// otari.setPlaceInfo("The only place with untouched bush in Wellington!")
-///////////////////////////////////
 // Markers from JSON
 // function to add markers from JSON data
 function addMarkersFromJSON(data) {
@@ -409,10 +399,11 @@ function addMarkersFromJSON(data) {
         console.log(marker.getEventData())
     }
 }
+// run the function to add markers from JSON data
 addMarkersFromJSON(historicaldata)
 // todo - display time on dashboard of a picture taken
 // todo - if a marker is selected and then the date filter is enabled,
-// the marker should become unselected and the sidebar text should change to default
+//      the marker should become unselected and the sidebar text should change to default
 
 
 ///////////////////////////////////

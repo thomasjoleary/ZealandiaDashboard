@@ -216,6 +216,22 @@ class marker {
         return this.eventData.sort((a, b) => new Date(a.date) - new Date(b.date))[0].date
     }
 
+    getEarliestEventDate(minDate, maxDate) {
+        let earliest = this.getEarliestEventData(minDate, maxDate)
+        if (earliest === null) {
+            return null
+        }
+        return earliest.date
+    }
+
+    getLatestEventDate(minDate, maxDate) {
+        let latest = this.getLatestEventData(minDate, maxDate)
+        if (latest === null) {
+            return null
+        }
+        return latest.date
+    }
+
     getEventDesc(eventData) {
         return eventData.desc
     }
