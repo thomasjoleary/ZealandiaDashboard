@@ -401,7 +401,6 @@ function addMarkersFromJSON(data) {
 }
 // run the function to add markers from JSON data
 addMarkersFromJSON(historicaldata)
-// todo - display time on dashboard of a picture taken
 // todo - if a marker is selected and then the date filter is enabled,
 //      the marker should become unselected and the sidebar text should change to default
 
