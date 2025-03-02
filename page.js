@@ -238,13 +238,13 @@ function getMonthName(month) {
     return monthNames[month]
 }
 
-function yearDisplay(title, data) {
-    if (data.month != null && data.day != null) {
-        title.innerHTML = title.innerHTML + " (" + data.day + "-" + data.month + "-" + data.year + ")"
-    } else if (data.month != null) {
-        title.innerHTML = title.innerHTML + " (" + data.month + "-" + data.year + ")"
+function yearDisplay(date) {
+    if (date.getMonth() != null && date.getDate() != null) {
+        return date.getDate() + " " + getMonthName(date.getMonth()) + " " + date.getFullYear()
+    } else if (date.month != null) {
+        return getMonthName(date.getMonth()) + " " + date.getFullYear()
     } else {
-    title.innerHTML = title.innerHTML + " (" + data.year + ")"
+        return date.getFullYear()
     }
 }
 
@@ -258,7 +258,7 @@ function dataFromMarker(e) {
     let marker = findMarkerinList(e.target)
     // sets the info section to the marker
     let time = marker.getLatestEventDate(new Date(startDate.value), new Date(endDate.value))
-    title.innerHTML = marker.getPlaceName() + " — " + time.getDate() + " " + (getMonthName(time.getMonth())) + " " + time.getFullYear()
+    title.innerHTML = marker.getPlaceName() + " — " + yearDisplay(time)
     dataView.innerHTML = marker.getPlaceInfo()
 
     // set image data
