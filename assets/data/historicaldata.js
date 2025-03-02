@@ -14,7 +14,7 @@ const historicaldata =
                     "event": "The Appleton Park area before dumping was a wooded valley.",
                     "img": [
                         {
-                            "src": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjEBOyHayjzN8AX0Q4Z-0jMPnSUb-7xBTWiad9BPdJcNicCWhItl9_JSCD229mfHdA5nWXIF3SQf7EZiQKcFM1H_o2wYRJ_-1thrZ3Yw9YH-ZLJyluqjvfYo1YZPLqkE-7tuYSAkxxI4agO/s1600/ChaytorStreet1929.jpg",
+                            "src": "assets/img/historicaldata/appleton/1965.png",
                             "alt": "Appleton Park 1929-null-null"
                         }
                     ]
@@ -26,7 +26,7 @@ const historicaldata =
                     "event": "Dumping begins at Appleton Park landfill. Toxic wastes include heavy metals, asbestos, and other hazardous materials.",
                     "img": [
                         {
-                            "src": "https://thumbnailer.digitalnz.org/?src=https%3A%2F%2Fndhadeliver.natlib.govt.nz%2FNLNZStreamGate%2Fget%3Fdps_pid%3DIE317133",
+                            "src": "assets/img/historicaldata/appleton/1965.png",
                             "alt": "Appleton Park 1935-null-null"
                         }
                     ]
@@ -38,8 +38,8 @@ const historicaldata =
                     "event": "Appleton Park in 1965, now covered in grass.",
                     "img": [
                         {
-                            "src": "https://archivesonline.wcc.govt.nz/assets/display/260646-max?u=9e350d095b684ae26e476837ac174939",
-                            "alt": "Appleton Park 1965-8-17"
+                            "src": "assets/img/historicaldata/appleton/1965.jpg",
+                            "alt": "Appleton Park in 1965."
                         }
                     ]
                 },

@@ -91,15 +91,24 @@ function clearInfo() {
 function clearPictures() {
     let img = document.getElementById('picture')
     img.style.visibility = 'hidden';
-    img.style.maxHeight = '0px';
 }
 
 // show pictures on right side of the dashboard
 function showPictures() {
     let img = document.getElementById('picture')
     img.style.visibility = 'visible';
-    img.style.maxHeight = '100%';
 }
+
+///////////////////////////////////
+// Introduction Popup
+
+function hideIntro(e) {
+    document.getElementById('introduction').style.display = 'none'
+}
+
+let introClose = document.getElementById('closeIntroButton')
+
+introClose.addEventListener("click", hideIntro)
 
 ///////////////////////////////////
 // Date Range
@@ -221,11 +230,22 @@ function setLMarkerIcon(marker, icon) {
     marker.setLIcon(icon)
 }
 
+
 // helper function get month name from month number
 function getMonthName(month) {
     let monthNames = ["January", "February", "March", "April", "May", "June",
                         "July", "August", "September", "October", "November", "December"]
     return monthNames[month]
+
+
+function yearDisplay(title, data) {
+    if (data.month != null && data.day != null) {
+        title.innerHTML = title.innerHTML + " (" + data.day + "-" + data.month + "-" + data.year + ")"
+    } else if (data.month != null) {
+        title.innerHTML = title.innerHTML + " (" + data.month + "-" + data.year + ")"
+    } else {
+    title.innerHTML = title.innerHTML + " (" + data.year + ")"
+    }
 }
 
 // gets data from a marker class instance given an onclicked map Marker

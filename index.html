@@ -17,6 +17,12 @@
     <div id="centered">
         <img id="topphoto" src="assets/img/icon/s2slogo.jpg" alt="The Zealandia Logo"></img>
         <button id="AddMarker" onclick=markerAdd()>Add Marker</button>
+        <div id="introduction">
+            <div id="introbuttoncontainer">
+                <button id="closeIntroButton">Close</button>
+            </div>
+            <p>This dashboard is meant to showcase the events that shape the Kaiwharawhara Catchment area's health. It was created by volunteers with Kia Mouriora te Kaiwharawhara, also known as the Sanctuary to Sea initiative. Pan around the map and click on pins to learn more!</p>
+        </div>
         <div id="dashboardContainer">
             <div id="optionscontainer">
                 <div id="sideContainer">
@@ -46,7 +52,11 @@
                     </form>
                 </div>
                 <div id="map"></div>
-                <div id="info" style="overflow-y:scroll;">
+                <div id="info">
+                    <div id="PrevNextBox">
+                        <button id="PrevButton"><</button>
+                        <button id="NextButton">></button>
+                    </div>
                     <h2>Kia Mouriora te Kaiwharawhara Dashboard</h2>
                     <h3 id="info-title">To use:</h3>
                     <p id="info-content">Click on a marker to see more information</p>
@@ -55,7 +65,6 @@
                             <script>
                                 let img = document.getElementById('picture')
                                 img.style.visibility = 'hidden';
-                                img.style.maxHeight = '0px';
                             </script>
                         </img>
                     </div>
