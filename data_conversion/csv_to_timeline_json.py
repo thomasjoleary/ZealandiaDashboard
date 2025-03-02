@@ -34,19 +34,20 @@ def csv_to_json(csv_file, json_file):
                 'name': row[0],
                 'lat': float(row[1]),
                 'lng': fix_long(float(row[2])),
+                'info': row[3],
                 'timeline': []
             })
             loc_index = len(locations) - 1
         # add timeline data
         locations[loc_index]['timeline'].append({
-            'year': int(row[3]),
-            'month': int(row[4]) if (row[4] != '' and row[4] != 'null') else None,
-            'day': int(row[5]) if (row[5] != '' and row[5] != 'null') else None,
-            'event': row[6],
+            'year': int(row[4]),
+            'month': int(row[5]) if (row[5] != '' and row[5] != 'null') else None,
+            'day': int(row[6]) if (row[6] != '' and row[6] != 'null') else None,
+            'event': row[7],
             'img': [
                 {
-                    'src': row[7],
-                    'alt': row[0] + ' ' + row[3] + ('-' + row[4] if row[4] != '' else '') + ('-' + row[5] if row[5] != '' else '')
+                    'src': row[8],
+                    'alt': row[0] + ' ' + row[4] + ('-' + row[5] if row[5] != '' else '') + ('-' + row[6] if row[6] != '' else '')
                 }
             ]
         })
@@ -62,3 +63,5 @@ def fix_long(lat):
     if lat > 180:
         return lat - 360
     return lat
+
+csv_to_json('data_conversion/in.csv', 'data_conversion/out.json')
