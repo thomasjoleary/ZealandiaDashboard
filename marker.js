@@ -370,7 +370,7 @@ class marker {
                 console.log(new Date(timeline[i].year, timeline[i].month-1, timeline[i].day), timeline[i].event, image)
             }
         }
-        console.log("timeline added...")
+        console.log("timeline added:")
         console.log(this.eventData)
     }
 

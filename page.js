@@ -379,27 +379,40 @@ popupbutton.addEventListener('click', popupSubmit)
 
 ///////////////////////////////////
 // Sample Markers
-let tangle = markerMaker("Tanglewood", -41.289273, 174.754056)
-tangle.setPlaceInfo("I can see you. Turn around. Testing testing 1, 2, 3!")
-let dam = markerMaker("Dam", -41.298383, 174.744959)
-dam.setPlaceInfo("Dam with a great view and lots of wind.")
-let suspension = markerMaker("John's Suspension Bridge", -41.29768, 174.746854)
-suspension.setPlaceInfo("John LOVES this bridge and its steel cable.")
-let estuary = markerMaker("Estuary", -41.260735, 174.789888)
-estuary.setPlaceInfo("Where the freshwater meets the saltwater!")
-let fishladder = markerMaker("Fish Ladder", -41.259848, 174.769296)
-fishladder.setPlaceInfo("Fish ladder, but also where the two main branches of the river meet!")
-let karoricemetery = markerMaker("Karori Cemetery", -41.276083, 174.751224)
-karoricemetery.setPlaceInfo("Plastic flowers left at graves here are commonly blown into the Kaiwharawhara.")
-let appleton = markerMaker("Appleton Park", -41.285393, 174.754128)
-appleton.setPlaceInfo("Built on top a landfill. Leachate from this landfill leaks into the Kaiwharawhara.")
-const appletonimg = new Image()
-appletonimg.src = "assets/img/historicaldata/appleton/2025.png"
-appletonimg.alt = "Appleton Park in 2025 pictured from the south."
-appleton.addEventData(new Date(2025, 1, 12), "Appleton Park in 2025", appletonimg, [])
-let otari = markerMaker("Otari-Wilton's Bush", -41.266592, 174.755824)
-otari.setPlaceInfo("The only place with untouched bush in Wellington!")
+// let tangle = markerMaker("Tanglewood", -41.289273, 174.754056)
+// tangle.setPlaceInfo("I can see you. Turn around. Testing testing 1, 2, 3!")
+// let dam = markerMaker("Dam", -41.298383, 174.744959)
+// dam.setPlaceInfo("Dam with a great view and lots of wind.")
+// let suspension = markerMaker("John's Suspension Bridge", -41.29768, 174.746854)
+// suspension.setPlaceInfo("John LOVES this bridge and its steel cable.")
+// let estuary = markerMaker("Estuary", -41.260735, 174.789888)
+// estuary.setPlaceInfo("Where the freshwater meets the saltwater!")
+// let fishladder = markerMaker("Fish Ladder", -41.259848, 174.769296)
+// fishladder.setPlaceInfo("Fish ladder, but also where the two main branches of the river meet!")
+// let karoricemetery = markerMaker("Karori Cemetery", -41.276083, 174.751224)
+// karoricemetery.setPlaceInfo("Plastic flowers left at graves here are commonly blown into the Kaiwharawhara.")
+// let appleton = markerMaker("Appleton Park", -41.285393, 174.754128)
+// appleton.setPlaceInfo("Built on top a landfill. Leachate from this landfill leaks into the Kaiwharawhara.")
+// let otari = markerMaker("Otari-Wilton's Bush", -41.266592, 174.755824)
+// otari.setPlaceInfo("The only place with untouched bush in Wellington!")
 ///////////////////////////////////
+// Markers from JSON
+// function to add markers from JSON data
+function addMarkersFromJSON(data) {
+    let obj = data.locations // get locations into obj
+    for (let i = 0; i < obj.length; i++) {
+        let marker = markerMaker(obj[i].name, obj[i].lat, obj[i].lng)
+        marker.setPlaceInfo(obj[i].info) // todo add this column to the json
+        // get timeline data from historicaldata.js
+        marker.setEventDataFromTimeline(getTimeline(obj[i].name)) // todo read tags and place info from timeline data
+        console.log("--------------------")
+        console.log(marker.getEventData())
+    }
+}
+addMarkersFromJSON(historicaldata)
+// todo - display time on dashboard of a picture taken
+// todo - if a marker is selected and then the date filter is enabled,
+// the marker should become unselected and the sidebar text should change to default
 
 
 ///////////////////////////////////
