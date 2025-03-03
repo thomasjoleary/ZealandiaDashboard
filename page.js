@@ -309,6 +309,8 @@ function displayData() {
 // gets data from a marker class instance given an onclicked map Marker
 function dataFromMarker(e) {
 
+    prevButton.disabled = false
+    nextButton.disabled = false
     // gets the pieces of the info section on the right of the dashboard
     let dataView = document.getElementById('info-content')
     let title = document.getElementById('info-title')
@@ -361,7 +363,8 @@ function dataFromMarker(e) {
             img.alt = data.alt
             dataView.innerHTML = marker.getLatestEventDesc(start, end)
             // set displayedData to the eventdata and reset the index
-            displayedData = marker.getRangeEventData(start, end)
+            displayedData = marker.getRangeEventData(start, end, -1)
+
             displayedIndex = 0
             // if there's no more events to go to, disabled the buttons
             nextButton.disabled = true

@@ -143,8 +143,8 @@ class marker {
 
     // return the set of event data that falls within the given date range
     // the set is sorted by date, earliest first
-    getRangeEventData(minDate, maxDate) {
-        this.sortEventData()
+    getRangeEventData(minDate, maxDate, direction) {
+        this.sortEventData(direction)
         return this.eventData.filter(e => new Date(e.date) >= minDate && new Date(e.date) <= maxDate)
     }
 
@@ -152,7 +152,7 @@ class marker {
     // if no event data is found, return null
     getEarliestEventData(minDate, maxDate) {
         // filter by date range
-        let filtered = this.getRangeEventData(minDate, maxDate)
+        let filtered = this.getRangeEventData(minDate, maxDate, 1)
         if (filtered.length === 0) {
             return null
         }
@@ -166,7 +166,7 @@ class marker {
     getLatestEventData(minDate, maxDate) {
         /*console.log("getLatestEventData")*/
         // filter by date range
-        let filtered = this.getRangeEventData(minDate, maxDate)
+        let filtered = this.getRangeEventData(minDate, maxDate, 1)
         /*console.log("filtered", filtered)*/
         if (filtered.length === 0) {
             return null
@@ -309,7 +309,7 @@ class marker {
     // the images are sorted by year, earliest first
     getRangeEventImg(minDate, maxDate) {
         let ret = []
-        let filtered = this.getRangeEventData(minDate, maxDate)
+        let filtered = this.getRangeEventData(minDate, maxDate, 1)
         for (let i = 0; i < filtered.length; i++) {
             ret.push(filtered[i].img)
         }
