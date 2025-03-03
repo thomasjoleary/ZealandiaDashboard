@@ -119,12 +119,8 @@ function displayBetween(start, end) {
     for (let i = 0; i < markerList.length; i++) {
         // if event date is between start and end, display the marker
         if (markerList[i].containsDateWithinRange(start, end)) {
-            console.log("Displaying " + markerList[i].getPlaceName())
-            console.log(markerList[i].getEventData())
             markerList[i].getLMarker()._icon.style.visibility = 'visible'
         } else {
-            console.log("Hiding " + markerList[i].getPlaceName())
-            console.log(markerList[i].getEventData())
             markerList[i].getLMarker()._icon.style.visibility = 'hidden'
         }
     }
@@ -258,6 +254,7 @@ function dataFromMarker(e) {
     let marker = findMarkerinList(e.target)
     // sets the info section to the marker
     let time = marker.getLatestEventDate(new Date(startDate.value), new Date(endDate.value))
+
     title.innerHTML = marker.getPlaceName() + " — " + yearDisplay(time)
     dataView.innerHTML = marker.getPlaceInfo()
 
@@ -267,7 +264,6 @@ function dataFromMarker(e) {
     // if there is an image, make the image box visible and sizeable and display the image
     if (marker.getAllEventImg() == null) {
         clearPictures()
-        console.log("No image data")
     } else {
         showPictures()
         // get bounds of the date range
@@ -275,15 +271,9 @@ function dataFromMarker(e) {
             start = new Date(startDate.value)
             end = new Date(endDate.value)
             // display image closest to end of range
-            console.log(marker.getEventData())
-            console.log("Displaying image closest to end of range")
-            console.log("Img: " + marker.getLatestEventImg(start, end).src)
             let data = marker.getLatestEventImg(start, end)
-            console.log(data)
-            console.log(marker.getEventData())
 
             if (data === null) {
-                console.log("No image in range")
                 clearPictures()
                 return
             }
@@ -294,7 +284,6 @@ function dataFromMarker(e) {
             // get last image data
             let data = marker.getLastEventImg()
             if (data === null) {
-                console.log("No image data")
                 clearPictures()
             } else { // display last image
                 img.src = data.src
@@ -415,8 +404,6 @@ function addMarkersFromJSON(data) {
         marker.setPlaceInfo(obj[i].info) // todo add this column to the json
         // get timeline data from historicaldata.js
         marker.setEventDataFromTimeline(getTimeline(obj[i].name)) // todo read tags and place info from timeline data
-        console.log("--------------------")
-        console.log(marker.getEventData())
     }
 }
 // run the function to add markers from JSON data

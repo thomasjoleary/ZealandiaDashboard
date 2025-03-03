@@ -98,13 +98,11 @@ class marker {
     addEventData(date, desc, img, tags) {
         // if fields are null, do not push
         if (date === null && desc === null && img === null && tags === null) {
-            console.log("Event data is null" + date + desc + img + tags)
             return
         }
         // if eventData is repeat, do not push
         for (let i = 0; i < this.eventData.length; i++) {
             if (this.eventData[i].date === date && this.eventData[i].desc === desc && this.eventData[i].img === img && this.eventData[i].tags === tags) {
-                console.log("Event data already exists" + date + desc + img + tags)
                 return
             }
         }
@@ -115,13 +113,6 @@ class marker {
             "img": img,
             "tags": tags
         })
-        console.log("Event data added" + date + desc + img + tags)
-        console.log(this.eventData)
-        console.log(date)
-        console.log(desc)
-        console.log(img)
-        console.log(tags)
-        console.log({"date": date, "desc": desc, "img": img, "tags": tags})
     }
 
     isEventDataEmpty() {
@@ -164,16 +155,13 @@ class marker {
     // return the most recent event data that falls within the given date range
     // if no event data is found, return null
     getLatestEventData(minDate, maxDate) {
-        console.log("getLatestEventData")
         // filter by date range
         let filtered = this.getRangeEventData(minDate, maxDate)
-        console.log("filtered", filtered)
         if (filtered.length === 0) {
             return null
         }
         // sort by date, latest first
         let sorted = filtered.sort((a, b) => new Date(b.date) - new Date(a.date))
-        console.log("sorted", sorted)
         for (let i = 0; i < sorted.length; i++) {
             if (sorted[i].date === null) {
                 continue
@@ -318,7 +306,6 @@ class marker {
 
     // return the most recent image in the eventData that falls within the given date range
     getLatestEventImg(minDate, maxDate) {
-        console.log("getLatestEventImg")
         let latest = this.getLatestEventData(minDate, maxDate)
         if (latest === null) {
             return null
@@ -371,7 +358,6 @@ class marker {
         }
         // else iterate through the timeline and push the data once for every picture
         // only one picture per event is supported, so there is a new eventData for every picture
-        console.log("timeline adding")
         for (let i = 0; i < timeline.length; i++) {
             for (let j = 0; j < timeline[i].img.length; j++) {
                 let image = new Image()
@@ -383,11 +369,8 @@ class marker {
                     image,
                     [] // todo implement tags into json
                 )
-                console.log(new Date(timeline[i].year, timeline[i].month-1, timeline[i].day), timeline[i].event, image)
             }
         }
-        console.log("timeline added:")
-        console.log(this.eventData)
     }
 
     getEventTags(eventData) {
