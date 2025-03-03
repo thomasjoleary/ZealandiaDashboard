@@ -1,7 +1,6 @@
 function getTimeline(location) {
     for (let i = 0; i < historicaldata.locations.length; i++) {
         if (historicaldata.locations[i].name === location) {
-            console.log("getting timeline of " + location)
             return historicaldata.locations[i].timeline
         }
     }
@@ -88,7 +87,7 @@ const historicaldata =
                     "year": 2025,
                     "month": 1,
                     "day": 16,
-                    "event": "The Kaiwharawhara estuary is an important place for Inanga to lay their eggs. Inanga lay their eggs in low-hanging vegetation to protect them from predators. Restoring native vegetation along the estuary is super important for increasing inanga population. Unfortunately, the estuary collects lots of pollution, which can be harmful to the species that rely on it.",
+                    "event": "The Kaiwharawhara estuary is an important place for inanga to lay their eggs. Inanga lay their eggs in low-hanging vegetation to protect them from predators. Restoring native vegetation along the estuary is super important for increasing inanga population. Unfortunately, the estuary collects lots of pollution, which can be harmful to the species that rely on it.",
                     "img": [
                         {
                             "src": "assets/img/historicaldata/estuary/2025.png",
@@ -168,7 +167,7 @@ const historicaldata =
                     "year": 2025,
                     "month": null,
                     "day": null,
-                    "event": "Trelissick Park contains water crumbling water infrastructure from the 1920's. Recently, a steel sewage pipe has been leaking raw sewage into the Kaiwharawhara stream. (Insert image of sewage pipe)",
+                    "event": "Trelissick Park contains crumbling water infrastructure from the early 20th century. Recently, a steel sewage pipe has been leaking raw sewage into the Kaiwharawhara stream. (Insert image of sewage pipe)",
                     "img": [
                         {
                             "src": "",
@@ -219,7 +218,7 @@ const historicaldata =
             ]
         },
         {
-            "name": "K\u0101kahi/Freshwater Mussel Relocation",
+            "name": "Zealandia Te M\u0101ra a T\u0101ne",
             "lat": -41.294757,
             "lng": 174.749635,
             "info": "K\u0101kahi were relocated here",
@@ -231,8 +230,8 @@ const historicaldata =
                     "event": "150 k\u0101kahi/freshwater mussels (E. menziesii) were collected from Lake K\u014dhangapiripiri in collaboration with Taranaki Wh\u0101nui.",
                     "img": [
                         {
-                            "src": "https://zealandia1.sharepoint.com/S/ConservationResearch/Forms/AllItems.aspx?id=%2FS%2FConservationResearch%2Fh%29%20Species%20Overviews%20%26%20How%2Dto%27s%2FSpecies%20Overviews%2FFauna%2F20241223%20K%C4%81kahi%20freshwater%20mussel%20overview%2Edocx&viewid=18821017%2D10cc%2D4f88%2D929e%2Dc2cfa6fc8c2f&parent=%2FS%2FConservationResearch%2Fh%29%20Species%20Overviews%20%26%20How%2Dto%27s%2FSpecies%20Overviews%2FFauna",
-                            "alt": "K\u0101kahi/Freshwater Mussel Relocation 2018-7-22"
+                            "src": "assets/img/historicaldata/zealandia/kakahi.png",
+                            "alt": "Zealandia Te M\u0101ra a T\u0101ne 2018-7-22"
                         }
                     ]
                 },
@@ -244,7 +243,7 @@ const historicaldata =
                     "img": [
                         {
                             "src": "^",
-                            "alt": "K\u0101kahi/Freshwater Mussel Relocation 2018-7-21"
+                            "alt": "Zealandia Te M\u0101ra a T\u0101ne 2018-7-21"
                         }
                     ]
                 },
@@ -256,7 +255,7 @@ const historicaldata =
                     "img": [
                         {
                             "src": "^",
-                            "alt": "K\u0101kahi/Freshwater Mussel Relocation 2018-8-1"
+                            "alt": "Zealandia Te M\u0101ra a T\u0101ne 2018-8-1"
                         }
                     ]
                 },
@@ -268,18 +267,10 @@ const historicaldata =
                     "img": [
                         {
                             "src": "^",
-                            "alt": "K\u0101kahi/Freshwater Mussel Relocation 2022"
+                            "alt": "Zealandia Te M\u0101ra a T\u0101ne 2022"
                         }
                     ]
-                }
-            ]
-        },
-        {
-            "name": "Toitoi/Common Bully Relocation",
-            "lat": -41.294757,
-            "lng": 174.749635,
-            "info": "Toitoi were relocated here",
-            "timeline": [
+                },
                 {
                     "year": 2023,
                     "month": null,
@@ -288,7 +279,7 @@ const historicaldata =
                     "img": [
                         {
                             "src": "https://zealandia1.sharepoint.com/S/ConservationResearch/Forms/AllItems.aspx?id=%2FS%2FConservationResearch%2Fh%29%20Species%20Overviews%20%26%20How%2Dto%27s%2FSpecies%20Overviews%2FFauna%2F20241224%20Toitoi%2DGobiomorphus%20cotidianus%20Overview%2Edocx&viewid=18821017%2D10cc%2D4f88%2D929e%2Dc2cfa6fc8c2f&parent=%2FS%2FConservationResearch%2Fh%29%20Species%20Overviews%20%26%20How%2Dto%27s%2FSpecies%20Overviews%2FFauna",
-                            "alt": "Toitoi/Common Bully Relocation 2023"
+                            "alt": "Zealandia Te M\u0101ra a T\u0101ne 2023"
                         }
                     ]
                 },
@@ -300,7 +291,7 @@ const historicaldata =
                     "img": [
                         {
                             "src": "^",
-                            "alt": "Toitoi/Common Bully Relocation 2024"
+                            "alt": "Zealandia Te M\u0101ra a T\u0101ne 2024"
                         }
                     ]
                 },
@@ -312,18 +303,10 @@ const historicaldata =
                     "img": [
                         {
                             "src": "^",
-                            "alt": "Toitoi/Common Bully Relocation 2025"
+                            "alt": "Zealandia Te M\u0101ra a T\u0101ne 2025"
                         }
                     ]
-                }
-            ]
-        },
-        {
-            "name": "Pua o te R\u0113inga/Woodrose Relocation",
-            "lat": -41.294757,
-            "lng": 174.749635,
-            "info": "Pua o te R\u0113inga were relocated here",
-            "timeline": [
+                },
                 {
                     "year": 2020,
                     "month": 10,
@@ -332,18 +315,10 @@ const historicaldata =
                     "img": [
                         {
                             "src": "https://zealandia1.sharepoint.com/S/ConservationResearch/Forms/AllItems.aspx?id=%2FS%2FConservationResearch%2Fh%29%20Species%20Overviews%20%26%20How%2Dto%27s%2FSpecies%20Overviews%2FFlora%2F20241227%20Dactylanthus%20taylorii%20Overview%2Edocx&viewid=18821017%2D10cc%2D4f88%2D929e%2Dc2cfa6fc8c2f&parent=%2FS%2FConservationResearch%2Fh%29%20Species%20Overviews%20%26%20How%2Dto%27s%2FSpecies%20Overviews%2FFlora",
-                            "alt": "Pua o te R\u0113inga/Woodrose Relocation 2020-10-13"
+                            "alt": "Zealandia Te M\u0101ra a T\u0101ne 2020-10-13"
                         }
                     ]
-                }
-            ]
-        },
-        {
-            "name": "Pirita/Green Mistletoe Relocation",
-            "lat": -41.294757,
-            "lng": 174.749635,
-            "info": "Pirita were relocated here",
-            "timeline": [
+                },
                 {
                     "year": 2004,
                     "month": 5,
@@ -352,7 +327,7 @@ const historicaldata =
                     "img": [
                         {
                             "src": "https://zealandia1.sharepoint.com/S/ConservationResearch/Forms/AllItems.aspx?id=%2FS%2FConservationResearch%2Fh%29%20Species%20Overviews%20%26%20How%2Dto%27s%2FSpecies%20Overviews%2FFlora%2FMistletoe%20Overviews%2F20241227%20Ileostylus%20micranthus%20Overview%2Edocx&viewid=18821017%2D10cc%2D4f88%2D929e%2Dc2cfa6fc8c2f&parent=%2FS%2FConservationResearch%2Fh%29%20Species%20Overviews%20%26%20How%2Dto%27s%2FSpecies%20Overviews%2FFlora%2FMistletoe%20Overviews",
-                            "alt": "Pirita/Green Mistletoe Relocation 2004-5-20"
+                            "alt": "Zealandia Te M\u0101ra a T\u0101ne 2004-5-20"
                         }
                     ]
                 },
@@ -364,7 +339,7 @@ const historicaldata =
                     "img": [
                         {
                             "src": "https://zealandia1.sharepoint.com/S/ConservationResearch/Forms/AllItems.aspx?id=%2FS%2FConservationResearch%2Fh%29%20Species%20Overviews%20%26%20How%2Dto%27s%2FSpecies%20Overviews%2FFlora%2FMistletoe%20Overviews%2F20241227%20Mistletoe%20in%20Zealandia%20Overview%2Edocx&viewid=18821017%2D10cc%2D4f88%2D929e%2Dc2cfa6fc8c2f&parent=%2FS%2FConservationResearch%2Fh%29%20Species%20Overviews%20%26%20How%2Dto%27s%2FSpecies%20Overviews%2FFlora%2FMistletoe%20Overviews",
-                            "alt": "Pirita/Green Mistletoe Relocation 2018-5-2"
+                            "alt": "Zealandia Te M\u0101ra a T\u0101ne 2018-5-2"
                         }
                     ]
                 },
@@ -376,7 +351,7 @@ const historicaldata =
                     "img": [
                         {
                             "src": "^^",
-                            "alt": "Pirita/Green Mistletoe Relocation 2022"
+                            "alt": "Zealandia Te M\u0101ra a T\u0101ne 2022"
                         }
                     ]
                 },
@@ -388,18 +363,10 @@ const historicaldata =
                     "img": [
                         {
                             "src": "^^",
-                            "alt": "Pirita/Green Mistletoe Relocation 2024-5-16"
+                            "alt": "Zealandia Te M\u0101ra a T\u0101ne 2024-5-16"
                         }
                     ]
-                }
-            ]
-        },
-        {
-            "name": "Pirita/Mistletoe Relocation",
-            "lat": -41.294757,
-            "lng": 174.749635,
-            "info": "Pirita were relocated here",
-            "timeline": [
+                },
                 {
                     "year": 2024,
                     "month": 11,
@@ -408,18 +375,10 @@ const historicaldata =
                     "img": [
                         {
                             "src": "^^",
-                            "alt": "Pirita/Mistletoe Relocation 2024"
+                            "alt": "Zealandia Te M\u0101ra a T\u0101ne 2024"
                         }
                     ]
-                }
-            ]
-        },
-        {
-            "name": "White Mistletoe Relocation",
-            "lat": -41.294757,
-            "lng": 174.749635,
-            "info": "White mistletoe were relocated here",
-            "timeline": [
+                },
                 {
                     "year": 2023,
                     "month": 11,
@@ -428,18 +387,10 @@ const historicaldata =
                     "img": [
                         {
                             "src": "https://zealandia1.sharepoint.com/S/ConservationResearch/Forms/AllItems.aspx?id=%2FS%2FConservationResearch%2Fh%29%20Species%20Overviews%20%26%20How%2Dto%27s%2FSpecies%20Overviews%2FFlora%2FMistletoe%20Overviews%2F20241227%20Tupeia%20antarctica%20Overview%2Edocx&viewid=18821017%2D10cc%2D4f88%2D929e%2Dc2cfa6fc8c2f&parent=%2FS%2FConservationResearch%2Fh%29%20Species%20Overviews%20%26%20How%2Dto%27s%2FSpecies%20Overviews%2FFlora%2FMistletoe%20Overviews",
-                            "alt": "White Mistletoe Relocation 2023-11-22"
+                            "alt": "Zealandia Te M\u0101ra a T\u0101ne 2023-11-22"
                         }
                     ]
-                }
-            ]
-        },
-        {
-            "name": "Eurasian Perch Removal",
-            "lat": -41.294757,
-            "lng": 174.749635,
-            "info": "Eurasion perch were introduced here",
-            "timeline": [
+                },
                 {
                     "year": 1874,
                     "month": null,
@@ -448,7 +399,7 @@ const historicaldata =
                     "img": [
                         {
                             "src": "https://zealandia1.sharepoint.com/S/ConservationResearch/Forms/AllItems.aspx?id=%2FS%2FConservationResearch%2Ff%29%20Projects%2Fk%29%20Lake%20Rehabilitation%2FLower%20lake%20eradication%202020%2Fb%29%20operations%20%26%20planning%2FField%20operations%2FField%5Fsurveys%2Felectric%20fishing%20report%2FRemoval%20of%20perch%20from%20Roto%20Kawau%202020%2Epdf&viewid=18821017%2D10cc%2D4f88%2D929e%2Dc2cfa6fc8c2f&q=eurasian%20perch&parent=%2FS%2FConservationResearch&parentview=7",
-                            "alt": "Eurasian Perch Removal 1874"
+                            "alt": "Zealandia Te M\u0101ra a T\u0101ne 1874"
                         }
                     ]
                 },
@@ -460,7 +411,7 @@ const historicaldata =
                     "img": [
                         {
                             "src": "^",
-                            "alt": "Eurasian Perch Removal 2007"
+                            "alt": "Zealandia Te M\u0101ra a T\u0101ne 2007"
                         }
                     ]
                 },
@@ -472,7 +423,7 @@ const historicaldata =
                     "img": [
                         {
                             "src": "^",
-                            "alt": "Eurasian Perch Removal 2008"
+                            "alt": "Zealandia Te M\u0101ra a T\u0101ne 2008"
                         }
                     ]
                 },
@@ -484,7 +435,7 @@ const historicaldata =
                     "img": [
                         {
                             "src": "^",
-                            "alt": "Eurasian Perch Removal 2009"
+                            "alt": "Zealandia Te M\u0101ra a T\u0101ne 2009"
                         }
                     ]
                 },
@@ -496,7 +447,7 @@ const historicaldata =
                     "img": [
                         {
                             "src": "^",
-                            "alt": "Eurasian Perch Removal 2011"
+                            "alt": "Zealandia Te M\u0101ra a T\u0101ne 2011"
                         }
                     ]
                 },
@@ -508,18 +459,10 @@ const historicaldata =
                     "img": [
                         {
                             "src": "^",
-                            "alt": "Eurasian Perch Removal 2020-2-17"
+                            "alt": "Zealandia Te M\u0101ra a T\u0101ne 2020-2-17"
                         }
                     ]
-                }
-            ]
-        },
-        {
-            "name": "Frog Release",
-            "lat": -41.294757,
-            "lng": 174.749635,
-            "info": "Frogs were released here",
-            "timeline": [
+                },
                 {
                     "year": 2024,
                     "month": 8,
@@ -528,7 +471,7 @@ const historicaldata =
                     "img": [
                         {
                             "src": "https://zealandia1.sharepoint.com/S/ConservationResearch/Forms/AllItems.aspx?id=%2FS%2FConservationResearch%2Fd%29%20Monitoring%20%26%20Management%2FNative%2FFauna%2FFrogs%2FHamilton%27s%20frogs%20%28formerly%20Maud%20Island%20frogs%29%2F1%29%20Monitoring%20%26%20data%2F3%29%20Surveys%20by%20year%20%282022%2Dpresent%29%2F2024%2F2024%20release%2FData%5F2024%20frog%20release%2Exlsx&viewid=18821017%2D10cc%2D4f88%2D929e%2Dc2cfa6fc8c2f&parent=%2FS%2FConservationResearch%2Fd%29%20Monitoring%20%26%20Management%2FNative%2FFauna%2FFrogs%2FHamilton%27s%20frogs%20%28formerly%20Maud%20Island%20frogs%29%2F1%29%20Monitoring%20%26%20data%2F3%29%20Surveys%20by%20year%20%282022%2Dpresent%29%2F2024%2F2024%20release",
-                            "alt": "Frog Release 2024-8-22"
+                            "alt": "Zealandia Te M\u0101ra a T\u0101ne 2024-8-22"
                         }
                     ]
                 },
@@ -540,18 +483,10 @@ const historicaldata =
                     "img": [
                         {
                             "src": "^",
-                            "alt": "Frog Release 2024-8-30"
+                            "alt": "Zealandia Te M\u0101ra a T\u0101ne 2024-8-30"
                         }
                     ]
-                }
-            ]
-        },
-        {
-            "name": "Brown Trout Removal",
-            "lat": -41.294757,
-            "lng": 174.749635,
-            "info": "Brown trout were removed from here",
-            "timeline": [
+                },
                 {
                     "year": 2011,
                     "month": null,
@@ -560,7 +495,7 @@ const historicaldata =
                     "img": [
                         {
                             "src": "https://zealandia1.sharepoint.com/S/ConservationResearch/Forms/AllItems.aspx?id=%2FS%2FConservationResearch%2Fh%29%20Species%20Overviews%20%26%20How%2Dto%27s%2FSpecies%20Overviews%2FFauna%2F20241224%20Toitoi%2DGobiomorphus%20cotidianus%20Overview%2Edocx&viewid=18821017%2D10cc%2D4f88%2D929e%2Dc2cfa6fc8c2f&parent=%2FS%2FConservationResearch%2Fh%29%20Species%20Overviews%20%26%20How%2Dto%27s%2FSpecies%20Overviews%2FFauna",
-                            "alt": "Brown Trout Removal 2011"
+                            "alt": "Zealandia Te M\u0101ra a T\u0101ne 2011"
                         }
                     ]
                 }
