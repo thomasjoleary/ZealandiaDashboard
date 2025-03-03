@@ -65,7 +65,7 @@ body {
     margin: 10px;
     padding: 10px;
     width: 30%;
-    max-height: 500px;
+    max-height: 520px;
     display: flex;
     flex-direction: column;
     border-style: solid;
@@ -239,8 +239,8 @@ input[type="range"] {
     border: solid 5px #f26422;
     padding: 20px;
     width: 60%;
-    height: 25%;
-    font-size: 30px;
+    height: 30%;
+    font-size: 28px;
     
 }
 
@@ -248,4 +248,8 @@ input[type="range"] {
     display: flex;
     justify-content: right;
     align-items: right;
+}
+
+#closeIntroButton {
+    margin: 5px;
 }
