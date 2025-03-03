@@ -317,8 +317,14 @@ function dataFromMarker(e) {
     let img = document.getElementById('picture')
     // gets the clicked map Marker's marker class instance
     let marker = findMarkerinList(e.target)
+    console.log(marker)
     // sets the info section to the marker
-    let time = marker.getLatestEventDate(new Date(startDate.value), new Date(endDate.value))
+    let time
+    if (enableDates.checked === true) {
+        time = marker.getLatestEventDate(new Date(startDate.value), new Date(endDate.value))
+    } else {
+        time = marker.getLastEventDate()
+    }
     title.innerHTML = marker.getPlaceName() + " — " + time.getDate() + " " + (getMonthName(time.getMonth())) + " " + time.getFullYear()
     dataView.innerHTML = marker.getPlaceInfo()
 
