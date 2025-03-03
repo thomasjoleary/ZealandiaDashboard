@@ -168,13 +168,13 @@ enableDates.onclick = function() {
 // updates the map when the starting interval slider is moved
 startDate.oninput = function() {
     endDate.min = startDate.value
-    displayBetween(date.convertDatetoObject(startDate.value), date.convertDatetoObject(endDate.value))
+    displayBetween(convertDatetoObject(startDate.value), convertDatetoObject(endDate.value))
 }
 
 // updates the map when the ending interval slider is moved
 endDate.oninput = function() {
     startDate.max = endDate.value
-    displayBetween(convertDatetoObject(startDate), convertDatetoObject(endDate))
+    displayBetween(convertDatetoObject(startDate.value), convertDatetoObject(endDate.value))
 }
 
 
