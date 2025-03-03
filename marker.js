@@ -14,7 +14,7 @@ class marker {
         // eventData
         this.eventData = [
             {
-                "date": null, // Date() object
+                "date": null, // date() object from date.js
                 "desc": null,
                 "img": null, // Image() object
                 "tags": []
@@ -98,16 +98,20 @@ class marker {
     addEventData(date, desc, img, tags) {
         // if fields are null, do not push
         if (date === null && desc === null && img === null && tags === null) {
-            /*console.log("Event data is null" + date + desc + img + tags)*/
+            return
+        }
+        // if fields are null and tags is empty, do not push
+        if (date === null && desc === null && img === null && tags.length === 0) {
+
             return
         }
         // if eventData is repeat, do not push
         for (let i = 0; i < this.eventData.length; i++) {
             if (this.eventData[i].date === date && this.eventData[i].desc === desc && this.eventData[i].img === img && this.eventData[i].tags === tags) {
-                /*console.log("Event data already exists" + date + desc + img + tags)*/
                 return
             }
         }
+
         // otherwise push the eventData
         this.eventData.push({
             "date": date,
@@ -115,17 +119,15 @@ class marker {
             "img": img,
             "tags": tags
         })
-        /*console.log("Event data added" + date + desc + img + tags)
-        console.log(this.eventData)
-        console.log(date)
-        console.log(desc)
-        console.log(img)
-        console.log(tags)
-        console.log({"date": date, "desc": desc, "img": img, "tags": tags})*/
     }
 
     isEventDataEmpty() {
         return this.eventData.length === 0
+    }
+
+    // list all eventData dates
+    listEventDataDates() {
+        return this.eventData.map(e => e.date)
     }
 
     // sort the eventData by date
@@ -134,10 +136,11 @@ class marker {
     // if no direction is given, the data will be sorted in ascending order
     sortEventData(direction = 1) {
         if (direction === -1) {
-            return this.eventData.sort((a, b) => new Date(b.date) - new Date(a.date))
+            return this.eventData.sort((a, b) => date.compareDates(a.date,b.date))
         }
         else {
-            return this.eventData.sort((a, b) => new Date(a.date) - new Date(b.date))
+            let sorted = this.eventData.sort((a, b) => date.compareDates(b.date, a.date))
+            return sorted
         }
     }
 
@@ -145,7 +148,7 @@ class marker {
     // the set is sorted by date, earliest first
     getRangeEventData(minDate, maxDate, direction) {
         this.sortEventData(direction)
-        return this.eventData.filter(e => new Date(e.date) >= minDate && new Date(e.date) <= maxDate)
+        return this.eventData.filter(e => date.isDateBefore(minDate, e.date) && date.isDateAfter(maxDate, e.date))
     }
 
     // return the most recent event data that falls within the given date range
@@ -157,23 +160,20 @@ class marker {
             return null
         }
         // sort by date, earliest first
-        let sorted = filtered.sort((a, b) => new Date(a.date) - new Date(b.date))
+        let sorted = filtered.sort((a, b) => date.compareDates(new date(a.date), new date(b.date)))
         return sorted[0]
     }
 
     // return the most recent event data that falls within the given date range
     // if no event data is found, return null
     getLatestEventData(minDate, maxDate) {
-        /*console.log("getLatestEventData")*/
         // filter by date range
         let filtered = this.getRangeEventData(minDate, maxDate, 1)
-        /*console.log("filtered", filtered)*/
         if (filtered.length === 0) {
             return null
         }
         // sort by date, latest first
-        let sorted = filtered.sort((a, b) => new Date(b.date) - new Date(a.date))
-        /*console.log("sorted", sorted)*/
+        let sorted = filtered.sort((a, b) => date.compareDates(new date(b.date), new date(a.date)))
         for (let i = 0; i < sorted.length; i++) {
             if (sorted[i].date === null) {
                 continue
@@ -184,18 +184,19 @@ class marker {
     }
 
     getFirstEventData() {
-        return this.eventData.sort((a, b) => new Date(a.date) - new Date(b.date))[0]
+        return this.eventData.sort((a, b) => date.compareDates(new date(a.date), new date(b.date)))[0]
     }
 
     getLastEventData() {
-        return this.eventData.sort((a, b) => new Date(b.date) - new Date(a.date))[0]
+        return this.eventData.sort((a, b) => date.compareDates(new date(b.date), new date(a.date)))[0]
     }
 
     getEventDate(eventData) {
         return eventData.date
     }
 
-    setEventDate(eventData, date) {
+    setEventDate(eventData, year, month, day) {
+        let date = new date(year, month - 1, day)
         eventData.date = date
     }
 
@@ -209,11 +210,11 @@ class marker {
     }
 
     getLastEventDate() {
-        return this.eventData.sort((a, b) => new Date(b.date) - new Date(a.date))[0].date
+        return this.eventData.sort((a, b) => date.compareDates(new date(a.date), new date(b.date)))[0].date
     }
 
     getFirstEventDate() {
-        return this.eventData.sort((a, b) => new Date(a.date) - new Date(b.date))[0].date
+        return this.eventData.sort((a, b) => date.compareDates(new date(b.date), new date(a.date)))[0].date
     }
 
     getEarliestEventDate(minDate, maxDate) {
@@ -241,11 +242,11 @@ class marker {
     }
 
     getFirstEventDesc() {
-        return this.eventData.sort((a, b) => a.date - b.date)[0].desc
+        return this.eventData.sort((a, b) => date.compareDates(new date(a.date), new date(b.date)))[0].desc
     }
 
     getLastEventDesc() {
-        return this.eventData.sort((a, b) => b.date - a.date)[0].desc
+        return this.eventData.sort((a, b) => date.compareDates(new date(b.date), new date(a.date)))[0].desc
     }
 
     getEarliestEventDesc(minDate, maxDate) {
@@ -318,7 +319,6 @@ class marker {
 
     // return the most recent image in the eventData that falls within the given date range
     getLatestEventImg(minDate, maxDate) {
-        /*console.log("getLatestEventImg")*/
         let latest = this.getLatestEventData(minDate, maxDate)
         if (latest === null) {
             return null
@@ -371,23 +371,32 @@ class marker {
         }
         // else iterate through the timeline and push the data once for every picture
         // only one picture per event is supported, so there is a new eventData for every picture
-        /*console.log("timeline adding")*/
         for (let i = 0; i < timeline.length; i++) {
             for (let j = 0; j < timeline[i].img.length; j++) {
                 let image = new Image()
                 image.src = timeline[i].img[j].src
                 image.alt = timeline[i].img[j].alt
-                this.addEventData(new Date(
-                    timeline[i].year, timeline[i].month-1, timeline[i].day),
-                    timeline[i].event,
-                    image,
-                    [] // todo implement tags into json
-                )
-                /*console.log(new Date(timeline[i].year, timeline[i].month-1, timeline[i].day), timeline[i].event, image)*/
+                // if the date is null, push the event without a date
+                if (timeline[i].year === null && timeline[i].month === null && timeline[i].day === null) {
+                    this.addEventData(null, timeline[i].event, image, [])
+                }
+                // if the month or day is null, push the event with only the year
+                else if (timeline[i].month === null || timeline[i].day === null) {
+                    this.addEventData(new date(timeline[i].year, null, null),
+                        timeline[i].event,
+                        image,
+                        []
+                    )
+                } else {
+                    // else push the event with the full date
+                    this.addEventData(new date(timeline[i].year, timeline[i].month-1, timeline[i].day),
+                        timeline[i].event,
+                        image,
+                        [] // todo implement tags into json
+                    )
+                }
             }
         }
-        /*console.log("timeline added:")*/
-        /*console.log(this.eventData)*/
     }
 
     getEventTags(eventData) {
@@ -494,9 +503,11 @@ class marker {
 }
 
 
-isDateWithinRange = function(date, minDate, maxDate) {
-    if (date === null) {
+isDateWithinRange = function(time, minDate, maxDate) {
+    if (time === null) {
         return false
     }
-    return date >= minDate && date <= maxDate
+    return date.isDateBefore(minDate, time) && date.isDateAfter(maxDate, time)
 }
+
+

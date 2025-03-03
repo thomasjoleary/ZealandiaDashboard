@@ -1,4 +1,4 @@
-console.log("d3 Visualization Version:", d3.version);
+// console.log("d3 Visualization Version:", d3.version);
 
 // set dimensions of the canvas / graph
 const xSize = 500;

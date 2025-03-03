@@ -119,12 +119,8 @@ function displayBetween(start, end) {
     for (let i = 0; i < markerList.length; i++) {
         // if event date is between start and end, display the marker
         if (markerList[i].containsDateWithinRange(start, end)) {
-            console.log("Displaying " + markerList[i].getPlaceName())
-            console.log(markerList[i].getEventData())
             markerList[i].getLMarker()._icon.style.visibility = 'visible'
         } else {
-            console.log("Hiding " + markerList[i].getPlaceName())
-            console.log(markerList[i].getEventData())
             markerList[i].getLMarker()._icon.style.visibility = 'hidden'
         }
     }
@@ -144,19 +140,24 @@ startDate.value = "1850-01-01"
 // accesses the ending date
 let endDate = document.getElementById('dateEnd')
 let endDateval = document.getElementById('endValue')
-endDate.value = "2030-12-31"
+endDate.value = new Date().toISOString().split('T')[0]
 // defaults the date inputs to be disabled
 startDate.disabled = true
 endDate.disabled = true
 // accesses the checkbox to enable the interval sliders
 let enableDates = document.getElementById('intervalCheck')
 
+function convertDatetoObject(time) {
+    let obj = new Date(Date.parse(time))
+    return new date(obj.getFullYear(), obj.getMonth() + 1, obj.getDate());
+}
+
 // onclick function to enable and disable the interval sliders
 enableDates.onclick = function() {
     if (enableDates.checked === true) {
         startDate.disabled = false
         endDate.disabled = false
-        displayBetween(new Date(startDate.value), new Date(endDate.value))
+        displayBetween(convertDatetoObject(startDate.value), convertDatetoObject(endDate.value))
     } else if (enableDates.checked === false) {
         startDate.disabled = true
         endDate.disabled = true
@@ -167,13 +168,13 @@ enableDates.onclick = function() {
 // updates the map when the starting interval slider is moved
 startDate.oninput = function() {
     endDate.min = startDate.value
-    displayBetween(new Date(startDate.value), new Date(endDate.value))
+    displayBetween(convertDatetoObject(startDate.value), convertDatetoObject(endDate.value))
 }
 
 // updates the map when the ending interval slider is moved
 endDate.oninput = function() {
     startDate.max = endDate.value
-    displayBetween(new Date(startDate.value), new Date(endDate.value))
+    displayBetween(convertDatetoObject(startDate.value), convertDatetoObject(endDate.value))
 }
 
 
@@ -233,22 +234,37 @@ function setLMarkerIcon(marker, icon) {
     marker.setLIcon(icon)
 }
 
-
 // helper function get month name from month number
-function getMonthName(month) {
-    let monthNames = ["January", "February", "March", "April", "May", "June",
-                        "July", "August", "September", "October", "November", "December"]
-    return monthNames[month]
-}
+// function getMonthName(month) {
+//     let monthNames = ["January", "February", "March", "April", "May", "June",
+//                         "July", "August", "September", "October", "November", "December"]
+//     return monthNames[month]
+// }
 
-function yearDisplay(title, data) {
-    if (data.month != null && data.day != null) {
-        title.innerHTML = title.innerHTML + " (" + data.day + "-" + data.month + "-" + data.year + ")"
-    } else if (data.month != null) {
-        title.innerHTML = title.innerHTML + " (" + data.month + "-" + data.year + ")"
-    } else {
-    title.innerHTML = title.innerHTML + " (" + data.year + ")"
+// function yearDisplay(date) {
+//     if (date.getMonth() != null && date.getDate() != null) {
+//         return date.getDate() + " " + getMonthName(date.getMonth()) + " " + date.getFullYear()
+//     } else if (date.month != null) {
+//         return getMonthName(date.getMonth()) + " " + date.getFullYear()
+//     } else {
+//         return date.getFullYear()
+//     }
+// }
+
+function getDateString(dateObj) {
+    if (dateObj == null) {
+        return "Error: Date object is null"
     }
+    if (dateObj.year != null && dateObj.month != null && dateObj.day != null) {
+        return dateObj.day + " " + dateObj.getMonthName() + " " + dateObj.year;
+    }
+    if (dateObj.year != null && dateObj.month != null) {
+        return dateObj.getMonthName() + " " + dateObj.year;
+    }
+    if (dateObj.year != null) {
+        return dateObj.year;
+    }
+    return "Error: Date not set";
 }
 
 let prevButton = document.getElementById('PrevButton')
@@ -319,13 +335,14 @@ function dataFromMarker(e) {
     let marker = findMarkerinList(e.target)
     console.log(marker)
     // sets the info section to the marker
+
     let time
     if (enableDates.checked === true) {
-        time = marker.getLatestEventDate(new Date(startDate.value), new Date(endDate.value))
+        time = marker.getLatestEventDate(date.convertStringtoObject(startDate.value), date.convertStringtoObject(endDate.value))
     } else {
         time = marker.getLastEventDate()
     }
-    title.innerHTML = marker.getPlaceName() + " — " + time.getDate() + " " + (getMonthName(time.getMonth())) + " " + time.getFullYear()
+    title.innerHTML = marker.getPlaceName() + " — " + getDateString(time)
     dataView.innerHTML = marker.getPlaceInfo()
 
     // if there is a marker currently selected
@@ -341,11 +358,11 @@ function dataFromMarker(e) {
 
     // set image data
     marker.setEventDataFromTimeline(getTimeline(marker.getPlaceName()))
+
     // if there is no image, make the image box invisible and sizeless
     // if there is an image, make the image box visible and sizeable and display the image
     if (marker.getAllEventImg() == null) {
         clearPictures()
-        console.log("No image data")
     } else {
         showPictures()
         // get bounds of the date range
@@ -353,15 +370,9 @@ function dataFromMarker(e) {
             start = new Date(startDate.value)
             end = new Date(endDate.value)
             // display image closest to end of range
-            console.log(marker.getEventData())
-            console.log("Displaying image closest to end of range")
-            console.log("Img: " + marker.getLatestEventImg(start, end).src)
             let data = marker.getLatestEventImg(start, end)
-            console.log(data)
-            console.log(marker.getEventData())
 
             if (data === null) {
-                console.log("No image in range")
                 clearPictures()
                 return
             }
@@ -382,7 +393,6 @@ function dataFromMarker(e) {
             // get last image data
             let data = marker.getLastEventImg()
             if (data === null) {
-                console.log("No image data")
                 clearPictures()
             } else { // display last image
                 img.src = data.src
@@ -503,8 +513,6 @@ function addMarkersFromJSON(data) {
         marker.setPlaceInfo(obj[i].info) // todo add this column to the json
         // get timeline data from historicaldata.js
         marker.setEventDataFromTimeline(getTimeline(obj[i].name)) // todo read tags and place info from timeline data
-        console.log("--------------------")
-        console.log(marker.getEventData())
     }
 }
 // run the function to add markers from JSON data
