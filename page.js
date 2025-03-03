@@ -140,7 +140,7 @@ startDate.value = "1850-01-01"
 // accesses the ending date
 let endDate = document.getElementById('dateEnd')
 let endDateval = document.getElementById('endValue')
-endDate.value = "2030-12-31"
+endDate.value = new Date().toISOString().split('T')[0]
 // defaults the date inputs to be disabled
 startDate.disabled = true
 endDate.disabled = true
