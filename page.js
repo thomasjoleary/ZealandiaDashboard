@@ -183,6 +183,9 @@ endDate.oninput = function() {
 // holds currently selected icon
 let currentSelect
 
+let displayedData = []
+let displayedIndex = 0
+
 // icon for default icons when selected
 let selectedIcon = new L.Icon({
     iconUrl: 'assets/img/icon/marker-icon-2x-blue.png',
@@ -248,8 +251,64 @@ function yearDisplay(title, data) {
     }
 }
 
+let prevButton = document.getElementById('PrevButton')
+let nextButton = document.getElementById('NextButton')
+
+nextButton.onclick = function() {
+    if (displayedIndex === 0) {
+        return
+    }
+    displayedIndex -= 1
+    if (displayedIndex === 0) {
+        nextButton.disabled = true
+    }
+    displayData()
+    if (displayedIndex != displayedData.length - 1) {
+        prevButton.disabled = false
+    }
+}
+
+prevButton.onclick = function() {
+    if (displayedIndex === displayedData.length - 1) {
+        return
+    }
+    displayedIndex += 1
+    if (displayedIndex === displayedData.length - 1) {
+        prevButton.disabled = true
+    }
+    if (displayedIndex != 0) {
+        nextButton.disabled = false
+    }
+    displayData()
+}
+
+// display the current bit of data from an array of event data
+function displayData() {
+
+    let marker = findMarkerinList(currentSelect)
+
+    let edata = displayedData
+    let currentDisplay = edata[displayedIndex]
+    console.log(currentDisplay)
+
+    // gets the pieces of the info section on the right of the dashboard
+    let dataView = document.getElementById('info-content')
+    let title = document.getElementById('info-title')
+    let img = document.getElementById('picture')
+    
+    let time = currentDisplay.date
+    title.innerHTML = marker.getPlaceName() + " — " + time.getDate() + " " + (getMonthName(time.getMonth())) + " " + time.getFullYear()
+    dataView.innerHTML = marker.getPlaceInfo()
+
+    img.src = currentDisplay.img.src
+    img.alt = currentDisplay.img.alt
+    dataView.innerHTML = currentDisplay.desc
+
+}
+
 // gets data from a marker class instance given an onclicked map Marker
 function dataFromMarker(e) {
+
     // gets the pieces of the info section on the right of the dashboard
     let dataView = document.getElementById('info-content')
     let title = document.getElementById('info-title')
@@ -260,6 +319,17 @@ function dataFromMarker(e) {
     let time = marker.getLatestEventDate(new Date(startDate.value), new Date(endDate.value))
     title.innerHTML = marker.getPlaceName() + " — " + time.getDate() + " " + (getMonthName(time.getMonth())) + " " + time.getFullYear()
     dataView.innerHTML = marker.getPlaceInfo()
+
+    // if there is a marker currently selected
+    if (currentSelect) {
+        // set the currently selected Marker to its marker class instance's icon
+        let currentMarker = findMarkerinList(currentSelect)
+        setLMarkerIcon(currentMarker, currentMarker.getLIcon())
+    }
+    // set the icon of the clicked Marker to its marker class instance's selected icon
+    e.target.setIcon(marker.getSIcon())
+    // set the currently selected marker to the clicked marker
+    currentSelect = e.target
 
     // set image data
     marker.setEventDataFromTimeline(getTimeline(marker.getPlaceName()))
@@ -290,6 +360,15 @@ function dataFromMarker(e) {
             img.src = data.src
             img.alt = data.alt
             dataView.innerHTML = marker.getLatestEventDesc(start, end)
+            // set displayedData to the eventdata and reset the index
+            displayedData = marker.getRangeEventData(start, end)
+            displayedIndex = 0
+            // if there's no more events to go to, disabled the buttons
+            nextButton.disabled = true
+            if (displayedData.length <= 1) {
+                prevButton.disabled = true
+            }
+            displayData()
         } else {
             // get last image data
             let data = marker.getLastEventImg()
@@ -300,20 +379,20 @@ function dataFromMarker(e) {
                 img.src = data.src
                 img.alt = data.alt
                 dataView.innerHTML = marker.getLastEventDesc()
+                // set displayedData to the eventdata and reset the index
+                displayedData = marker.getEventData()
+                displayedIndex = 0
+                // if there's no more events to go to, disabled the buttons
+                nextButton.disabled = true
+                if (displayedData.length <= 1) {
+                    prevButton.disabled = true
+                }
+                displayData()
             }
         }
     }
 
-    // if there is a marker currently selected
-    if (currentSelect) {
-        // set the currently selected Marker to its marker class instance's icon
-        let currentMarker = findMarkerinList(currentSelect)
-        setLMarkerIcon(currentMarker, currentMarker.getLIcon())
-    }
-    // set the icon of the clicked Marker to its marker class instance's selected icon
-    e.target.setIcon(marker.getSIcon())
-    // set the currently selected marker to the clicked marker
-    currentSelect = e.target
+    
 }
 
 
@@ -438,12 +517,16 @@ function onMapClick(e) {
 
     // clears the info on the right side of the dashboard on clicking the map
     clearInfo()
+    prevButton.disabled = false
+    nextButton.disabled = false
 
 }
 // sets the onclick of the map
 map.on('click', onMapClick);
 ///////////////////////////////////
 // Coordinate box
+// ***FOR DEBUGGING PURPOSE***
+/*
 var coordsText = "Mouse coordinates:";
 map.on('mousemove', onMapMouseMove);
 // when the mouse moves on the map, updates the coordinate box
@@ -454,7 +537,7 @@ function onMapMouseMove(e) {
     y = e.latlng.lng.toFixed(5);
     coordsText = "Mouse coordinates: " + x + ", " + y;
     document.getElementById("coordsbox").innerHTML = coordsText;
-}
+}*/
 ///////////////////////////////////
 
 // adds a popup when the catchment overlay is clicked on
