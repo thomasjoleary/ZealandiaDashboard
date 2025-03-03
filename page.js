@@ -313,7 +313,7 @@ function displayData() {
     let img = document.getElementById('picture')
     
     let time = currentDisplay.date
-    title.innerHTML = marker.getPlaceName() + " — " + time.getDate() + " " + (getMonthName(time.getMonth())) + " " + time.getFullYear()
+    title.innerHTML = marker.getPlaceName() + " — " + getDateString(time)
     dataView.innerHTML = marker.getPlaceInfo()
 
     img.src = currentDisplay.img.src
@@ -358,17 +358,17 @@ function dataFromMarker(e) {
 
     // set image data
     marker.setEventDataFromTimeline(getTimeline(marker.getPlaceName()))
-
     // if there is no image, make the image box invisible and sizeless
     // if there is an image, make the image box visible and sizeable and display the image
     if (marker.getAllEventImg() == null) {
+        console.log("no image")
         clearPictures()
     } else {
         showPictures()
         // get bounds of the date range
-        if (document.getElementById('intervalCheck').checked) {
-            start = new Date(startDate.value)
-            end = new Date(endDate.value)
+        if (enableDates.checked === true) {
+            start = convertDatetoObject(new Date(startDate.value))
+            end = convertDatetoObject(new Date(endDate.value))
             // display image closest to end of range
             let data = marker.getLatestEventImg(start, end)
 
@@ -380,7 +380,7 @@ function dataFromMarker(e) {
             img.alt = data.alt
             dataView.innerHTML = marker.getLatestEventDesc(start, end)
             // set displayedData to the eventdata and reset the index
-            displayedData = marker.getRangeEventData(start, end, -1)
+            displayedData = marker.getRangeEventData(start, end, 1)
 
             displayedIndex = 0
             // if there's no more events to go to, disabled the buttons
