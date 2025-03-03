@@ -147,12 +147,17 @@ endDate.disabled = true
 // accesses the checkbox to enable the interval sliders
 let enableDates = document.getElementById('intervalCheck')
 
+function convertDatetoObject(time) {
+    let obj = new Date(Date.parse(time))
+    return new date(obj.getFullYear(), obj.getMonth() + 1, obj.getDate());
+}
+
 // onclick function to enable and disable the interval sliders
 enableDates.onclick = function() {
     if (enableDates.checked === true) {
         startDate.disabled = false
         endDate.disabled = false
-        displayBetween(new Date(startDate.value), new Date(endDate.value))
+        displayBetween(convertDatetoObject(startDate.value), convertDatetoObject(endDate.value))
     } else if (enableDates.checked === false) {
         startDate.disabled = true
         endDate.disabled = true
@@ -163,13 +168,13 @@ enableDates.onclick = function() {
 // updates the map when the starting interval slider is moved
 startDate.oninput = function() {
     endDate.min = startDate.value
-    displayBetween(new Date(startDate.value), new Date(endDate.value))
+    displayBetween(date.convertDatetoObject(startDate.value), date.convertDatetoObject(endDate.value))
 }
 
 // updates the map when the ending interval slider is moved
 endDate.oninput = function() {
     startDate.max = endDate.value
-    displayBetween(new Date(startDate.value), new Date(endDate.value))
+    displayBetween(convertDatetoObject(startDate), convertDatetoObject(endDate))
 }
 
 
@@ -226,22 +231,37 @@ function setLMarkerIcon(marker, icon) {
     marker.setLIcon(icon)
 }
 
-
 // helper function get month name from month number
-function getMonthName(month) {
-    let monthNames = ["January", "February", "March", "April", "May", "June",
-                        "July", "August", "September", "October", "November", "December"]
-    return monthNames[month]
-}
+// function getMonthName(month) {
+//     let monthNames = ["January", "February", "March", "April", "May", "June",
+//                         "July", "August", "September", "October", "November", "December"]
+//     return monthNames[month]
+// }
 
-function yearDisplay(date) {
-    if (date.getMonth() != null && date.getDate() != null) {
-        return date.getDate() + " " + getMonthName(date.getMonth()) + " " + date.getFullYear()
-    } else if (date.month != null) {
-        return getMonthName(date.getMonth()) + " " + date.getFullYear()
-    } else {
-        return date.getFullYear()
+// function yearDisplay(date) {
+//     if (date.getMonth() != null && date.getDate() != null) {
+//         return date.getDate() + " " + getMonthName(date.getMonth()) + " " + date.getFullYear()
+//     } else if (date.month != null) {
+//         return getMonthName(date.getMonth()) + " " + date.getFullYear()
+//     } else {
+//         return date.getFullYear()
+//     }
+// }
+
+function getDateString(dateObj) {
+    if (dateObj == null) {
+        return "Error: Date object is null"
     }
+    if (dateObj.year != null && dateObj.month != null && dateObj.day != null) {
+        return dateObj.day + " " + dateObj.getMonthName() + " " + dateObj.year;
+    }
+    if (dateObj.year != null && dateObj.month != null) {
+        return dateObj.getMonthName() + " " + dateObj.year;
+    }
+    if (dateObj.year != null) {
+        return dateObj.year;
+    }
+    return "Error: Date not set";
 }
 
 // gets data from a marker class instance given an onclicked map Marker
@@ -253,13 +273,13 @@ function dataFromMarker(e) {
     // gets the clicked map Marker's marker class instance
     let marker = findMarkerinList(e.target)
     // sets the info section to the marker
-    let time = marker.getLatestEventDate(new Date(startDate.value), new Date(endDate.value))
+    let time = marker.getLatestEventDate(date.convertStringtoObject(startDate.value), date.convertStringtoObject(endDate.value))
 
-    title.innerHTML = marker.getPlaceName() + " — " + yearDisplay(time)
+    title.innerHTML = marker.getPlaceName() + " — " + getDateString(time)
     dataView.innerHTML = marker.getPlaceInfo()
 
-    // set image data
-    marker.setEventDataFromTimeline(getTimeline(marker.getPlaceName()))
+    // // set image data
+    // marker.setEventDataFromTimeline(getTimeline(marker.getPlaceName()))
     // if there is no image, make the image box invisible and sizeless
     // if there is an image, make the image box visible and sizeable and display the image
     if (marker.getAllEventImg() == null) {

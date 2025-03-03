@@ -14,7 +14,7 @@ class marker {
         // eventData
         this.eventData = [
             {
-                "date": null, // Date() object
+                "date": null, // date() object from date.js
                 "desc": null,
                 "img": null, // Image() object
                 "tags": []
@@ -100,12 +100,17 @@ class marker {
         if (date === null && desc === null && img === null && tags === null) {
             return
         }
+        // if fields are null and tags is empty, do not push
+        if (date === null && desc === null && img === null && tags.length === 0) {
+            return
+        }
         // if eventData is repeat, do not push
         for (let i = 0; i < this.eventData.length; i++) {
             if (this.eventData[i].date === date && this.eventData[i].desc === desc && this.eventData[i].img === img && this.eventData[i].tags === tags) {
                 return
             }
         }
+
         // otherwise push the eventData
         this.eventData.push({
             "date": date,
@@ -119,16 +124,22 @@ class marker {
         return this.eventData.length === 0
     }
 
+    // list all eventData dates
+    listEventDataDates() {
+        return this.eventData.map(e => e.date)
+    }
+
     // sort the eventData by date
     // direction = 1 for ascending (earliest first), -1 for descending (latest first)
     // if a different direction value is given, the data will be sorted in ascending order
     // if no direction is given, the data will be sorted in ascending order
     sortEventData(direction = 1) {
         if (direction === -1) {
-            return this.eventData.sort((a, b) => new Date(b.date) - new Date(a.date))
+            return this.eventData.sort((a, b) => date.compareDates(a.date,b.date))
         }
         else {
-            return this.eventData.sort((a, b) => new Date(a.date) - new Date(b.date))
+            let sorted = this.eventData.sort((a, b) => date.compareDates(b.date, a.date))
+            return sorted
         }
     }
 
@@ -136,7 +147,7 @@ class marker {
     // the set is sorted by date, earliest first
     getRangeEventData(minDate, maxDate) {
         this.sortEventData()
-        return this.eventData.filter(e => new Date(e.date) >= minDate && new Date(e.date) <= maxDate)
+        return this.eventData.filter(e => date.isDateBefore(minDate, e.date) && date.isDateAfter(maxDate, e.date))
     }
 
     // return the most recent event data that falls within the given date range
@@ -148,7 +159,7 @@ class marker {
             return null
         }
         // sort by date, earliest first
-        let sorted = filtered.sort((a, b) => new Date(a.date) - new Date(b.date))
+        let sorted = filtered.sort((a, b) => date.compareDates(new date(a.date), new date(b.date)))
         return sorted[0]
     }
 
@@ -161,7 +172,7 @@ class marker {
             return null
         }
         // sort by date, latest first
-        let sorted = filtered.sort((a, b) => new Date(b.date) - new Date(a.date))
+        let sorted = filtered.sort((a, b) => date.compareDates(new date(b.date), new date(a.date)))
         for (let i = 0; i < sorted.length; i++) {
             if (sorted[i].date === null) {
                 continue
@@ -172,18 +183,19 @@ class marker {
     }
 
     getFirstEventData() {
-        return this.eventData.sort((a, b) => new Date(a.date) - new Date(b.date))[0]
+        return this.eventData.sort((a, b) => date.compareDates(new date(a.date), new date(b.date)))[0]
     }
 
     getLastEventData() {
-        return this.eventData.sort((a, b) => new Date(b.date) - new Date(a.date))[0]
+        return this.eventData.sort((a, b) => date.compareDates(new date(b.date), new date(a.date)))[0]
     }
 
     getEventDate(eventData) {
         return eventData.date
     }
 
-    setEventDate(eventData, date) {
+    setEventDate(eventData, year, month, day) {
+        let date = new date(year, month - 1, day)
         eventData.date = date
     }
 
@@ -197,11 +209,11 @@ class marker {
     }
 
     getLastEventDate() {
-        return this.eventData.sort((a, b) => new Date(b.date) - new Date(a.date))[0].date
+        return this.eventData.sort((a, b) => date.compareDates(new date(a.date), new date(b.date)))[0].date
     }
 
     getFirstEventDate() {
-        return this.eventData.sort((a, b) => new Date(a.date) - new Date(b.date))[0].date
+        return this.eventData.sort((a, b) => date.compareDates(new date(b.date), new date(a.date)))[0].date
     }
 
     getEarliestEventDate(minDate, maxDate) {
@@ -229,11 +241,11 @@ class marker {
     }
 
     getFirstEventDesc() {
-        return this.eventData.sort((a, b) => a.date - b.date)[0].desc
+        return this.eventData.sort((a, b) => date.compareDates(new date(a.date), new date(b.date)))[0].desc
     }
 
     getLastEventDesc() {
-        return this.eventData.sort((a, b) => b.date - a.date)[0].desc
+        return this.eventData.sort((a, b) => date.compareDates(new date(b.date), new date(a.date)))[0].desc
     }
 
     getEarliestEventDesc(minDate, maxDate) {
@@ -351,7 +363,7 @@ class marker {
     }
 
     setEventDataFromTimeline(timeline) {
-        this.EventData = []
+        this.eventData = []
         // if there is no timeline, return
         if (timeline === null || timeline === undefined) {
             return
@@ -363,12 +375,25 @@ class marker {
                 let image = new Image()
                 image.src = timeline[i].img[j].src
                 image.alt = timeline[i].img[j].alt
-                this.addEventData(new Date(
-                    timeline[i].year, timeline[i].month-1, timeline[i].day),
-                    timeline[i].event,
-                    image,
-                    [] // todo implement tags into json
-                )
+                // if the date is null, push the event without a date
+                if (timeline[i].year === null && timeline[i].month === null && timeline[i].day === null) {
+                    this.addEventData(null, timeline[i].event, image, [])
+                }
+                // if the month or day is null, push the event with only the year
+                else if (timeline[i].month === null || timeline[i].day === null) {
+                    this.addEventData(new date(timeline[i].year, null, null),
+                        timeline[i].event,
+                        image,
+                        []
+                    )
+                } else {
+                    // else push the event with the full date
+                    this.addEventData(new date(timeline[i].year, timeline[i].month-1, timeline[i].day),
+                        timeline[i].event,
+                        image,
+                        [] // todo implement tags into json
+                    )
+                }
             }
         }
     }
@@ -477,9 +502,110 @@ class marker {
 }
 
 
-isDateWithinRange = function(date, minDate, maxDate) {
-    if (date === null) {
+isDateWithinRange = function(time, minDate, maxDate) {
+    if (time === null) {
         return false
     }
-    return date >= minDate && date <= maxDate
+    return date.isDateBefore(minDate, time) && date.isDateAfter(maxDate, time)
+}
+
+
+class date {
+    constructor(year, month, day) {
+        this.year = year;
+        this.month = month;
+        this.day = day;
+    }
+
+    getYear() {
+        return this.year;
+    }
+
+    getFullYear() {
+        return this.year;
+    }
+
+    getMonth() {
+        return this.month;
+    }
+
+    getMonthName() {
+        return ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"][this.month];
+    }
+
+    getDay() {
+        return this.day;
+    }
+
+    static compareDates(date1, date2) {
+        // compare years
+        if (date1.getYear() > date2.getYear()) {
+            return 1;
+        } else if (date1.getYear() < date2.getYear()) {
+            return -1;
+        }
+
+        // compare months
+        // check if months are null
+        else if (date1.getMonth() == null && date2.getMonth() == null) {
+            return 0;
+        }
+        // check if date1 month is null
+        else if (date1.getMonth() == null) {
+            return -1;
+        }
+        // check if date2 month is null
+        else if (date2.getMonth() == null) {
+            return 1;
+        }
+
+        // check month values
+        else if (date1.getMonth() > date2.getMonth()) {
+            return 1;
+        } else if (date1.getMonth() < date2.getMonth()) {
+            return -1;
+        }
+        
+        // compare days
+        // check if days are null
+        else if (date1.getDay() == null && date2.getDay() == null) {
+            return 0;
+        }
+        // check if date1 day is null
+        else if (date1.getDay() == null) {
+            return -1;
+        }
+        // check if date2 day is null
+        else if (date2.getDay() == null) {
+            return 1;
+        }
+
+        // check day values
+        else if (date1.getDay() > date2.getDay()) {
+            return 1;
+        } else if (date1.getDay() < date2.getDay()) {
+            return -1;
+        }
+        
+        else {
+            return 0;
+        }
+    }
+
+    static isDateBefore(date1, date2) {
+        return date.compareDates(date1, date2) == -1;
+    }
+
+    static isDateAfter(date1, date2) {
+        return date.compareDates(date1, date2) == 1;
+    }
+
+    static convertDatetoObject(time) {
+        return new date(time.getFullYear(), time.getMonth() + 1, time.getDate());
+    }
+
+    static convertStringtoObject(time) {
+        let time2 = new Date(Date.parse(time))
+        return new date(time2.getFullYear(), time2.getMonth() + 1, time2.getDate())
+    }
 }
