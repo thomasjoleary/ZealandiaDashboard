@@ -27,10 +27,12 @@ body {
 }
 
 #optionscontainer {
+    border:#f26422 3px solid;
     display: flex;
     justify-content: center;
-    width: 100%;
+    width: 98%;
     height: 12%;
+    margin: 5px;
 }
 
 #slidecontainer {
@@ -246,4 +248,10 @@ input[type="range"] {
 
 #closeIntroButton {
     margin: 5px;
+}
+
+h1 {
+    color: #f26422;
+    margin: 10px;
+    text-decoration: underline;
 }
