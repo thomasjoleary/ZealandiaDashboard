@@ -19,10 +19,8 @@
                         }
                     ],
                     "tags": [
-                        [
-                            "stream",
-                            "forest"
-                        ]
+                        "stream",
+                        "forest"
                     ]
                 },
                 {
@@ -38,10 +36,8 @@
                         }
                     ],
                     "tags": [
-                        [
-                            "stream",
-                            "forest"
-                        ]
+                        "stream",
+                        "forest"
                     ]
                 },
                 {
@@ -57,9 +53,7 @@
                         }
                     ],
                     "tags": [
-                        [
-                            "forest"
-                        ]
+                        "forest"
                     ]
                 },
                 {
@@ -75,9 +69,7 @@
                         }
                     ],
                     "tags": [
-                        [
-                            "forest"
-                        ]
+                        "forest"
                     ]
                 },
                 {
@@ -93,9 +85,7 @@
                         }
                     ],
                     "tags": [
-                        [
-                            "stream"
-                        ]
+                        "stream"
                     ]
                 }
             ]
@@ -119,10 +109,8 @@
                         }
                     ],
                     "tags": [
-                        [
-                            "stream",
-                            "forest"
-                        ]
+                        "stream",
+                        "forest"
                     ]
                 }
             ]
@@ -142,20 +130,16 @@
                     "img": [
                         {
                             "src": "assets/img/historicaldata/ian_galloway/galloway.jpg",
-                            "src": "assets/img/historicaldata/ian_galloway/galloway.jpg",
                             "alt": "Ian Galloway Park 2025"
                         }
                     ],
                     "tags": [
-                        [
-                            "stream"
-                        ]
+                        "stream"
                     ]
                 }
             ]
         },
         {
-            "name": "\u014ctari-Wilton's Bush",
             "name": "\u014ctari-Wilton's Bush",
             "lat": -41.265993,
             "lng": 174.757727,
@@ -171,14 +155,10 @@
                         {
                             "src": "assets/img/historicaldata/otari/otari.jpg",
                             "alt": "\u014ctari-Wilton's Bush 1995"
-                            "src": "assets/img/historicaldata/otari/otari.jpg",
-                            "alt": "\u014ctari-Wilton's Bush 1995"
                         }
                     ],
                     "tags": [
-                        [
-                            "stream"
-                        ]
+                        "stream"
                     ]
                 },
                 {
@@ -194,9 +174,7 @@
                         }
                     ],
                     "tags": [
-                        [
-                            "forest"
-                        ]
+                        "forest"
                     ]
                 }
             ]
@@ -216,14 +194,11 @@
                     "img": [
                         {
                             "src": "assets/img/historicaldata/karori_cemetary/memorial.jpg",
-                            "src": "assets/img/historicaldata/karori_cemetary/memorial.jpg",
                             "alt": "Karori Cemetary 2025"
                         }
                     ],
                     "tags": [
-                        [
-                            "stream"
-                        ]
+                        "stream"
                     ]
                 }
             ]
@@ -243,14 +218,11 @@
                     "img": [
                         {
                             "src": "assets/img/historicaldata/trelissick/sewagepipe.jpeg",
-                            "src": "assets/img/historicaldata/trelissick/sewagepipe.jpeg",
                             "alt": "Trelissick Park 2025"
                         }
                     ],
                     "tags": [
-                        [
-                            "stream"
-                        ]
+                        "stream"
                     ]
                 }
             ]
@@ -270,14 +242,11 @@
                     "img": [
                         {
                             "src": "assets/img/historicaldata/otari/land_slip.jpg",
-                            "src": "assets/img/historicaldata/otari/land_slip.jpg",
                             "alt": "\u014ctari land slip 2022"
                         }
                     ],
                     "tags": [
-                        [
-                            "forest"
-                        ]
+                        "forest"
                     ]
                 }
             ]
@@ -286,7 +255,6 @@
             "name": "St John's Pool",
             "lat": -41.289005,
             "lng": 174.753465,
-            "info": "A former swimming hole, now unsafe due to contamination.",
             "info": "A former swimming hole, now unsafe due to contamination.",
             "timeline": [
                 {
@@ -298,15 +266,12 @@
                     "img": [
                         {
                             "src": "assets/img/historicaldata/birdwood/swimming_hole.jpg",
-                            "src": "assets/img/historicaldata/birdwood/swimming_hole.jpg",
                             "alt": "St John's Pool 2025"
                         }
                     ],
                     "tags": [
-                        [
-                            "stream",
-                            "people"
-                        ]
+                        "stream",
+                        "people"
                     ]
                 }
             ]
@@ -326,14 +291,11 @@
                     "img": [
                         {
                             "src": "assets/img/historicaldata/zealandia/kakahi.jpg",
-                            "src": "assets/img/historicaldata/zealandia/kakahi.jpg",
                             "alt": "Zealandia Te M\u0101ra a T\u0101ne 2018-7-22"
                         }
                     ],
                     "tags": [
-                        [
-                            "stream"
-                        ]
+                        "stream"
                     ]
                 },
                 {
@@ -345,14 +307,11 @@
                     "img": [
                         {
                             "src": "assets/img/historicaldata/zealandia/kakahi.jpg",
-                            "src": "assets/img/historicaldata/zealandia/kakahi.jpg",
                             "alt": "Zealandia Te M\u0101ra a T\u0101ne 2018-7-21"
                         }
                     ],
                     "tags": [
-                        [
-                            "stream"
-                        ]
+                        "stream"
                     ]
                 },
                 {
@@ -364,14 +323,11 @@
                     "img": [
                         {
                             "src": "assets/img/historicaldata/zealandia/kakahi.jpg",
-                            "src": "assets/img/historicaldata/zealandia/kakahi.jpg",
                             "alt": "Zealandia Te M\u0101ra a T\u0101ne 2018-8-1"
                         }
                     ],
                     "tags": [
-                        [
-                            "stream"
-                        ]
+                        "stream"
                     ]
                 },
                 {
@@ -383,14 +339,11 @@
                     "img": [
                         {
                             "src": "assets/img/historicaldata/zealandia/kakahi.jpg",
-                            "src": "assets/img/historicaldata/zealandia/kakahi.jpg",
                             "alt": "Zealandia Te M\u0101ra a T\u0101ne 2022"
                         }
                     ],
                     "tags": [
-                        [
-                            "stream"
-                        ]
+                        "stream"
                     ]
                 },
                 {
@@ -402,14 +355,11 @@
                     "img": [
                         {
                             "src": "assets/img/historicaldata/zealandia/pua_o_te_reinga.jpg",
-                            "src": "assets/img/historicaldata/zealandia/pua_o_te_reinga.jpg",
                             "alt": "Zealandia Te M\u0101ra a T\u0101ne 2020-10-13"
                         }
                     ],
                     "tags": [
-                        [
-                            "forest"
-                        ]
+                        "forest"
                     ]
                 },
                 {
@@ -421,14 +371,11 @@
                     "img": [
                         {
                             "src": "assets/img/historicaldata/zealandia/pirita.jpg",
-                            "src": "assets/img/historicaldata/zealandia/pirita.jpg",
                             "alt": "Zealandia Te M\u0101ra a T\u0101ne 2004-5-20"
                         }
                     ],
                     "tags": [
-                        [
-                            "forest"
-                        ]
+                        "forest"
                     ]
                 },
                 {
@@ -440,14 +387,11 @@
                     "img": [
                         {
                             "src": "assets/img/historicaldata/zealandia/pirita.jpg",
-                            "src": "assets/img/historicaldata/zealandia/pirita.jpg",
                             "alt": "Zealandia Te M\u0101ra a T\u0101ne 2018-5-2"
                         }
                     ],
                     "tags": [
-                        [
-                            "forest"
-                        ]
+                        "forest"
                     ]
                 },
                 {
@@ -459,14 +403,11 @@
                     "img": [
                         {
                             "src": "assets/img/historicaldata/zealandia/pirita.jpg",
-                            "src": "assets/img/historicaldata/zealandia/pirita.jpg",
                             "alt": "Zealandia Te M\u0101ra a T\u0101ne 2022"
                         }
                     ],
                     "tags": [
-                        [
-                            "forest"
-                        ]
+                        "forest"
                     ]
                 },
                 {
@@ -478,14 +419,11 @@
                     "img": [
                         {
                             "src": "assets/img/historicaldata/zealandia/pirita.jpg",
-                            "src": "assets/img/historicaldata/zealandia/pirita.jpg",
                             "alt": "Zealandia Te M\u0101ra a T\u0101ne 2024-5-16"
                         }
                     ],
                     "tags": [
-                        [
-                            "forest"
-                        ]
+                        "forest"
                     ]
                 },
                 {
@@ -497,14 +435,11 @@
                     "img": [
                         {
                             "src": "assets/img/historicaldata/zealandia/pirita.jpg",
-                            "src": "assets/img/historicaldata/zealandia/pirita.jpg",
                             "alt": "Zealandia Te M\u0101ra a T\u0101ne 2024"
                         }
                     ],
                     "tags": [
-                        [
-                            "forest"
-                        ]
+                        "forest"
                     ]
                 },
                 {
@@ -516,14 +451,11 @@
                     "img": [
                         {
                             "src": "assets/img/historicaldata/zealandia/white_mistletoe.jpg",
-                            "src": "assets/img/historicaldata/zealandia/white_mistletoe.jpg",
                             "alt": "Zealandia Te M\u0101ra a T\u0101ne 2023-11-22"
                         }
                     ],
                     "tags": [
-                        [
-                            "forest"
-                        ]
+                        "forest"
                     ]
                 },
                 {
@@ -539,9 +471,7 @@
                         }
                     ],
                     "tags": [
-                        [
-                            "forest"
-                        ]
+                        "forest"
                     ]
                 },
                 {
@@ -557,9 +487,7 @@
                         }
                     ],
                     "tags": [
-                        [
-                            "forest"
-                        ]
+                        "forest"
                     ]
                 }
             ]
@@ -583,9 +511,7 @@
                         }
                     ],
                     "tags": [
-                        [
-                            "stream"
-                        ]
+                        "stream"
                     ]
                 },
                 {
@@ -601,9 +527,7 @@
                         }
                     ],
                     "tags": [
-                        [
-                            "stream"
-                        ]
+                        "stream"
                     ]
                 },
                 {
@@ -619,9 +543,7 @@
                         }
                     ],
                     "tags": [
-                        [
-                            "stream"
-                        ]
+                        "stream"
                     ]
                 },
                 {
@@ -637,9 +559,7 @@
                         }
                     ],
                     "tags": [
-                        [
-                            "stream"
-                        ]
+                        "stream"
                     ]
                 }
             ]
@@ -660,14 +580,10 @@
                         {
                             "src": "assets/img/historicaldata/zealandia/eurasian_perch.jpg",
                             "alt": "Roto Kawau 1874"
-                            "src": "assets/img/historicaldata/zealandia/eurasian_perch.jpg",
-                            "alt": "Roto Kawau 1874"
                         }
                     ],
                     "tags": [
-                        [
-                            "stream"
-                        ]
+                        "stream"
                     ]
                 },
                 {
@@ -680,14 +596,10 @@
                         {
                             "src": "assets/img/historicaldata/zealandia/eurasian_perch.jpg",
                             "alt": "Roto Kawau 2007"
-                            "src": "assets/img/historicaldata/zealandia/eurasian_perch.jpg",
-                            "alt": "Roto Kawau 2007"
                         }
                     ],
                     "tags": [
-                        [
-                            "stream"
-                        ]
+                        "stream"
                     ]
                 },
                 {
@@ -700,14 +612,10 @@
                         {
                             "src": "assets/img/historicaldata/zealandia/eurasian_perch.jpg",
                             "alt": "Roto Kawau 2008"
-                            "src": "assets/img/historicaldata/zealandia/eurasian_perch.jpg",
-                            "alt": "Roto Kawau 2008"
                         }
                     ],
                     "tags": [
-                        [
-                            "stream"
-                        ]
+                        "stream"
                     ]
                 },
                 {
@@ -720,14 +628,10 @@
                         {
                             "src": "assets/img/historicaldata/zealandia/eurasian_perch.jpg",
                             "alt": "Roto Kawau 2009"
-                            "src": "assets/img/historicaldata/zealandia/eurasian_perch.jpg",
-                            "alt": "Roto Kawau 2009"
                         }
                     ],
                     "tags": [
-                        [
-                            "stream"
-                        ]
+                        "stream"
                     ]
                 },
                 {
@@ -740,14 +644,10 @@
                         {
                             "src": "assets/img/historicaldata/zealandia/eurasian_perch.jpg",
                             "alt": "Roto Kawau 2011"
-                            "src": "assets/img/historicaldata/zealandia/eurasian_perch.jpg",
-                            "alt": "Roto Kawau 2011"
                         }
                     ],
                     "tags": [
-                        [
-                            "stream"
-                        ]
+                        "stream"
                     ]
                 },
                 {
@@ -763,9 +663,7 @@
                         }
                     ],
                     "tags": [
-                        [
-                            "stream"
-                        ]
+                        "stream"
                     ]
                 }
             ]

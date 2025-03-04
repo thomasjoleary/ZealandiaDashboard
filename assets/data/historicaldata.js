@@ -28,10 +28,8 @@ const historicaldata =
                         }
                     ],
                     "tags": [
-                        [
-                            "stream",
-                            "forest"
-                        ]
+                        "stream",
+                        "forest"
                     ]
                 },
                 {
@@ -47,10 +45,8 @@ const historicaldata =
                         }
                     ],
                     "tags": [
-                        [
-                            "stream",
-                            "forest"
-                        ]
+                        "stream",
+                        "forest"
                     ]
                 },
                 {
@@ -66,9 +62,7 @@ const historicaldata =
                         }
                     ],
                     "tags": [
-                        [
-                            "forest"
-                        ]
+                        "forest"
                     ]
                 },
                 {
@@ -84,9 +78,7 @@ const historicaldata =
                         }
                     ],
                     "tags": [
-                        [
-                            "forest"
-                        ]
+                        "forest"
                     ]
                 },
                 {
@@ -102,9 +94,7 @@ const historicaldata =
                         }
                     ],
                     "tags": [
-                        [
-                            "stream"
-                        ]
+                        "stream"
                     ]
                 }
             ]
@@ -128,10 +118,8 @@ const historicaldata =
                         }
                     ],
                     "tags": [
-                        [
-                            "stream",
-                            "forest"
-                        ]
+                        "stream",
+                        "forest"
                     ]
                 }
             ]
@@ -150,14 +138,12 @@ const historicaldata =
                     "event": "From 1946 to 1973, Ian Galloway Park operated as a rubbish dump. According to GWRC, a variety of industrial wastes were dumped here, including 500 kg of cyanide (a poisonous chemical) encased in concrete drums. Also, large quantities of industrial waste from the demolition of Miramar Gasworks are known to be disposed of at this site.  (this image is not ours)",
                     "img": [
                         {
-                            "src": "",
+                            "src": "assets/img/historicaldata/ian_galloway/galloway.jpg",
                             "alt": "Ian Galloway Park 2025"
                         }
                     ],
                     "tags": [
-                        [
-                            "stream"
-                        ]
+                        "stream"
                     ]
                 }
             ]
@@ -181,9 +167,7 @@ const historicaldata =
                         }
                     ],
                     "tags": [
-                        [
-                            "stream"
-                        ]
+                        "stream"
                     ]
                 },
                 {
@@ -199,9 +183,7 @@ const historicaldata =
                         }
                     ],
                     "tags": [
-                        [
-                            "forest"
-                        ]
+                        "forest"
                     ]
                 }
             ]
@@ -225,9 +207,7 @@ const historicaldata =
                         }
                     ],
                     "tags": [
-                        [
-                            "stream"
-                        ]
+                        "stream"
                     ]
                 }
             ]
@@ -251,9 +231,7 @@ const historicaldata =
                         }
                     ],
                     "tags": [
-                        [
-                            "stream"
-                        ]
+                        "stream"
                     ]
                 }
             ]
@@ -277,9 +255,7 @@ const historicaldata =
                         }
                     ],
                     "tags": [
-                        [
-                            "forest"
-                        ]
+                        "forest"
                     ]
                 }
             ]
@@ -303,10 +279,8 @@ const historicaldata =
                         }
                     ],
                     "tags": [
-                        [
-                            "stream",
-                            "people"
-                        ]
+                        "stream",
+                        "people"
                     ]
                 }
             ]
@@ -330,9 +304,7 @@ const historicaldata =
                         }
                     ],
                     "tags": [
-                        [
-                            "stream"
-                        ]
+                        "stream"
                     ]
                 },
                 {
@@ -348,9 +320,7 @@ const historicaldata =
                         }
                     ],
                     "tags": [
-                        [
-                            "stream"
-                        ]
+                        "stream"
                     ]
                 },
                 {
@@ -366,9 +336,7 @@ const historicaldata =
                         }
                     ],
                     "tags": [
-                        [
-                            "stream"
-                        ]
+                        "stream"
                     ]
                 },
                 {
@@ -384,9 +352,7 @@ const historicaldata =
                         }
                     ],
                     "tags": [
-                        [
-                            "stream"
-                        ]
+                        "stream"
                     ]
                 },
                 {
@@ -402,9 +368,7 @@ const historicaldata =
                         }
                     ],
                     "tags": [
-                        [
-                            "forest"
-                        ]
+                        "forest"
                     ]
                 },
                 {
@@ -420,9 +384,7 @@ const historicaldata =
                         }
                     ],
                     "tags": [
-                        [
-                            "forest"
-                        ]
+                        "forest"
                     ]
                 },
                 {
@@ -438,9 +400,7 @@ const historicaldata =
                         }
                     ],
                     "tags": [
-                        [
-                            "forest"
-                        ]
+                        "forest"
                     ]
                 },
                 {
@@ -456,9 +416,7 @@ const historicaldata =
                         }
                     ],
                     "tags": [
-                        [
-                            "forest"
-                        ]
+                        "forest"
                     ]
                 },
                 {
@@ -474,9 +432,7 @@ const historicaldata =
                         }
                     ],
                     "tags": [
-                        [
-                            "forest"
-                        ]
+                        "forest"
                     ]
                 },
                 {
@@ -492,9 +448,7 @@ const historicaldata =
                         }
                     ],
                     "tags": [
-                        [
-                            "forest"
-                        ]
+                        "forest"
                     ]
                 },
                 {
@@ -506,14 +460,11 @@ const historicaldata =
                     "img": [
                         {
                             "src": "assets/img/historicaldata/zealandia/white_mistletoe.jpg",
-                            "src": "assets/img/historicaldata/zealandia/white_mistletoe.jpg",
                             "alt": "Zealandia Te M\u0101ra a T\u0101ne 2023-11-22"
                         }
                     ],
                     "tags": [
-                        [
-                            "forest"
-                        ]
+                        "forest"
                     ]
                 },
                 {
@@ -529,9 +480,7 @@ const historicaldata =
                         }
                     ],
                     "tags": [
-                        [
-                            "forest"
-                        ]
+                        "forest"
                     ]
                 },
                 {
@@ -547,9 +496,7 @@ const historicaldata =
                         }
                     ],
                     "tags": [
-                        [
-                            "forest"
-                        ]
+                        "forest"
                     ]
                 }
             ]
@@ -573,9 +520,7 @@ const historicaldata =
                         }
                     ],
                     "tags": [
-                        [
-                            "stream"
-                        ]
+                        "stream"
                     ]
                 },
                 {
@@ -591,9 +536,7 @@ const historicaldata =
                         }
                     ],
                     "tags": [
-                        [
-                            "stream"
-                        ]
+                        "stream"
                     ]
                 },
                 {
@@ -609,9 +552,7 @@ const historicaldata =
                         }
                     ],
                     "tags": [
-                        [
-                            "stream"
-                        ]
+                        "stream"
                     ]
                 },
                 {
@@ -627,9 +568,7 @@ const historicaldata =
                         }
                     ],
                     "tags": [
-                        [
-                            "stream"
-                        ]
+                        "stream"
                     ]
                 }
             ]
@@ -653,9 +592,7 @@ const historicaldata =
                         }
                     ],
                     "tags": [
-                        [
-                            "stream"
-                        ]
+                        "stream"
                     ]
                 },
                 {
@@ -671,9 +608,7 @@ const historicaldata =
                         }
                     ],
                     "tags": [
-                        [
-                            "stream"
-                        ]
+                        "stream"
                     ]
                 },
                 {
@@ -689,9 +624,7 @@ const historicaldata =
                         }
                     ],
                     "tags": [
-                        [
-                            "stream"
-                        ]
+                        "stream"
                     ]
                 },
                 {
@@ -707,9 +640,7 @@ const historicaldata =
                         }
                     ],
                     "tags": [
-                        [
-                            "stream"
-                        ]
+                        "stream"
                     ]
                 },
                 {
@@ -725,9 +656,7 @@ const historicaldata =
                         }
                     ],
                     "tags": [
-                        [
-                            "stream"
-                        ]
+                        "stream"
                     ]
                 },
                 {
@@ -743,9 +672,7 @@ const historicaldata =
                         }
                     ],
                     "tags": [
-                        [
-                            "stream"
-                        ]
+                        "stream"
                     ]
                 }
             ]

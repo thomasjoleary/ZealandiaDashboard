@@ -63,9 +63,7 @@ def csv_to_json(csv_file, json_file, hasHeader = False):
                     'alt': write_alt_text(row[3], row[7], row[8], row[9]) # remove alt text
                 }
             ],
-            'tags': [
-                tags
-            ]
+            'tags': tags
         })
 
     # write to json file
