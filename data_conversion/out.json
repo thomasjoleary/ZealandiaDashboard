@@ -142,6 +142,7 @@
                     "img": [
                         {
                             "src": "assets/img/historicaldata/ian_galloway/galloway.jpg",
+                            "src": "assets/img/historicaldata/ian_galloway/galloway.jpg",
                             "alt": "Ian Galloway Park 2025"
                         }
                     ],
@@ -155,6 +156,7 @@
         },
         {
             "name": "\u014ctari-Wilton's Bush",
+            "name": "\u014ctari-Wilton's Bush",
             "lat": -41.265993,
             "lng": 174.757727,
             "info": "The only untouched bush in Wellington.",
@@ -167,6 +169,8 @@
                     "event": "Testing and site visits from 1995 revealed rust colored leachate within the stream. As of 1998, high levels of iron exceeded the ANZECC Aquatic Ecosystems guideline level. More information about this site can be found here: (Page 279) ",
                     "img": [
                         {
+                            "src": "assets/img/historicaldata/otari/otari.jpg",
+                            "alt": "\u014ctari-Wilton's Bush 1995"
                             "src": "assets/img/historicaldata/otari/otari.jpg",
                             "alt": "\u014ctari-Wilton's Bush 1995"
                         }
@@ -212,6 +216,7 @@
                     "img": [
                         {
                             "src": "assets/img/historicaldata/karori_cemetary/memorial.jpg",
+                            "src": "assets/img/historicaldata/karori_cemetary/memorial.jpg",
                             "alt": "Karori Cemetary 2025"
                         }
                     ],
@@ -237,6 +242,7 @@
                     "event": "Trelissick Park contains crumbling water infrastructure from the early 20th century. Recently, a steel sewage pipe has been leaking raw sewage into the Kaiwharawhara stream.",
                     "img": [
                         {
+                            "src": "assets/img/historicaldata/trelissick/sewagepipe.jpeg",
                             "src": "assets/img/historicaldata/trelissick/sewagepipe.jpeg",
                             "alt": "Trelissick Park 2025"
                         }
@@ -264,6 +270,7 @@
                     "img": [
                         {
                             "src": "assets/img/historicaldata/otari/land_slip.jpg",
+                            "src": "assets/img/historicaldata/otari/land_slip.jpg",
                             "alt": "\u014ctari land slip 2022"
                         }
                     ],
@@ -280,6 +287,7 @@
             "lat": -41.289005,
             "lng": 174.753465,
             "info": "A former swimming hole, now unsafe due to contamination.",
+            "info": "A former swimming hole, now unsafe due to contamination.",
             "timeline": [
                 {
                     "year": 2025,
@@ -289,6 +297,7 @@
                     "event": "This area, just outside of Zealandia Te M\u0101ra a T\u0101ne, located within Birdwood Reserve, was once a valued recreational swimming hole. Unfortunately, ongoing stream pollution has made this location unsafe.",
                     "img": [
                         {
+                            "src": "assets/img/historicaldata/birdwood/swimming_hole.jpg",
                             "src": "assets/img/historicaldata/birdwood/swimming_hole.jpg",
                             "alt": "St John's Pool 2025"
                         }
@@ -317,6 +326,7 @@
                     "img": [
                         {
                             "src": "assets/img/historicaldata/zealandia/kakahi.jpg",
+                            "src": "assets/img/historicaldata/zealandia/kakahi.jpg",
                             "alt": "Zealandia Te M\u0101ra a T\u0101ne 2018-7-22"
                         }
                     ],
@@ -334,6 +344,7 @@
                     "event": "50 k\u0101kahi/freshwater mussels (E. aucklandica) were collected from the Wairarapa Moana in collaboration with Rangit\u0101ne o Wairarapa and Ng\u0101ti Kahungunu ki Wairarapa.",
                     "img": [
                         {
+                            "src": "assets/img/historicaldata/zealandia/kakahi.jpg",
                             "src": "assets/img/historicaldata/zealandia/kakahi.jpg",
                             "alt": "Zealandia Te M\u0101ra a T\u0101ne 2018-7-21"
                         }
@@ -353,6 +364,7 @@
                     "img": [
                         {
                             "src": "assets/img/historicaldata/zealandia/kakahi.jpg",
+                            "src": "assets/img/historicaldata/zealandia/kakahi.jpg",
                             "alt": "Zealandia Te M\u0101ra a T\u0101ne 2018-8-1"
                         }
                     ],
@@ -370,6 +382,7 @@
                     "event": "An additional 150 k\u0101kahi/freshwater mussels (E. menziesii) were collected from K\u014dhangapiripiri in collaboration with Taranaki Wh\u0101nui and translocated to Zealandia. These mussells were not PIT tagged.",
                     "img": [
                         {
+                            "src": "assets/img/historicaldata/zealandia/kakahi.jpg",
                             "src": "assets/img/historicaldata/zealandia/kakahi.jpg",
                             "alt": "Zealandia Te M\u0101ra a T\u0101ne 2022"
                         }
@@ -389,6 +402,7 @@
                     "img": [
                         {
                             "src": "assets/img/historicaldata/zealandia/pua_o_te_reinga.jpg",
+                            "src": "assets/img/historicaldata/zealandia/pua_o_te_reinga.jpg",
                             "alt": "Zealandia Te M\u0101ra a T\u0101ne 2020-10-13"
                         }
                     ],
@@ -406,6 +420,7 @@
                     "event": "64 pirita/green mistletoe seeds were sown. This propogation is considered to have failed.",
                     "img": [
                         {
+                            "src": "assets/img/historicaldata/zealandia/pirita.jpg",
                             "src": "assets/img/historicaldata/zealandia/pirita.jpg",
                             "alt": "Zealandia Te M\u0101ra a T\u0101ne 2004-5-20"
                         }
@@ -425,6 +440,7 @@
                     "img": [
                         {
                             "src": "assets/img/historicaldata/zealandia/pirita.jpg",
+                            "src": "assets/img/historicaldata/zealandia/pirita.jpg",
                             "alt": "Zealandia Te M\u0101ra a T\u0101ne 2018-5-2"
                         }
                     ],
@@ -442,6 +458,7 @@
                     "event": "As of October 2022, nine host trees still present pirita/green mistletoe.",
                     "img": [
                         {
+                            "src": "assets/img/historicaldata/zealandia/pirita.jpg",
                             "src": "assets/img/historicaldata/zealandia/pirita.jpg",
                             "alt": "Zealandia Te M\u0101ra a T\u0101ne 2022"
                         }
@@ -461,6 +478,7 @@
                     "img": [
                         {
                             "src": "assets/img/historicaldata/zealandia/pirita.jpg",
+                            "src": "assets/img/historicaldata/zealandia/pirita.jpg",
                             "alt": "Zealandia Te M\u0101ra a T\u0101ne 2024-5-16"
                         }
                     ],
@@ -479,6 +497,7 @@
                     "img": [
                         {
                             "src": "assets/img/historicaldata/zealandia/pirita.jpg",
+                            "src": "assets/img/historicaldata/zealandia/pirita.jpg",
                             "alt": "Zealandia Te M\u0101ra a T\u0101ne 2024"
                         }
                     ],
@@ -496,6 +515,7 @@
                     "event": "White mistletoe was sown throughout the week onto 23 host plants. Seeds were provided from the Wairarapa.",
                     "img": [
                         {
+                            "src": "assets/img/historicaldata/zealandia/white_mistletoe.jpg",
                             "src": "assets/img/historicaldata/zealandia/white_mistletoe.jpg",
                             "alt": "Zealandia Te M\u0101ra a T\u0101ne 2023-11-22"
                         }
@@ -640,6 +660,8 @@
                         {
                             "src": "assets/img/historicaldata/zealandia/eurasian_perch.jpg",
                             "alt": "Roto Kawau 1874"
+                            "src": "assets/img/historicaldata/zealandia/eurasian_perch.jpg",
+                            "alt": "Roto Kawau 1874"
                         }
                     ],
                     "tags": [
@@ -656,6 +678,8 @@
                     "event": "Boat electrofishing and netting techniques removed 3946 Eurasian perch from Roto Kawau (22% of the total perch biomass).",
                     "img": [
                         {
+                            "src": "assets/img/historicaldata/zealandia/eurasian_perch.jpg",
+                            "alt": "Roto Kawau 2007"
                             "src": "assets/img/historicaldata/zealandia/eurasian_perch.jpg",
                             "alt": "Roto Kawau 2007"
                         }
@@ -676,6 +700,8 @@
                         {
                             "src": "assets/img/historicaldata/zealandia/eurasian_perch.jpg",
                             "alt": "Roto Kawau 2008"
+                            "src": "assets/img/historicaldata/zealandia/eurasian_perch.jpg",
+                            "alt": "Roto Kawau 2008"
                         }
                     ],
                     "tags": [
@@ -694,6 +720,8 @@
                         {
                             "src": "assets/img/historicaldata/zealandia/eurasian_perch.jpg",
                             "alt": "Roto Kawau 2009"
+                            "src": "assets/img/historicaldata/zealandia/eurasian_perch.jpg",
+                            "alt": "Roto Kawau 2009"
                         }
                     ],
                     "tags": [
@@ -710,6 +738,8 @@
                     "event": "Subsequent Eurasian perch removal efforts in 2008, 2009, and 2011 yielded an additional 11,091 Eurasian perch .",
                     "img": [
                         {
+                            "src": "assets/img/historicaldata/zealandia/eurasian_perch.jpg",
+                            "alt": "Roto Kawau 2011"
                             "src": "assets/img/historicaldata/zealandia/eurasian_perch.jpg",
                             "alt": "Roto Kawau 2011"
                         }
