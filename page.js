@@ -100,6 +100,21 @@ function showPictures() {
 }
 
 ///////////////////////////////////
+// Oldest to Newest
+
+let directionBoolean = 1;
+
+let oldToNew = document.getElementById('OldestNewestCheck')
+
+oldToNew.onclick = function() {
+    if (oldToNew.checked === true) {
+        directionBoolean = -1;
+    } else {
+        directionBoolean = 1;
+    }
+}
+
+///////////////////////////////////
 // Introduction Popup
 
 function hideIntro(e) {
@@ -333,29 +348,42 @@ let prevButton = document.getElementById('PrevButton')
 let nextButton = document.getElementById('NextButton')
 
 nextButton.onclick = function() {
-    if (displayedIndex === 0) {
-        return
-    }
-    displayedIndex -= 1
-    if (displayedIndex === 0) {
-        nextButton.disabled = true
+    displayedIndex -= (1 * directionBoolean)
+    if (directionBoolean === 1) {
+        if (displayedIndex === 0) {
+            nextButton.disabled = true
+        }
+        if (displayedIndex != displayedData.length - 1) {
+            prevButton.disabled = false
+        }
+    } else if (directionBoolean === -1) {
+        if (displayedIndex === displayedData.length - 1) {
+            nextButton.disabled = true
+        }
+        if (displayedIndex != 0) {
+            prevButton.disabled = false
+        }
     }
     displayData()
-    if (displayedIndex != displayedData.length - 1) {
-        prevButton.disabled = false
-    }
+    
 }
 
 prevButton.onclick = function() {
-    if (displayedIndex === displayedData.length - 1) {
-        return
-    }
-    displayedIndex += 1
-    if (displayedIndex === displayedData.length - 1) {
-        prevButton.disabled = true
-    }
-    if (displayedIndex != 0) {
-        nextButton.disabled = false
+    displayedIndex += (1 * directionBoolean)
+    if (directionBoolean === 1) {
+        if (displayedIndex === displayedData.length - 1) {
+            prevButton.disabled = true
+        }
+        if (displayedIndex != 0) {
+            nextButton.disabled = false
+        }
+    } else if (directionBoolean === -1) {
+        if (displayedIndex === 0) {
+            prevButton.disabled = true
+        }
+        if (displayedIndex != displayedData.length - 1) {
+            nextButton.disabled = false
+        }
     }
     displayData()
 }
@@ -442,13 +470,20 @@ function dataFromMarker(e) {
             img.alt = data.alt
             dataView.innerHTML = marker.getLatestEventDesc(start, end)
             // set displayedData to the eventdata and reset the index
-            displayedData = marker.getRangeEventData(start, end, 1)
+            displayedData = marker.getRangeEventData(start, end, directionBoolean)
 
             displayedIndex = 0
             // if there's no more events to go to, disabled the buttons
-            nextButton.disabled = true
             displayedData = pruneEventsForTags(displayedData)
-            if (displayedData.length <= 1) {
+            if (directionBoolean === 1) {
+                if (displayedData.length <= 1) {
+                    prevButton.disabled = true
+                }
+                nextButton.disabled = true
+            } else if (directionBoolean === -1) {
+                if (displayedData.length <= 1) {
+                    nextButton.disabled = true
+                }
                 prevButton.disabled = true
             }
             displayData()
@@ -462,14 +497,24 @@ function dataFromMarker(e) {
                 img.alt = data.alt
                 dataView.innerHTML = marker.getLastEventDesc()
                 // set displayedData to the eventdata and reset the index
-                displayedData = marker.getEventData()
+                // Sort event data based on direction boolean
+                displayedData = marker.sortEventData(directionBoolean)
                 displayedIndex = 0
-                // if there's no more events to go to, disabled the buttons
-                nextButton.disabled = true
+                // Sort event data based on tags
                 displayedData = pruneEventsForTags(displayedData)
-                if (displayedData.length <= 1) {
+                // if there's no more events to go to, disabled the buttons
+                if (directionBoolean === 1) {
+                    if (displayedData.length <= 1) {
+                        prevButton.disabled = true
+                    }
+                    nextButton.disabled = true
+                } else if (directionBoolean === -1) {
+                    if (displayedData.length <= 1) {
+                        nextButton.disabled = true
+                    }
                     prevButton.disabled = true
                 }
+                
                 displayData()
             }
         }

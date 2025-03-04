@@ -114,13 +114,6 @@ body {
     color: #f26422;
 }
 
-#intText {
-    color: #f26422;
-    margin-right: 15px;
-    margin-top: 5px;
-    margin-bottom: 5px;
-}
-
 #intervalCheck {
     margin-right: 15px;
     margin-top: 5px;
@@ -240,7 +233,7 @@ input[type="range"] {
     border: solid 5px #f26422;
     padding: 20px;
     width: 60%;
-    height: 30%;
+    height: 50%;
     font-size: 28px;
     
 }
