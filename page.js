@@ -111,6 +111,64 @@ let introClose = document.getElementById('closeIntroButton')
 introClose.addEventListener("click", hideIntro)
 
 ///////////////////////////////////
+// Tag Filters
+
+let awaCheck = document.getElementById('TeAwaCheck')
+let ngahereCheck = document.getElementById('TeNgahereCheck')
+let tangataCheck = document.getElementById('NgaTangataCheck')
+
+awaCheck.checked = true
+ngahereCheck.checked = true
+tangataCheck.checked = true
+
+// returns edata for events with enabled tags
+function pruneEventsForTags(edata) {
+    let pruned = []
+    for (let i = 0; i < edata.length; i++) {
+        if (hasEnabledTag(edata[i])) {
+            pruned.push(edata[i])
+        }
+    }
+    return pruned
+}
+
+// Checks if an event has an enabled tag
+function hasEnabledTag(event) {
+    if (awaCheck.checked === true && event.tags.includes("stream")) {
+        return true
+    }
+    if (ngahereCheck.checked === true && event.tags.includes("forest")) {
+        return true
+    }
+    if (tangataCheck.checked === true && event.tags.includes("people")) {
+        return true
+    }
+    return false
+}
+
+// Checks if a marker has an event with an enabled tag
+function markerHasEnabledTag(marker) {
+    let edata = marker.getEventData()
+    for (let i = 0; i < edata.length; i++) {
+        if (hasEnabledTag(edata[i])) {
+            return true
+        }
+    }
+}
+
+const TagClick = () => {
+    if (enableDates.checked === true) {
+        displayBetween(convertDatetoObject(startDate.value), convertDatetoObject(endDate.value))
+    } else {
+        displayAll()
+    }
+}
+
+awaCheck.onclick = TagClick
+ngahereCheck.onclick = TagClick
+tangataCheck.onclick = TagClick
+
+///////////////////////////////////
 // Date Range
 
 // displays all markers between start and end, where start and end are dates
@@ -118,7 +176,7 @@ introClose.addEventListener("click", hideIntro)
 function displayBetween(start, end) {
     for (let i = 0; i < markerList.length; i++) {
         // if event date is between start and end, display the marker
-        if (markerList[i].containsDateWithinRange(start, end)) {
+        if (markerList[i].containsDateWithinRange(start, end) && markerHasEnabledTag(markerList[i])) {
             markerList[i].getLMarker()._icon.style.visibility = 'visible'
         } else {
             markerList[i].getLMarker()._icon.style.visibility = 'hidden'
@@ -129,7 +187,11 @@ function displayBetween(start, end) {
 // displays all markers, used when the interval sliders are disabled
 function displayAll() {
     for (let i = 0; i < markerList.length; i++) {
-        markerList[i].getLMarker()._icon.style.visibility = 'visible'
+        if (markerHasEnabledTag(markerList[i])) {
+            markerList[i].getLMarker()._icon.style.visibility = 'visible'
+        } else {
+            markerList[i].getLMarker()._icon.style.visibility = 'hidden'
+        }
     }
 }
 
@@ -385,6 +447,7 @@ function dataFromMarker(e) {
             displayedIndex = 0
             // if there's no more events to go to, disabled the buttons
             nextButton.disabled = true
+            displayedData = pruneEventsForTags(displayedData)
             if (displayedData.length <= 1) {
                 prevButton.disabled = true
             }
@@ -403,6 +466,7 @@ function dataFromMarker(e) {
                 displayedIndex = 0
                 // if there's no more events to go to, disabled the buttons
                 nextButton.disabled = true
+                displayedData = pruneEventsForTags(displayedData)
                 if (displayedData.length <= 1) {
                     prevButton.disabled = true
                 }
