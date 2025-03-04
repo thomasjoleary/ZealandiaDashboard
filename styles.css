@@ -233,7 +233,7 @@ input[type="range"] {
     border: solid 5px #f26422;
     padding: 20px;
     width: 60%;
-    height: 50%;
+    height: auto;
     font-size: 28px;
     
 }
