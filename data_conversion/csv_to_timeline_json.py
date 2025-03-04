@@ -6,7 +6,8 @@ import json
 
 # given a csv with the following format, convert to json
 # csv:
-#    place name,latitude,longitude,year,month,day,event details,image link,relevant citations
+#    stream,forest,people,place name,latitude,longitude,info,year,month,day,displayDate,event details,image link,relevant citations
+#    0      1      2     3           4        5         6    7    8     9   10          11            12         13
 
 # by default, the csv file has no header
 def csv_to_json(csv_file, json_file, hasHeader = False):
@@ -28,30 +29,42 @@ def csv_to_json(csv_file, json_file, hasHeader = False):
         # get location index
         loc_index = -1
         for i, loc in enumerate(locations):
-            if loc['name'] == row[0]:
+            if loc['name'] == row[3]:
                 loc_index = i
                 break
         # if location not found, create new location
         if loc_index == -1:
             locations.append({
-                'name': row[0],
-                'lat': float(row[1]),
-                'lng': fix_long(float(row[2])),
-                'info': row[3],
+                'name': row[3],
+                'lat': float(row[4]),
+                'lng': fix_long(float(row[5])),
+                'info': row[6],
                 'timeline': []
             })
             loc_index = len(locations) - 1
         # add timeline data
+        # first, get tags
+        tags = []
+        if row[0] == 'x':
+            tags.append('stream')
+        if row[1] == 'x':
+            tags.append('forest')
+        if row[2] == 'x':
+            tags.append('people')
         locations[loc_index]['timeline'].append({
-            'year': int(row[4]),
-            'month': int(row[5]) if (row[5] != '' and row[5] != 'null') else None,
-            'day': int(row[6]) if (row[6] != '' and row[6] != 'null') else None,
-            'event': row[7],
+            'year': int(row[7]),
+            'month': int(row[8]) if (row[8] != '' and row[8] != 'null') else None,
+            'day': int(row[9]) if (row[9] != '' and row[9] != 'null') else None,
+            'displayDate': row[10],
+            'event': row[11],
             'img': [
                 {
-                    'src': row[8],
-                    'alt': write_alt_text(row[0], row[4], row[5], row[6]) # remove alt text
+                    'src': row[12],
+                    'alt': write_alt_text(row[3], row[7], row[8], row[9]) # remove alt text
                 }
+            ],
+            'tags': [
+                tags
             ]
         })
 
