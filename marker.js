@@ -378,21 +378,21 @@ class marker {
                 image.alt = timeline[i].img[j].alt
                 // if the date is null, push the event without a date
                 if (timeline[i].year === null && timeline[i].month === null && timeline[i].day === null) {
-                    this.addEventData(null, timeline[i].event, image, [])
+                    this.addEventData(null, timeline[i].event, image, timeline[i].tags)
                 }
                 // if the month or day is null, push the event with only the year
                 else if (timeline[i].month === null || timeline[i].day === null) {
                     this.addEventData(new date(timeline[i].year, null, null),
                         timeline[i].event,
                         image,
-                        []
+                        timeline[i].tags
                     )
                 } else {
                     // else push the event with the full date
                     this.addEventData(new date(timeline[i].year, timeline[i].month-1, timeline[i].day),
                         timeline[i].event,
                         image,
-                        [] // todo implement tags into json
+                        timeline[i].tags
                     )
                 }
             }
