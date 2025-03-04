@@ -598,8 +598,8 @@ function onMapClick(e) {
 
     // clears the info on the right side of the dashboard on clicking the map
     clearInfo()
-    prevButton.disabled = false
-    nextButton.disabled = false
+    prevButton.disabled = true
+    nextButton.disabled = true
 
 }
 // sets the onclick of the map
