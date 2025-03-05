@@ -30,6 +30,9 @@ const historicaldata =
                     "tags": [
                         "stream",
                         "forest"
+                    ],
+                    "citations": [
+                        "-"
                     ]
                 },
                 {
@@ -47,6 +50,9 @@ const historicaldata =
                     "tags": [
                         "stream",
                         "forest"
+                    ],
+                    "citations": [
+                        "-"
                     ]
                 },
                 {
@@ -63,6 +69,9 @@ const historicaldata =
                     ],
                     "tags": [
                         "forest"
+                    ],
+                    "citations": [
+                        "https://archivesonline.wcc.govt.nz/assets/display/260646-max?u=9e350d095b684ae26e476837ac174939"
                     ]
                 },
                 {
@@ -79,6 +88,9 @@ const historicaldata =
                     ],
                     "tags": [
                         "forest"
+                    ],
+                    "citations": [
+                        "-"
                     ]
                 },
                 {
@@ -95,6 +107,9 @@ const historicaldata =
                     ],
                     "tags": [
                         "stream"
+                    ],
+                    "citations": [
+                        "https://archivesonline.wcc.govt.nz/nodes/view/738450?keywords=Birdwood+street+chaytor+tip&type=all&highlights=eyIwIjoiYmlyZHdvb2QiLCIxIjoic3RyZWV0IiwiMiI6ImNoYXl0b3IiLCI0IjoidGlwIiwiNiI6InRpcCwiLCIxMCI6InN0cmVldC4iLCIxMyI6InRpcC4iLCIzMSI6InRpcHMiLCI1NCI6InRpcDoiLCI1NiI6InN0cmVldCwifQ%3D%3D "
                     ]
                 }
             ]
@@ -120,6 +135,9 @@ const historicaldata =
                     "tags": [
                         "stream",
                         "forest"
+                    ],
+                    "citations": [
+                        "-"
                     ]
                 }
             ]
@@ -144,6 +162,10 @@ const historicaldata =
                     ],
                     "tags": [
                         "stream"
+                    ],
+                    "citations": [
+                        "https://www.gw.govt.nz/assets/Documents/1998/10/Landfills-in-the-Wellington-Region.pdf",
+                        "https://fastly.4sqi.net/img/general/200x200/28041749_-Tph29U1v7F1wtBFVyUeMUpSCH-wCyrAHlEFQPs5Law.jpg"
                     ]
                 }
             ]
@@ -168,6 +190,10 @@ const historicaldata =
                     ],
                     "tags": [
                         "stream"
+                    ],
+                    "citations": [
+                        "https://www.gw.govt.nz/assets/Documents/1998/10/Landfills-in-the-Wellington-Region.pdf",
+                        "https://wellingtongardens.nz/assets/112018_Brockie-Rock-Garden-2-1__ScaleWidthWzkwMF0.jpg"
                     ]
                 },
                 {
@@ -184,6 +210,10 @@ const historicaldata =
                     ],
                     "tags": [
                         "forest"
+                    ],
+                    "citations": [
+                        "https://www.doc.govt.nz/nature/native-plants/dactylanthus/",
+                        "https://www.nzgeo.com/stories/flower-of-hades/"
                     ]
                 }
             ]
@@ -208,6 +238,10 @@ const historicaldata =
                     ],
                     "tags": [
                         "stream"
+                    ],
+                    "citations": [
+                        "https://wellington.govt.nz/cemeteries/wellington-cemeteries/karori-cemetery/about-karori-cemetery",
+                        "https://friendsofkaroricemetery.co.nz/"
                     ]
                 }
             ]
@@ -232,6 +266,9 @@ const historicaldata =
                     ],
                     "tags": [
                         "stream"
+                    ],
+                    "citations": [
+                        "-"
                     ]
                 }
             ]
@@ -256,6 +293,10 @@ const historicaldata =
                     ],
                     "tags": [
                         "forest"
+                    ],
+                    "citations": [
+                        "https://www.stuff.co.nz/national/129677712/massive-sports-ground-slip-like-porridge ",
+                        "https://www.stuff.co.nz/media/images/9Tzi8ywRz924XE3uHaD6DfGZQfjEdZd7oKlsiR53VLHvSZExpMzuRmKdwHbkL9PkMfyddGZQ6vogmbWkrUgWseB%2F%2FPgMd4kaOiFJuY5%2FjuNTzNF%2F8xWjeqleM+jvNihED9aQgmCWwNDwVzlPaNCu8EA+ocvBN2eo1JVTmGkX0pmBkogFrROF8XzAuFHhL016?resolution=1240x700"
                     ]
                 }
             ]
@@ -281,6 +322,9 @@ const historicaldata =
                     "tags": [
                         "stream",
                         "people"
+                    ],
+                    "citations": [
+                        "-"
                     ]
                 }
             ]
@@ -305,6 +349,9 @@ const historicaldata =
                     ],
                     "tags": [
                         "stream"
+                    ],
+                    "citations": [
+                        "https://rarespecies.nzfoa.org.nz/species/freshwater-mussel/"
                     ]
                 },
                 {
@@ -321,6 +368,9 @@ const historicaldata =
                     ],
                     "tags": [
                         "stream"
+                    ],
+                    "citations": [
+                        "https://rarespecies.nzfoa.org.nz/species/freshwater-mussel/"
                     ]
                 },
                 {
@@ -337,6 +387,9 @@ const historicaldata =
                     ],
                     "tags": [
                         "stream"
+                    ],
+                    "citations": [
+                        "https://rarespecies.nzfoa.org.nz/species/freshwater-mussel/"
                     ]
                 },
                 {
@@ -353,6 +406,9 @@ const historicaldata =
                     ],
                     "tags": [
                         "stream"
+                    ],
+                    "citations": [
+                        "https://rarespecies.nzfoa.org.nz/species/freshwater-mussel/"
                     ]
                 },
                 {
@@ -369,6 +425,10 @@ const historicaldata =
                     ],
                     "tags": [
                         "forest"
+                    ],
+                    "citations": [
+                        "https://www.doc.govt.nz/nature/native-plants/dactylanthus/",
+                        "https://www.nzgeo.com/stories/flower-of-hades/"
                     ]
                 },
                 {
@@ -385,6 +445,10 @@ const historicaldata =
                     ],
                     "tags": [
                         "forest"
+                    ],
+                    "citations": [
+                        "https://zealandia1.sharepoint.com/S/ConservationResearch/Forms/AllItems.aspx?id=%2FS%2FConservationResearch%2Fh%29%20Species%20Overviews%20%26%20How%2Dto%27s%2FSpecies%20Overviews%2FFlora%2FMistletoe%20Overviews%2F20241227%20Ileostylus%20micranthus%20Overview%2Edocx&viewid=18821017%2D10cc%2D4f88%2D929e%2Dc2cfa6fc8c2f&parent=%2FS%2FConservationResearch%2Fh%29%20Species%20Overviews%20%26%20How%2Dto%27s%2FSpecies%20Overviews%2FFlora%2FMistletoe%20Overviews",
+                        "http://www.temarareo.org/TMR-Pirita.html"
                     ]
                 },
                 {
@@ -401,6 +465,10 @@ const historicaldata =
                     ],
                     "tags": [
                         "forest"
+                    ],
+                    "citations": [
+                        "https://zealandia1.sharepoint.com/S/ConservationResearch/Forms/AllItems.aspx?id=%2FS%2FConservationResearch%2Fh%29%20Species%20Overviews%20%26%20How%2Dto%27s%2FSpecies%20Overviews%2FFlora%2FMistletoe%20Overviews%2F20241227%20Ileostylus%20micranthus%20Overview%2Edocx&viewid=18821017%2D10cc%2D4f88%2D929e%2Dc2cfa6fc8c2f&parent=%2FS%2FConservationResearch%2Fh%29%20Species%20Overviews%20%26%20How%2Dto%27s%2FSpecies%20Overviews%2FFlora%2FMistletoe%20Overviews",
+                        "http://www.temarareo.org/TMR-Pirita.html"
                     ]
                 },
                 {
@@ -417,6 +485,10 @@ const historicaldata =
                     ],
                     "tags": [
                         "forest"
+                    ],
+                    "citations": [
+                        "https://zealandia1.sharepoint.com/S/ConservationResearch/Forms/AllItems.aspx?id=%2FS%2FConservationResearch%2Fh%29%20Species%20Overviews%20%26%20How%2Dto%27s%2FSpecies%20Overviews%2FFlora%2FMistletoe%20Overviews%2F20241227%20Ileostylus%20micranthus%20Overview%2Edocx&viewid=18821017%2D10cc%2D4f88%2D929e%2Dc2cfa6fc8c2f&parent=%2FS%2FConservationResearch%2Fh%29%20Species%20Overviews%20%26%20How%2Dto%27s%2FSpecies%20Overviews%2FFlora%2FMistletoe%20Overviews",
+                        "http://www.temarareo.org/TMR-Pirita.html"
                     ]
                 },
                 {
@@ -433,6 +505,10 @@ const historicaldata =
                     ],
                     "tags": [
                         "forest"
+                    ],
+                    "citations": [
+                        "https://zealandia1.sharepoint.com/S/ConservationResearch/Forms/AllItems.aspx?id=%2FS%2FConservationResearch%2Fh%29%20Species%20Overviews%20%26%20How%2Dto%27s%2FSpecies%20Overviews%2FFlora%2FMistletoe%20Overviews%2F20241227%20Ileostylus%20micranthus%20Overview%2Edocx&viewid=18821017%2D10cc%2D4f88%2D929e%2Dc2cfa6fc8c2f&parent=%2FS%2FConservationResearch%2Fh%29%20Species%20Overviews%20%26%20How%2Dto%27s%2FSpecies%20Overviews%2FFlora%2FMistletoe%20Overviews",
+                        "http://www.temarareo.org/TMR-Pirita.html"
                     ]
                 },
                 {
@@ -449,6 +525,10 @@ const historicaldata =
                     ],
                     "tags": [
                         "forest"
+                    ],
+                    "citations": [
+                        "https://zealandia1.sharepoint.com/S/ConservationResearch/Forms/AllItems.aspx?id=%2FS%2FConservationResearch%2Fh%29%20Species%20Overviews%20%26%20How%2Dto%27s%2FSpecies%20Overviews%2FFlora%2FMistletoe%20Overviews%2F20241227%20Ileostylus%20micranthus%20Overview%2Edocx&viewid=18821017%2D10cc%2D4f88%2D929e%2Dc2cfa6fc8c2f&parent=%2FS%2FConservationResearch%2Fh%29%20Species%20Overviews%20%26%20How%2Dto%27s%2FSpecies%20Overviews%2FFlora%2FMistletoe%20Overviews",
+                        "http://www.temarareo.org/TMR-Pirita.html"
                     ]
                 },
                 {
@@ -465,6 +545,10 @@ const historicaldata =
                     ],
                     "tags": [
                         "forest"
+                    ],
+                    "citations": [
+                        "https://zealandia1.sharepoint.com/S/ConservationResearch/Forms/AllItems.aspx?id=%2FS%2FConservationResearch%2Fh%29%20Species%20Overviews%20%26%20How%2Dto%27s%2FSpecies%20Overviews%2FFlora%2FMistletoe%20Overviews%2F20241227%20Tupeia%20antarctica%20Overview%2Edocx&viewid=18821017%2D10cc%2D4f88%2D929e%2Dc2cfa6fc8c2f&parent=%2FS%2FConservationResearch%2Fh%29%20Species%20Overviews%20%26%20How%2Dto%27s%2FSpecies%20Overviews%2FFlora%2FMistletoe%20Overviews",
+                        "https://rarespecies.nzfoa.org.nz/species/white-mistletoe/"
                     ]
                 },
                 {
@@ -481,6 +565,10 @@ const historicaldata =
                     ],
                     "tags": [
                         "forest"
+                    ],
+                    "citations": [
+                        "https://zealandia1.sharepoint.com/S/ConservationResearch/Forms/AllItems.aspx?id=%2FS%2FConservationResearch%2Fd%29%20Monitoring%20%26%20Management%2FNative%2FFauna%2FFrogs%2FHamilton%27s%20frogs%20%28formerly%20Maud%20Island%20frogs%29%2F1%29%20Monitoring%20%26%20data%2F3%29%20Surveys%20by%20year%20%282022%2Dpresent%29%2F2024%2F2024%20release%2FData%5F2024%20frog%20release%2Exlsx&viewid=18821017%2D10cc%2D4f88%2D929e%2Dc2cfa6fc8c2f&parent=%2FS%2FConservationResearch%2Fd%29%20Monitoring%20%26%20Management%2FNative%2FFauna%2FFrogs%2FHamilton%27s%20frogs%20%28formerly%20Maud%20Island%20frogs%29%2F1%29%20Monitoring%20%26%20data%2F3%29%20Surveys%20by%20year%20%282022%2Dpresent%29%2F2024%2F2024%20release",
+                        "https://www.visitzealandia.com/Whats-On/ArtMID/1150/ArticleID/596/Media-Release-Major-national-conservation-milestone-for-rare-native-frog-species"
                     ]
                 },
                 {
@@ -497,6 +585,10 @@ const historicaldata =
                     ],
                     "tags": [
                         "forest"
+                    ],
+                    "citations": [
+                        "https://zealandia1.sharepoint.com/S/ConservationResearch/Forms/AllItems.aspx?id=%2FS%2FConservationResearch%2Fd%29%20Monitoring%20%26%20Management%2FNative%2FFauna%2FFrogs%2FHamilton%27s%20frogs%20%28formerly%20Maud%20Island%20frogs%29%2F1%29%20Monitoring%20%26%20data%2F3%29%20Surveys%20by%20year%20%282022%2Dpresent%29%2F2024%2F2024%20release%2FData%5F2024%20frog%20release%2Exlsx&viewid=18821017%2D10cc%2D4f88%2D929e%2Dc2cfa6fc8c2f&parent=%2FS%2FConservationResearch%2Fd%29%20Monitoring%20%26%20Management%2FNative%2FFauna%2FFrogs%2FHamilton%27s%20frogs%20%28formerly%20Maud%20Island%20frogs%29%2F1%29%20Monitoring%20%26%20data%2F3%29%20Surveys%20by%20year%20%282022%2Dpresent%29%2F2024%2F2024%20release",
+                        "https://www.visitzealandia.com/Whats-On/ArtMID/1150/ArticleID/596/Media-Release-Major-national-conservation-milestone-for-rare-native-frog-species"
                     ]
                 }
             ]
@@ -521,6 +613,9 @@ const historicaldata =
                     ],
                     "tags": [
                         "stream"
+                    ],
+                    "citations": [
+                        "https://www.visitzealandia.com/Whats-On/ArtMID/1150/ArticleID/468/Toitoi-Translocation"
                     ]
                 },
                 {
@@ -537,6 +632,9 @@ const historicaldata =
                     ],
                     "tags": [
                         "stream"
+                    ],
+                    "citations": [
+                        "https://www.visitzealandia.com/Whats-On/ArtMID/1150/ArticleID/468/Toitoi-Translocation"
                     ]
                 },
                 {
@@ -553,6 +651,9 @@ const historicaldata =
                     ],
                     "tags": [
                         "stream"
+                    ],
+                    "citations": [
+                        "https://www.visitzealandia.com/Whats-On/ArtMID/1150/ArticleID/468/Toitoi-Translocation"
                     ]
                 },
                 {
@@ -569,6 +670,10 @@ const historicaldata =
                     ],
                     "tags": [
                         "stream"
+                    ],
+                    "citations": [
+                        "https://zealandia1.sharepoint.com/S/ConservationResearch/Forms/AllItems.aspx?id=%2FS%2FConservationResearch%2Fh%29%20Species%20Overviews%20%26%20How%2Dto%27s%2FSpecies%20Overviews%2FFauna%2F20241224%20Toitoi%2DGobiomorphus%20cotidianus%20Overview%2Edocx&viewid=18821017%2D10cc%2D4f88%2D929e%2Dc2cfa6fc8c2f&parent=%2FS%2FConservationResearch%2Fh%29%20Species%20Overviews%20%26%20How%2Dto%27s%2FSpecies%20Overviews%2FFauna",
+                        "https://www.flyfisherman.com/editorial/all-about-brown-trout/454242"
                     ]
                 }
             ]
@@ -593,6 +698,9 @@ const historicaldata =
                     ],
                     "tags": [
                         "stream"
+                    ],
+                    "citations": [
+                        "https://zealandia1.sharepoint.com/S/ConservationResearch/Forms/AllItems.aspx?id=%2FS%2FConservationResearch%2Ff%29%20Projects%2Fk%29%20Lake%20Rehabilitation%2FLower%20lake%20eradication%202020%2Fb%29%20operations%20%26%20planning%2FField%20operations%2FField%5Fsurveys%2Felectric%20fishing%20report%2FRemoval%20of%20perch%20from%20Roto%20Kawau%202020%2Epdf&viewid=18821017%2D10cc%2D4f88%2D929e%2Dc2cfa6fc8c2f&q=eurasian%20perch&parent=%2FS%2FConservationResearch&parentview=7"
                     ]
                 },
                 {
@@ -609,6 +717,9 @@ const historicaldata =
                     ],
                     "tags": [
                         "stream"
+                    ],
+                    "citations": [
+                        "https://zealandia1.sharepoint.com/S/ConservationResearch/Forms/AllItems.aspx?id=%2FS%2FConservationResearch%2Ff%29%20Projects%2Fk%29%20Lake%20Rehabilitation%2FLower%20lake%20eradication%202020%2Fb%29%20operations%20%26%20planning%2FField%20operations%2FField%5Fsurveys%2Felectric%20fishing%20report%2FRemoval%20of%20perch%20from%20Roto%20Kawau%202020%2Epdf&viewid=18821017%2D10cc%2D4f88%2D929e%2Dc2cfa6fc8c2f&q=eurasian%20perch&parent=%2FS%2FConservationResearch&parentview=7"
                     ]
                 },
                 {
@@ -625,6 +736,9 @@ const historicaldata =
                     ],
                     "tags": [
                         "stream"
+                    ],
+                    "citations": [
+                        "https://zealandia1.sharepoint.com/S/ConservationResearch/Forms/AllItems.aspx?id=%2FS%2FConservationResearch%2Ff%29%20Projects%2Fk%29%20Lake%20Rehabilitation%2FLower%20lake%20eradication%202020%2Fb%29%20operations%20%26%20planning%2FField%20operations%2FField%5Fsurveys%2Felectric%20fishing%20report%2FRemoval%20of%20perch%20from%20Roto%20Kawau%202020%2Epdf&viewid=18821017%2D10cc%2D4f88%2D929e%2Dc2cfa6fc8c2f&q=eurasian%20perch&parent=%2FS%2FConservationResearch&parentview=7"
                     ]
                 },
                 {
@@ -641,6 +755,9 @@ const historicaldata =
                     ],
                     "tags": [
                         "stream"
+                    ],
+                    "citations": [
+                        "https://zealandia1.sharepoint.com/S/ConservationResearch/Forms/AllItems.aspx?id=%2FS%2FConservationResearch%2Ff%29%20Projects%2Fk%29%20Lake%20Rehabilitation%2FLower%20lake%20eradication%202020%2Fb%29%20operations%20%26%20planning%2FField%20operations%2FField%5Fsurveys%2Felectric%20fishing%20report%2FRemoval%20of%20perch%20from%20Roto%20Kawau%202020%2Epdf&viewid=18821017%2D10cc%2D4f88%2D929e%2Dc2cfa6fc8c2f&q=eurasian%20perch&parent=%2FS%2FConservationResearch&parentview=7"
                     ]
                 },
                 {
@@ -657,6 +774,9 @@ const historicaldata =
                     ],
                     "tags": [
                         "stream"
+                    ],
+                    "citations": [
+                        "https://zealandia1.sharepoint.com/S/ConservationResearch/Forms/AllItems.aspx?id=%2FS%2FConservationResearch%2Ff%29%20Projects%2Fk%29%20Lake%20Rehabilitation%2FLower%20lake%20eradication%202020%2Fb%29%20operations%20%26%20planning%2FField%20operations%2FField%5Fsurveys%2Felectric%20fishing%20report%2FRemoval%20of%20perch%20from%20Roto%20Kawau%202020%2Epdf&viewid=18821017%2D10cc%2D4f88%2D929e%2Dc2cfa6fc8c2f&q=eurasian%20perch&parent=%2FS%2FConservationResearch&parentview=7"
                     ]
                 },
                 {
@@ -673,6 +793,9 @@ const historicaldata =
                     ],
                     "tags": [
                         "stream"
+                    ],
+                    "citations": [
+                        "https://zealandia1.sharepoint.com/S/ConservationResearch/Forms/AllItems.aspx?id=%2FS%2FConservationResearch%2Ff%29%20Projects%2Fk%29%20Lake%20Rehabilitation%2FLower%20lake%20eradication%202020%2Fb%29%20operations%20%26%20planning%2FField%20operations%2FField%5Fsurveys%2Felectric%20fishing%20report%2FRemoval%20of%20perch%20from%20Roto%20Kawau%202020%2Epdf&viewid=18821017%2D10cc%2D4f88%2D929e%2Dc2cfa6fc8c2f&q=eurasian%20perch&parent=%2FS%2FConservationResearch&parentview=7"
                     ]
                 }
             ]
