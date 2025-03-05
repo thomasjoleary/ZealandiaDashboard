@@ -27,10 +27,12 @@ body {
 }
 
 #optionscontainer {
+    border:#f26422 3px solid;
     display: flex;
     justify-content: center;
-    width: 100%;
+    width: 98%;
     height: 12%;
+    margin: 5px;
 }
 
 #slidecontainer {
@@ -56,7 +58,7 @@ body {
     margin: 10px;
     padding: 10px;
     width: 60%;
-    height: 80%;
+    max-height: 550px;
     display: flex;
     z-index: 1;
 }
@@ -65,7 +67,7 @@ body {
     margin: 10px;
     padding: 10px;
     width: 30%;
-    max-height: 520px;
+    max-height: 550px;
     display: flex;
     flex-direction: column;
     border-style: solid;
@@ -107,17 +109,11 @@ body {
     color: #f26422;
 }
 
-#sideContainer {
+.sideContainer {
     display: flex;
     flex-direction: column;
-    margin-right: 0px;
-}
-
-#intText {
+    margin: 10px;
     color: #f26422;
-    margin-right: 15px;
-    margin-top: 5px;
-    margin-bottom: 5px;
 }
 
 #intervalCheck {
@@ -253,7 +249,7 @@ input[type="range"] {
     border: solid 5px #f26422;
     padding: 20px;
     width: 60%;
-    height: 30%;
+    height: auto;
     font-size: 28px;
     
 }
@@ -266,4 +262,10 @@ input[type="range"] {
 
 #closeIntroButton {
     margin: 5px;
+}
+
+h1 {
+    color: #f26422;
+    margin: 10px;
+    text-decoration: underline;
 }

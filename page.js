@@ -100,6 +100,21 @@ function showPictures() {
 }
 
 ///////////////////////////////////
+// Oldest to Newest
+
+let directionBoolean = 1;
+
+let oldToNew = document.getElementById('OldestNewestCheck')
+
+oldToNew.onclick = function() {
+    if (oldToNew.checked === true) {
+        directionBoolean = -1;
+    } else {
+        directionBoolean = 1;
+    }
+}
+
+///////////////////////////////////
 // Introduction Popup
 
 function hideIntro(e) {
@@ -111,6 +126,64 @@ let introClose = document.getElementById('closeIntroButton')
 introClose.addEventListener("click", hideIntro)
 
 ///////////////////////////////////
+// Tag Filters
+
+let awaCheck = document.getElementById('TeAwaCheck')
+let ngahereCheck = document.getElementById('TeNgahereCheck')
+let tangataCheck = document.getElementById('NgaTangataCheck')
+
+awaCheck.checked = true
+ngahereCheck.checked = true
+tangataCheck.checked = true
+
+// returns edata for events with enabled tags
+function pruneEventsForTags(edata) {
+    let pruned = []
+    for (let i = 0; i < edata.length; i++) {
+        if (hasEnabledTag(edata[i])) {
+            pruned.push(edata[i])
+        }
+    }
+    return pruned
+}
+
+// Checks if an event has an enabled tag
+function hasEnabledTag(event) {
+    if (awaCheck.checked === true && event.tags.includes("stream")) {
+        return true
+    }
+    if (ngahereCheck.checked === true && event.tags.includes("forest")) {
+        return true
+    }
+    if (tangataCheck.checked === true && event.tags.includes("people")) {
+        return true
+    }
+    return false
+}
+
+// Checks if a marker has an event with an enabled tag
+function markerHasEnabledTag(marker) {
+    let edata = marker.getEventData()
+    for (let i = 0; i < edata.length; i++) {
+        if (hasEnabledTag(edata[i])) {
+            return true
+        }
+    }
+}
+
+const TagClick = () => {
+    if (enableDates.checked === true) {
+        displayBetween(convertDatetoObject(startDate.value), convertDatetoObject(endDate.value))
+    } else {
+        displayAll()
+    }
+}
+
+awaCheck.onclick = TagClick
+ngahereCheck.onclick = TagClick
+tangataCheck.onclick = TagClick
+
+///////////////////////////////////
 // Date Range
 
 // displays all markers between start and end, where start and end are dates
@@ -118,7 +191,7 @@ introClose.addEventListener("click", hideIntro)
 function displayBetween(start, end) {
     for (let i = 0; i < markerList.length; i++) {
         // if event date is between start and end, display the marker
-        if (markerList[i].containsDateWithinRange(start, end)) {
+        if (markerList[i].containsDateWithinRange(start, end) && markerHasEnabledTag(markerList[i])) {
             markerList[i].getLMarker()._icon.style.visibility = 'visible'
         } else {
             markerList[i].getLMarker()._icon.style.visibility = 'hidden'
@@ -129,7 +202,11 @@ function displayBetween(start, end) {
 // displays all markers, used when the interval sliders are disabled
 function displayAll() {
     for (let i = 0; i < markerList.length; i++) {
-        markerList[i].getLMarker()._icon.style.visibility = 'visible'
+        if (markerHasEnabledTag(markerList[i])) {
+            markerList[i].getLMarker()._icon.style.visibility = 'visible'
+        } else {
+            markerList[i].getLMarker()._icon.style.visibility = 'hidden'
+        }
     }
 }
 
@@ -271,29 +348,42 @@ let prevButton = document.getElementById('PrevButton')
 let nextButton = document.getElementById('NextButton')
 
 nextButton.onclick = function() {
-    if (displayedIndex === 0) {
-        return
-    }
-    displayedIndex -= 1
-    if (displayedIndex === 0) {
-        nextButton.disabled = true
+    displayedIndex -= (1 * directionBoolean)
+    if (directionBoolean === 1) {
+        if (displayedIndex === 0) {
+            nextButton.disabled = true
+        }
+        if (displayedIndex != displayedData.length - 1) {
+            prevButton.disabled = false
+        }
+    } else if (directionBoolean === -1) {
+        if (displayedIndex === displayedData.length - 1) {
+            nextButton.disabled = true
+        }
+        if (displayedIndex != 0) {
+            prevButton.disabled = false
+        }
     }
     displayData()
-    if (displayedIndex != displayedData.length - 1) {
-        prevButton.disabled = false
-    }
+    
 }
 
 prevButton.onclick = function() {
-    if (displayedIndex === displayedData.length - 1) {
-        return
-    }
-    displayedIndex += 1
-    if (displayedIndex === displayedData.length - 1) {
-        prevButton.disabled = true
-    }
-    if (displayedIndex != 0) {
-        nextButton.disabled = false
+    displayedIndex += (1 * directionBoolean)
+    if (directionBoolean === 1) {
+        if (displayedIndex === displayedData.length - 1) {
+            prevButton.disabled = true
+        }
+        if (displayedIndex != 0) {
+            nextButton.disabled = false
+        }
+    } else if (directionBoolean === -1) {
+        if (displayedIndex === 0) {
+            prevButton.disabled = true
+        }
+        if (displayedIndex != displayedData.length - 1) {
+            nextButton.disabled = false
+        }
     }
     displayData()
 }
@@ -377,12 +467,20 @@ function dataFromMarker(e) {
             img.alt = data.alt
             dataView.innerHTML = marker.getLatestEventDesc(start, end)
             // set displayedData to the eventdata and reset the index
-            displayedData = marker.getRangeEventData(start, end, 1)
+            displayedData = marker.getRangeEventData(start, end, directionBoolean)
 
             displayedIndex = 0
             // if there's no more events to go to, disabled the buttons
-            nextButton.disabled = true
-            if (displayedData.length <= 1) {
+            displayedData = pruneEventsForTags(displayedData)
+            if (directionBoolean === 1) {
+                if (displayedData.length <= 1) {
+                    prevButton.disabled = true
+                }
+                nextButton.disabled = true
+            } else if (directionBoolean === -1) {
+                if (displayedData.length <= 1) {
+                    nextButton.disabled = true
+                }
                 prevButton.disabled = true
             }
             displayData()
@@ -396,13 +494,24 @@ function dataFromMarker(e) {
                 img.alt = data.alt
                 dataView.innerHTML = marker.getLastEventDesc()
                 // set displayedData to the eventdata and reset the index
-                displayedData = marker.getEventData()
+                // Sort event data based on direction boolean
+                displayedData = marker.sortEventData(directionBoolean)
                 displayedIndex = 0
+                // Sort event data based on tags
+                displayedData = pruneEventsForTags(displayedData)
                 // if there's no more events to go to, disabled the buttons
-                nextButton.disabled = true
-                if (displayedData.length <= 1) {
+                if (directionBoolean === 1) {
+                    if (displayedData.length <= 1) {
+                        prevButton.disabled = true
+                    }
+                    nextButton.disabled = true
+                } else if (directionBoolean === -1) {
+                    if (displayedData.length <= 1) {
+                        nextButton.disabled = true
+                    }
                     prevButton.disabled = true
                 }
+                
                 displayData()
             }
         }
@@ -531,8 +640,11 @@ function onMapClick(e) {
 
     // clears the info on the right side of the dashboard on clicking the map
     clearInfo()
-    prevButton.disabled = false
-    nextButton.disabled = false
+
+    prevButton.disabled = true
+    nextButton.disabled = true
+
+
 }
 // sets the onclick of the map
 map.on('click', onMapClick);

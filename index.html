@@ -3,6 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
     integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
     crossorigin=""/>
@@ -16,7 +19,7 @@
 <body>
     <div id="centered">
         <img id="topphoto" src="assets/img/icon/s2slogo.jpg" alt="The Zealandia Logo"></img>
-        <!-- <button id="AddMarker" onclick=markerAdd()>Add Marker</button> -->
+        <!---<button id="AddMarker" onclick=markerAdd()>Add Marker</button>--->
         <div id="introduction">
             <div id="introbuttoncontainer">
                 <button id="closeIntroButton">Close</button>
@@ -25,18 +28,32 @@
         </div>
         <div id="dashboardContainer">
             <div id="optionscontainer">
-                <div id="sideContainer">
-                    <p id="intText"></p>
-                    <div id="checkContainer">
-                        <p id="intText">Enable Date Range:</p>
-                        <input id="intervalCheck" type="checkbox"></input>
-                    </div>
+                <h1>Filters</h1>
+                <div class="sideContainer">
+                    <p>Te Awa - Stream</p>
+                    <input id="TeAwaCheck" type="checkbox"></input>
+                </div>
+                <div class="sideContainer">
+                    <p>Te Ngahere - Forest</p>
+                    <input id="TeNgahereCheck" type="checkbox"></input>
+                </div>
+                <div class="sideContainer">
+                    <p>Te Tangata - People</p>
+                    <input id="NgaTangataCheck" type="checkbox"></input>
+                </div>
+                <div class="sideContainer">
+                    <p id="intText">Enable Date Range</p>
+                    <input id="intervalCheck" type="checkbox"></input>
                 </div>
                 <div class="slidecontainer">
                     <div id="startValue" class="sliderVal">From</div>
                     <input type="date" id="dateStart">
                     <div id="endValue" class="sliderVal">To</div>
                     <input type="date" id="dateEnd">
+                </div>
+                <div class="sideContainer">
+                    <p>Sort Events Oldest to Newest</p>
+                    <input id="OldestNewestCheck" type="checkbox"></input>
                 </div>
             </div>
             <div id="dashboard">
@@ -54,8 +71,8 @@
                 <div id="map"></div>
                 <div id="info">
                     <div id="PrevNextBox">
-                        <button id="PrevButton"><</button>
-                        <button id="NextButton">></button>
+                        <button id="PrevButton" disabled="true"><</button>
+                        <button id="NextButton" disabled="true">></button>
                     </div>
                     <h2>Kia Mouriora te Kaiwharawhara Dashboard</h2>
                     <h3 id="info-title">To use:</h3>
