@@ -395,7 +395,6 @@ function displayData() {
 
     let edata = displayedData
     let currentDisplay = edata[displayedIndex]
-    console.log(currentDisplay)
 
     // gets the pieces of the info section on the right of the dashboard
     let dataView = document.getElementById('info-content')
@@ -423,7 +422,6 @@ function dataFromMarker(e) {
     let img = document.getElementById('picture')
     // gets the clicked map Marker's marker class instance
     let marker = findMarkerinList(e.target)
-    console.log(marker)
     // sets the info section to the marker
 
     let time
@@ -451,7 +449,6 @@ function dataFromMarker(e) {
     // if there is no image, make the image box invisible and sizeless
     // if there is an image, make the image box visible and sizeable and display the image
     if (marker.getAllEventImg() == null) {
-        console.log("no image")
         clearPictures()
     } else {
         showPictures()
@@ -643,8 +640,10 @@ function onMapClick(e) {
 
     // clears the info on the right side of the dashboard on clicking the map
     clearInfo()
+
     prevButton.disabled = true
     nextButton.disabled = true
+
 
 }
 // sets the onclick of the map
@@ -683,6 +682,21 @@ kaiwharawharageo.bindPopup("Kaiwharawhara Stream");
 let fullscreenImageOn = false;
 let fullscreenImage = document.getElementById('fullscreenImage');
 let fullscreenImageSrc = document.getElementById('fullscreenImageSrc');
+let fullscreenCitation = document.getElementById('fullscreenImageCitation');
+
+function getCitationFromEventDescription(desc) {
+    // for marker in markerList
+    for (let i = 0; i < markerList.length; i++) {
+        // for event in marker
+        for (let j = 0; j < markerList[i].getEventData().length; j++) {
+            if (desc === markerList[i].getEventData()[j].desc) {
+                console.log(markerList[i].getEventData()[j].citation)
+                console.log(markerList[i].getEventData()[j])
+                return markerList[i].getEventData()[j].citation;
+            }
+        }
+    }
+}
 
 // when an image on the right side of the dashboard is clicked
 function onImageClick() {
@@ -693,6 +707,9 @@ function onImageClick() {
         fullscreenImageOn = true;
         // set the image source to the clicked image
         fullscreenImageSrc.src = document.getElementById('picture').src;
+        // set the image citation to the clicked image's citation
+        citationText = getCitationFromEventDescription(document.getElementById('info-content').innerHTML);
+        fullscreenCitation.innerHTML = citationText;
     }
 }
 

@@ -20,7 +20,7 @@ const historicaldata =
                     "month": null,
                     "day": null,
                     "displayDate": "yes",
-                    "event": "The Appleton Park area before dumping was a wooded valley.",
+                    "event": "Before being used as a tip and sealed over, Appleton Park was once a heavily forested stream bank that the Te M\u0101hanga branch of the Kaiwharawhara stream flowed through. The stream had open access to daylight and supported an abundance of native biodiversity. ",
                     "img": [
                         {
                             "src": "assets/img/historicaldata/appleton/1929.png",
@@ -30,14 +30,15 @@ const historicaldata =
                     "tags": [
                         "stream",
                         "forest"
-                    ]
+                    ],
+                    "citations": []
                 },
                 {
                     "year": 1935,
                     "month": null,
                     "day": null,
                     "displayDate": "yes",
-                    "event": "Dumping begins at Appleton Park landfill. Toxic wastes include heavy metals, asbestos, and other hazardous materials.",
+                    "event": "Dumping begins at Appleton Park, formerly called Chaytor Street landfill. Toxic waste includes heavy metals, asbestos, radioactive material, other hazardous substances. The Te M\u0101hanga branch of the Kaiwharawhara stream is tunneled beneath the landfill and accumulates harmful leachate that flows downstream. The water quality of the Kaiwharawhara significantly degrades.",
                     "img": [
                         {
                             "src": "assets/img/historicaldata/appleton/1935.png",
@@ -47,14 +48,15 @@ const historicaldata =
                     "tags": [
                         "stream",
                         "forest"
-                    ]
+                    ],
+                    "citations": []
                 },
                 {
                     "year": 1965,
                     "month": 8,
                     "day": 17,
                     "displayDate": "yes",
-                    "event": "Appleton Park in 1965, now covered in grass.",
+                    "event": "1965, Appleton Park is established over Chaytor Street landfill. Toxic waste remains below which the Te M\u0101hanga branch of the Kaiwharawhara stream continues to flow through. ",
                     "img": [
                         {
                             "src": "assets/img/historicaldata/appleton/1965.png",
@@ -63,6 +65,9 @@ const historicaldata =
                     ],
                     "tags": [
                         "forest"
+                    ],
+                    "citations": [
+                        "https://archivesonline.wcc.govt.nz/assets/display/260646-max?u=9e350d095b684ae26e476837ac174939"
                     ]
                 },
                 {
@@ -70,7 +75,7 @@ const historicaldata =
                     "month": 2,
                     "day": 12,
                     "displayDate": "yes",
-                    "event": "Appleton Park in 2025 includes a recent cycle path.",
+                    "event": "2024, a bike and walking path is built on Appleton Park.",
                     "img": [
                         {
                             "src": "assets/img/historicaldata/appleton/2025.png",
@@ -79,14 +84,15 @@ const historicaldata =
                     ],
                     "tags": [
                         "forest"
-                    ]
+                    ],
+                    "citations": []
                 },
                 {
                     "year": 2025,
                     "month": null,
                     "day": null,
                     "displayDate": "no",
-                    "event": "Appleton Park at Chaytor Street tip was used as a rubbish dump. According to GWRC and WCC, the site was filled with fuel oil, corrugated iron, petrol tines, lubricating drums, steam boilers, tar drums, iron castings, car bodies, sheep carcasses and discards from an electricity powerhouse. The site was closed in 1940, covered with a layer of clay, and grass was planted on top. More information about this location can be found on the WCC archives.",
+                    "event": "Appleton Park, formerly called Chaytor Street landfill, was used as a rubbish tip. According to Greater Wellington Regional Council and Wellington City Council, the site was filled with fuel oil, corrugated iron, petrol tines, lubricating drums, steam boilers, tar drums, iron castings, car bodies, sheep carcasses and discards from an electricity powerhouse. The site was closed in 1940, sealed with a layer of clay, and grass was planted on top. More information about this location can be found on Wellington City Council archives.",
                     "img": [
                         {
                             "src": "assets/img/historicaldata/appleton/2025.png",
@@ -95,6 +101,9 @@ const historicaldata =
                     ],
                     "tags": [
                         "stream"
+                    ],
+                    "citations": [
+                        "https://archivesonline.wcc.govt.nz/nodes/view/738450?keywords=Birdwood+street+chaytor+tip&type=all&highlights=eyIwIjoiYmlyZHdvb2QiLCIxIjoic3RyZWV0IiwiMiI6ImNoYXl0b3IiLCI0IjoidGlwIiwiNiI6InRpcCwiLCIxMCI6InN0cmVldC4iLCIxMyI6InRpcC4iLCIzMSI6InRpcHMiLCI1NCI6InRpcDoiLCI1NiI6InN0cmVldCwifQ%3D%3D "
                     ]
                 }
             ]
@@ -110,7 +119,7 @@ const historicaldata =
                     "month": 1,
                     "day": 16,
                     "displayDate": "no",
-                    "event": "The Kaiwharawhara estuary is an important place for inanga to lay their eggs. Inanga lay their eggs in low-hanging vegetation to protect them from predators. Restoring native vegetation along the estuary is super important for increasing inanga population. Unfortunately, the estuary collects lots of pollution, which can be harmful to the species that rely on it.",
+                    "event": "The Kaiwharawhara estuary is the only remaining non-piped estuary in Wellington City that flows into Wellington Harbour. It is an important place for native fish species that must migrate between fresh and saltwater to complete their life cycles. Here, inanga (Galaxias maculatus)--a primary species of 'whitebait'--lay their eggs in low-hanging vegetation during a king tide. Restoring native vegetation along the estuary is therefore vital for enhancing the inanga population. Unfortunately, the estuary currently accumulates pollution, which is harmful to the species that rely on it.",
                     "img": [
                         {
                             "src": "assets/img/historicaldata/estuary/2025.png",
@@ -120,7 +129,8 @@ const historicaldata =
                     "tags": [
                         "stream",
                         "forest"
-                    ]
+                    ],
+                    "citations": []
                 }
             ]
         },
@@ -135,7 +145,7 @@ const historicaldata =
                     "month": null,
                     "day": null,
                     "displayDate": "no",
-                    "event": "From 1946 to 1973, Ian Galloway Park operated as a rubbish dump. According to GWRC, a variety of industrial wastes were dumped here, including 500 kg of cyanide (a poisonous chemical) encased in concrete drums. Also, large quantities of industrial waste from the demolition of Miramar Gasworks are known to be disposed of at this site.  (this image is not ours)",
+                    "event": "From 1946 to 1973, Ian Galloway Park operated as a rubbish tip. According to Greater Wellington Regional Council, a variety of industrial wastes were dumped here, including 500 kg of cyanide (a poisonous chemical) encased in concrete drums, as well as large quantities of industrial waste from the demolition of Miramar Gasworks. The Te M\u0101hanga branch of the Kaiwharawhara stream runs beneath the surface of this former landfill and accumulates toxic leachate. (this image is not ours)",
                     "img": [
                         {
                             "src": "assets/img/historicaldata/ian_galloway/galloway.jpg",
@@ -144,6 +154,10 @@ const historicaldata =
                     ],
                     "tags": [
                         "stream"
+                    ],
+                    "citations": [
+                        "https://www.gw.govt.nz/assets/Documents/1998/10/Landfills-in-the-Wellington-Region.pdf",
+                        "https://fastly.4sqi.net/img/general/200x200/28041749_-Tph29U1v7F1wtBFVyUeMUpSCH-wCyrAHlEFQPs5Law.jpg"
                     ]
                 }
             ]
@@ -159,7 +173,7 @@ const historicaldata =
                     "month": null,
                     "day": null,
                     "displayDate": "yes",
-                    "event": "Testing and site visits from 1995 revealed rust colored leachate within the stream. As of 1998, high levels of iron exceeded the ANZECC Aquatic Ecosystems guideline level. More information about this site can be found here: (Page 279) ",
+                    "event": "Testing and site visits from 1995 revealed rust colored leachate within the Te M\u0101hanga branch of the Kaiwharawhara stream. As of 1998, high levels of iron exceeded the ANZECC Aquatic Ecosystems guideline level. More information about this site can be found here: (Page 279) ",
                     "img": [
                         {
                             "src": "assets/img/historicaldata/otari/otari.jpg",
@@ -168,6 +182,10 @@ const historicaldata =
                     ],
                     "tags": [
                         "stream"
+                    ],
+                    "citations": [
+                        "https://www.gw.govt.nz/assets/Documents/1998/10/Landfills-in-the-Wellington-Region.pdf",
+                        "https://wellingtongardens.nz/assets/112018_Brockie-Rock-Garden-2-1__ScaleWidthWzkwMF0.jpg"
                     ]
                 },
                 {
@@ -175,7 +193,7 @@ const historicaldata =
                     "month": 10,
                     "day": 13,
                     "displayDate": "yes",
-                    "event": "Pua o te R\u0113inga/Woodrose seeds were gifted by the Ng\u0101ti Maniapoto and Ng\u0101ti Rereahu iwi and sown at \u014ctari-Wilton's Bush. It was also translocated to Zealandia on the same date.",
+                    "event": "Pua o te R\u0113inga (Dactylanthus taylorii) seeds were gifted by the Ng\u0101ti Maniapoto and Ng\u0101ti Rereahu and sown at \u014ctari-Wilton's Bush. It was also translocated to Zealandia on the same date. This plant attaches itself to native tree roots and grows underground for several years. Endangered pekapeka, native bats, were once a primary pollinator. ",
                     "img": [
                         {
                             "src": "assets/img/historicaldata/zealandia/pua_o_te_reinga.jpg",
@@ -184,30 +202,38 @@ const historicaldata =
                     ],
                     "tags": [
                         "forest"
+                    ],
+                    "citations": [
+                        "https://www.doc.govt.nz/nature/native-plants/dactylanthus/",
+                        "https://www.nzgeo.com/stories/flower-of-hades/"
                     ]
                 }
             ]
         },
         {
-            "name": "Karori Cemetary",
+            "name": "Karori Cemetery",
             "lat": -41.272283,
             "lng": 174.750603,
-            "info": "The second biggest cemetary in New Zealand.",
+            "info": "The second biggest cemetery in New Zealand.",
             "timeline": [
                 {
                     "year": 2025,
                     "month": null,
                     "day": null,
                     "displayDate": "yes",
-                    "event": "This location is a common illegal dumping site. Rubbish such as furniture, appliances, asbestos containing materials, old engine motors and other inorganic waste can be found here. This illegal dumping degrades and pollutes the stream. ",
+                    "event": "There are an estimated 83,000 people buried at Karori Cemetery, the second largest cemetery in Aotearoa New Zealand. This is slightly over twice as many 39,000 people currently living within the Kaiwharawhara catchment. The cemetery reflects the unique history of Wellington City. Friends of Karori Cemetery care for this place, by leading tours and restoring graves. Friends of Karori Cemetery, with guidance from mana whenua Taranaki Wh\u0101nui ki te Upoko o te Ika and support from Wellington City Council also advocate for the Plastic Free Urup\u0101 initiative which seaks to minimise the use of plastic flowers on graves that eventually flow into and harm the mouri or lifeforce of the Kaiwharawhara stream. The Plastic Free Urup\u0101 initiative works with diverse communities to create culturally appriopriate and environmentally friendly solutions to grave decortations. ",
                     "img": [
                         {
                             "src": "assets/img/historicaldata/karori_cemetary/memorial.jpg",
-                            "alt": "Karori Cemetary 2025"
+                            "alt": "Karori Cemetery 2025"
                         }
                     ],
                     "tags": [
                         "stream"
+                    ],
+                    "citations": [
+                        "https://wellington.govt.nz/cemeteries/wellington-cemeteries/karori-cemetery/about-karori-cemetery",
+                        "https://friendsofkaroricemetery.co.nz/"
                     ]
                 }
             ]
@@ -223,7 +249,7 @@ const historicaldata =
                     "month": null,
                     "day": null,
                     "displayDate": "yes",
-                    "event": "Trelissick Park contains crumbling water infrastructure from the early 20th century. Recently, a steel sewage pipe has been leaking raw sewage into the Kaiwharawhara stream.",
+                    "event": "Like elsewhere in Wellington City, fundamental water infrastructure, including sewerage systems, have exceeded its intended use-life and are in vital need of significant repairs. A lack of comprehensive stormwater mitigation also exacerbates this issue by increasing the frequency of unconsented overflows of untreated wastewater. Wastewater leaks, depicted in this picture taken in Trelissick Park, harm the mouri or lifeforce of the Kaiwharawhara catchment. ",
                     "img": [
                         {
                             "src": "assets/img/historicaldata/trelissick/sewagepipe.jpeg",
@@ -232,6 +258,9 @@ const historicaldata =
                     ],
                     "tags": [
                         "stream"
+                    ],
+                    "citations": [
+                        "https://www.stuff.co.nz/national/129677712/massive-sports-ground-slip-like-porridge  https://www.stuff.co.nz/media/images/9Tzi8ywRz924XE3uHaD6DfGZQfjEdZd7oKlsiR53VLHvSZExpMzuRmKdwHbkL9PkMfyddGZQ6vogmbWkrUgWseB%2F%2FPgMd4kaOiFJuY5%2FjuNTzNF%2F8xWjeqleM+jvNihED9aQgmCWwNDwVzlPaNCu8EA+ocvBN2eo1JVTmGkX0pmBkogFrROF8XzAuFHhL016?resolution=1240x700"
                     ]
                 }
             ]
@@ -247,7 +276,7 @@ const historicaldata =
                     "month": null,
                     "day": null,
                     "displayDate": "yes",
-                    "event": "In 2022, a massive land slip occurred at \u014ctari-Wilton's Bush.  Large amounts of soil collapsed down a hill, undercutting a small section of the hilltop sports field and eventually stifling the flow of the Kaiwharawhara Stream through the valley. Erosion of the soil bank into the Kaiwharawhara continues to occur as native flora from replanting efforts struggle to take root before they are displaced.",
+                    "event": "In 2022, a massive landslide took place in \u014ctari-Wilton's Bush. Thousands of tonnes of soil collapsed after a string of wet weather event and blocked the flow of the Te M\u0101hanga branch of the Kaiwharawhara stream. Native replanting efforts continue -- this reduces the rate of sedimentation entering the stream which is important to maintain the healh of native biodiversity. ",
                     "img": [
                         {
                             "src": "assets/img/historicaldata/otari/land_slip.jpg",
@@ -256,7 +285,8 @@ const historicaldata =
                     ],
                     "tags": [
                         "forest"
-                    ]
+                    ],
+                    "citations": []
                 }
             ]
         },
@@ -271,7 +301,7 @@ const historicaldata =
                     "month": null,
                     "day": null,
                     "displayDate": "yes",
-                    "event": "This area, just outside of Zealandia Te M\u0101ra a T\u0101ne, located within Birdwood Reserve, was once a valued recreational swimming hole. Unfortunately, ongoing stream pollution has made this location unsafe.",
+                    "event": "St. John's Pool, located inside Birdwood Reserve, was once a popular swimming spot for Karori residents. Zealandia Te M\u0101ra a T\u0101ne is located at the m\u0101t\u0101puna or headwater of the Te M\u0101hanga branch of the Kaiwharawhara stream which flows into this pool. While it's no longer commonly used as a swimming location for people due to safety concerns relating to water quality, toitoi fish (Gobiomorphus cotidianus) have recently made their way downstream from Roto M\u0101hanga inside the ecosanctuary. With the return of toitoi, and hopeful eventual return of k\u0101kahi (native freshwater mussels), these waters may become safe for people to swim in once again. ",
                     "img": [
                         {
                             "src": "assets/img/historicaldata/birdwood/swimming_hole.jpg",
@@ -281,6 +311,27 @@ const historicaldata =
                     "tags": [
                         "stream",
                         "people"
+                    ],
+                    "citations": []
+                },
+                {
+                    "year": 1933,
+                    "month": null,
+                    "day": null,
+                    "displayDate": "yes",
+                    "event": "St. John's Pool, located inside Birdwood Reserve, was once a popular swimming spot for Karori residents. Zealandia Te M\u0101ra a T\u0101ne is located at the m\u0101t\u0101puna or headwater of the Te M\u0101hanga branch of the Kaiwharawhara stream which flows into this pool. While it's no longer commonly used as a swimming location for people due to safety concerns relating to water quality, toitoi fish (Gobiomorphus cotidianus) have recently made their way downstream from Roto M\u0101hanga inside the ecosanctuary. With the return of toitoi, and hopeful eventual return of k\u0101kahi (native freshwater mussels), these waters may become safe for people to swim in once again. ",
+                    "img": [
+                        {
+                            "src": "Picture",
+                            "alt": "St John's Pool 1933"
+                        }
+                    ],
+                    "tags": [
+                        "stream",
+                        "people"
+                    ],
+                    "citations": [
+                        "https://www.livingheritage.org.nz/schools/primary/northland/swimming-pool.html"
                     ]
                 }
             ]
@@ -292,59 +343,11 @@ const historicaldata =
             "info": "K\u0101kahi were relocated here",
             "timeline": [
                 {
-                    "year": 2018,
-                    "month": 7,
-                    "day": 22,
-                    "displayDate": "yes",
-                    "event": "150 k\u0101kahi/freshwater mussels (E. menziesii) were collected from Lake K\u014dhangapiripiri in collaboration with Taranaki Wh\u0101nui.",
-                    "img": [
-                        {
-                            "src": "assets/img/historicaldata/zealandia/kakahi.jpg",
-                            "alt": "Zealandia Te M\u0101ra a T\u0101ne 2018-7-22"
-                        }
-                    ],
-                    "tags": [
-                        "stream"
-                    ]
-                },
-                {
-                    "year": 2018,
-                    "month": 7,
-                    "day": 21,
-                    "displayDate": "yes",
-                    "event": "50 k\u0101kahi/freshwater mussels (E. aucklandica) were collected from the Wairarapa Moana in collaboration with Rangit\u0101ne o Wairarapa and Ng\u0101ti Kahungunu ki Wairarapa.",
-                    "img": [
-                        {
-                            "src": "assets/img/historicaldata/zealandia/kakahi.jpg",
-                            "alt": "Zealandia Te M\u0101ra a T\u0101ne 2018-7-21"
-                        }
-                    ],
-                    "tags": [
-                        "stream"
-                    ]
-                },
-                {
-                    "year": 2018,
-                    "month": 8,
-                    "day": 1,
-                    "displayDate": "yes",
-                    "event": "All 150 k\u0101kahi/freshwater mussels were transferred into fyke nets (temporary holding enclosures) in Roto Mahanga. The k\u0101kahi were PIT tagged, weighed, measured and released between August 1 and August 5.",
-                    "img": [
-                        {
-                            "src": "assets/img/historicaldata/zealandia/kakahi.jpg",
-                            "alt": "Zealandia Te M\u0101ra a T\u0101ne 2018-8-1"
-                        }
-                    ],
-                    "tags": [
-                        "stream"
-                    ]
-                },
-                {
                     "year": 2022,
                     "month": null,
                     "day": null,
                     "displayDate": "yes",
-                    "event": "An additional 150 k\u0101kahi/freshwater mussels (E. menziesii) were collected from K\u014dhangapiripiri in collaboration with Taranaki Wh\u0101nui and translocated to Zealandia. These mussells were not PIT tagged.",
+                    "event": "An additional 150 k\u0101kahi/freshwater mussels were collected from Roto K\u014dhangapiripiri in collaboration with Taranaki Wh\u0101nui ki te Upoko o te Ika and translocated to Zealandia Te M\u0101ra a T\u0101ne.",
                     "img": [
                         {
                             "src": "assets/img/historicaldata/zealandia/kakahi.jpg",
@@ -353,6 +356,9 @@ const historicaldata =
                     ],
                     "tags": [
                         "stream"
+                    ],
+                    "citations": [
+                        "https://rarespecies.nzfoa.org.nz/species/freshwater-mussel/"
                     ]
                 },
                 {
@@ -360,7 +366,7 @@ const historicaldata =
                     "month": 10,
                     "day": 13,
                     "displayDate": "yes",
-                    "event": "Pua o te R\u0113inga/Woodrose seeds were gifted by the Ng\u0101ti Maniapoto and Ng\u0101ti Rereahu iwi and sown at Zealandia.  It was also translocated to \u014ctari-Wilton's Bush on the same date.",
+                    "event": "Pua o te R\u0113inga (Dactylanthus taylorii) seeds were gifted by the Ng\u0101ti Maniapoto and Ng\u0101ti Rereahu and sown at Zealandia Te M\u0101ra a T\u0101ne. It was also translocated to \u014ctari-Wilton's Bush on the same date. This plant attaches itself to native tree roots and grows underground for several years. Endangered pekapeka, native bats, were once a primary pollinator. ",
                     "img": [
                         {
                             "src": "assets/img/historicaldata/zealandia/pua_o_te_reinga.jpg",
@@ -369,6 +375,10 @@ const historicaldata =
                     ],
                     "tags": [
                         "forest"
+                    ],
+                    "citations": [
+                        "https://www.doc.govt.nz/nature/native-plants/dactylanthus/",
+                        "https://www.nzgeo.com/stories/flower-of-hades/"
                     ]
                 },
                 {
@@ -376,7 +386,7 @@ const historicaldata =
                     "month": 5,
                     "day": 20,
                     "displayDate": "yes",
-                    "event": "64 pirita/green mistletoe seeds were sown. This propogation is considered to have failed.",
+                    "event": "64 pirita/mistletoe seeds were sown. This propogation is considered to have failed.",
                     "img": [
                         {
                             "src": "assets/img/historicaldata/zealandia/pirita.jpg",
@@ -385,6 +395,10 @@ const historicaldata =
                     ],
                     "tags": [
                         "forest"
+                    ],
+                    "citations": [
+                        "https://zealandia1.sharepoint.com/S/ConservationResearch/Forms/AllItems.aspx?id=%2FS%2FConservationResearch%2Fh%29%20Species%20Overviews%20%26%20How%2Dto%27s%2FSpecies%20Overviews%2FFlora%2FMistletoe%20Overviews%2F20241227%20Ileostylus%20micranthus%20Overview%2Edocx&viewid=18821017%2D10cc%2D4f88%2D929e%2Dc2cfa6fc8c2f&parent=%2FS%2FConservationResearch%2Fh%29%20Species%20Overviews%20%26%20How%2Dto%27s%2FSpecies%20Overviews%2FFlora%2FMistletoe%20Overviews",
+                        "http://www.temarareo.org/TMR-Pirita.html"
                     ]
                 },
                 {
@@ -392,7 +406,7 @@ const historicaldata =
                     "month": 5,
                     "day": 2,
                     "displayDate": "yes",
-                    "event": "First successful propogation of pirita/green mistletoe in Zealandia from a source population in Upper Hutt. The seeds were sown onto 19 trees.",
+                    "event": "First successful propogation of pirita/mistletoe in Zealandia Te M\u0101ra a T\u0101ne from a source population in Upper Hutt. The seeds were sown onto 19 trees.",
                     "img": [
                         {
                             "src": "assets/img/historicaldata/zealandia/pirita.jpg",
@@ -401,6 +415,10 @@ const historicaldata =
                     ],
                     "tags": [
                         "forest"
+                    ],
+                    "citations": [
+                        "https://zealandia1.sharepoint.com/S/ConservationResearch/Forms/AllItems.aspx?id=%2FS%2FConservationResearch%2Fh%29%20Species%20Overviews%20%26%20How%2Dto%27s%2FSpecies%20Overviews%2FFlora%2FMistletoe%20Overviews%2F20241227%20Ileostylus%20micranthus%20Overview%2Edocx&viewid=18821017%2D10cc%2D4f88%2D929e%2Dc2cfa6fc8c2f&parent=%2FS%2FConservationResearch%2Fh%29%20Species%20Overviews%20%26%20How%2Dto%27s%2FSpecies%20Overviews%2FFlora%2FMistletoe%20Overviews",
+                        "http://www.temarareo.org/TMR-Pirita.html"
                     ]
                 },
                 {
@@ -408,7 +426,7 @@ const historicaldata =
                     "month": 10,
                     "day": null,
                     "displayDate": "yes",
-                    "event": "As of October 2022, nine host trees still present pirita/green mistletoe.",
+                    "event": "As of October 2022, nine host trees still present pirita/mistletoe.",
                     "img": [
                         {
                             "src": "assets/img/historicaldata/zealandia/pirita.jpg",
@@ -417,6 +435,10 @@ const historicaldata =
                     ],
                     "tags": [
                         "forest"
+                    ],
+                    "citations": [
+                        "https://zealandia1.sharepoint.com/S/ConservationResearch/Forms/AllItems.aspx?id=%2FS%2FConservationResearch%2Fh%29%20Species%20Overviews%20%26%20How%2Dto%27s%2FSpecies%20Overviews%2FFlora%2FMistletoe%20Overviews%2F20241227%20Ileostylus%20micranthus%20Overview%2Edocx&viewid=18821017%2D10cc%2D4f88%2D929e%2Dc2cfa6fc8c2f&parent=%2FS%2FConservationResearch%2Fh%29%20Species%20Overviews%20%26%20How%2Dto%27s%2FSpecies%20Overviews%2FFlora%2FMistletoe%20Overviews",
+                        "http://www.temarareo.org/TMR-Pirita.html"
                     ]
                 },
                 {
@@ -424,7 +446,7 @@ const historicaldata =
                     "month": 5,
                     "day": 16,
                     "displayDate": "yes",
-                    "event": "A number of pirita/green mistletoe seeds were sown onto various host plants. The seeds were provided from Wairarapa.",
+                    "event": "A number of pirita/mistletoe seeds were sown onto various host plants. The seeds were provided from Wairarapa.",
                     "img": [
                         {
                             "src": "assets/img/historicaldata/zealandia/pirita.jpg",
@@ -433,6 +455,10 @@ const historicaldata =
                     ],
                     "tags": [
                         "forest"
+                    ],
+                    "citations": [
+                        "https://zealandia1.sharepoint.com/S/ConservationResearch/Forms/AllItems.aspx?id=%2FS%2FConservationResearch%2Fh%29%20Species%20Overviews%20%26%20How%2Dto%27s%2FSpecies%20Overviews%2FFlora%2FMistletoe%20Overviews%2F20241227%20Ileostylus%20micranthus%20Overview%2Edocx&viewid=18821017%2D10cc%2D4f88%2D929e%2Dc2cfa6fc8c2f&parent=%2FS%2FConservationResearch%2Fh%29%20Species%20Overviews%20%26%20How%2Dto%27s%2FSpecies%20Overviews%2FFlora%2FMistletoe%20Overviews",
+                        "http://www.temarareo.org/TMR-Pirita.html"
                     ]
                 },
                 {
@@ -440,7 +466,7 @@ const historicaldata =
                     "month": 11,
                     "day": null,
                     "displayDate": "yes",
-                    "event": "Five of the pirita/green mistletoe seeds sown on May 16th were observed to have sprouted.",
+                    "event": "Five of the pirita/mistletoe seeds sown on 16 May were observed to have sprouted.",
                     "img": [
                         {
                             "src": "assets/img/historicaldata/zealandia/pirita.jpg",
@@ -449,6 +475,10 @@ const historicaldata =
                     ],
                     "tags": [
                         "forest"
+                    ],
+                    "citations": [
+                        "https://zealandia1.sharepoint.com/S/ConservationResearch/Forms/AllItems.aspx?id=%2FS%2FConservationResearch%2Fh%29%20Species%20Overviews%20%26%20How%2Dto%27s%2FSpecies%20Overviews%2FFlora%2FMistletoe%20Overviews%2F20241227%20Ileostylus%20micranthus%20Overview%2Edocx&viewid=18821017%2D10cc%2D4f88%2D929e%2Dc2cfa6fc8c2f&parent=%2FS%2FConservationResearch%2Fh%29%20Species%20Overviews%20%26%20How%2Dto%27s%2FSpecies%20Overviews%2FFlora%2FMistletoe%20Overviews",
+                        "http://www.temarareo.org/TMR-Pirita.html"
                     ]
                 },
                 {
@@ -465,6 +495,10 @@ const historicaldata =
                     ],
                     "tags": [
                         "forest"
+                    ],
+                    "citations": [
+                        "https://zealandia1.sharepoint.com/S/ConservationResearch/Forms/AllItems.aspx?id=%2FS%2FConservationResearch%2Fh%29%20Species%20Overviews%20%26%20How%2Dto%27s%2FSpecies%20Overviews%2FFlora%2FMistletoe%20Overviews%2F20241227%20Tupeia%20antarctica%20Overview%2Edocx&viewid=18821017%2D10cc%2D4f88%2D929e%2Dc2cfa6fc8c2f&parent=%2FS%2FConservationResearch%2Fh%29%20Species%20Overviews%20%26%20How%2Dto%27s%2FSpecies%20Overviews%2FFlora%2FMistletoe%20Overviews",
+                        "https://rarespecies.nzfoa.org.nz/species/white-mistletoe/"
                     ]
                 },
                 {
@@ -472,7 +506,7 @@ const historicaldata =
                     "month": 8,
                     "day": 22,
                     "displayDate": "yes",
-                    "event": "41 frogs were released from their boxed enclosures. These were the last animals within Zealandia to be released from captivity.",
+                    "event": "41 pepeketua/Hamilton's frogs were released from their boxed enclosures. These were the last animals within Zealandia Te M\u0101ra a T\u0101ne to be released from captivity.",
                     "img": [
                         {
                             "src": "assets/img/historicaldata/zealandia/frog.jpg",
@@ -481,6 +515,10 @@ const historicaldata =
                     ],
                     "tags": [
                         "forest"
+                    ],
+                    "citations": [
+                        "https://zealandia1.sharepoint.com/S/ConservationResearch/Forms/AllItems.aspx?id=%2FS%2FConservationResearch%2Fd%29%20Monitoring%20%26%20Management%2FNative%2FFauna%2FFrogs%2FHamilton%27s%20frogs%20%28formerly%20Maud%20Island%20frogs%29%2F1%29%20Monitoring%20%26%20data%2F3%29%20Surveys%20by%20year%20%282022%2Dpresent%29%2F2024%2F2024%20release%2FData%5F2024%20frog%20release%2Exlsx&viewid=18821017%2D10cc%2D4f88%2D929e%2Dc2cfa6fc8c2f&parent=%2FS%2FConservationResearch%2Fd%29%20Monitoring%20%26%20Management%2FNative%2FFauna%2FFrogs%2FHamilton%27s%20frogs%20%28formerly%20Maud%20Island%20frogs%29%2F1%29%20Monitoring%20%26%20data%2F3%29%20Surveys%20by%20year%20%282022%2Dpresent%29%2F2024%2F2024%20release",
+                        "https://www.visitzealandia.com/Whats-On/ArtMID/1150/ArticleID/596/Media-Release-Major-national-conservation-milestone-for-rare-native-frog-species"
                     ]
                 },
                 {
@@ -488,7 +526,7 @@ const historicaldata =
                     "month": 8,
                     "day": 30,
                     "displayDate": "yes",
-                    "event": "25 frogs were released from their boxed enclosures. These were the last animals within Zealandia to be released from captivity.",
+                    "event": "25 pepeketua/Hamilton's frogs were released from their boxed enclosures. These were the last animals within Zealandia Te M\u0101ra a T\u0101ne to be released from captivity.",
                     "img": [
                         {
                             "src": "assets/img/historicaldata/zealandia/frog.jpg",
@@ -497,6 +535,10 @@ const historicaldata =
                     ],
                     "tags": [
                         "forest"
+                    ],
+                    "citations": [
+                        "https://zealandia1.sharepoint.com/S/ConservationResearch/Forms/AllItems.aspx?id=%2FS%2FConservationResearch%2Fd%29%20Monitoring%20%26%20Management%2FNative%2FFauna%2FFrogs%2FHamilton%27s%20frogs%20%28formerly%20Maud%20Island%20frogs%29%2F1%29%20Monitoring%20%26%20data%2F3%29%20Surveys%20by%20year%20%282022%2Dpresent%29%2F2024%2F2024%20release%2FData%5F2024%20frog%20release%2Exlsx&viewid=18821017%2D10cc%2D4f88%2D929e%2Dc2cfa6fc8c2f&parent=%2FS%2FConservationResearch%2Fd%29%20Monitoring%20%26%20Management%2FNative%2FFauna%2FFrogs%2FHamilton%27s%20frogs%20%28formerly%20Maud%20Island%20frogs%29%2F1%29%20Monitoring%20%26%20data%2F3%29%20Surveys%20by%20year%20%282022%2Dpresent%29%2F2024%2F2024%20release",
+                        "https://www.visitzealandia.com/Whats-On/ArtMID/1150/ArticleID/596/Media-Release-Major-national-conservation-milestone-for-rare-native-frog-species"
                     ]
                 }
             ]
@@ -512,7 +554,7 @@ const historicaldata =
                     "month": null,
                     "day": null,
                     "displayDate": "yes",
-                    "event": "160 toitoi (G. cotidianus) were translocated from Lake K\u014dhangapiripiri. 158 were successfully released into Roto M\u0101hanga.",
+                    "event": "160 toitoi (Gobiomorphus cotidianus) were translocated from Roto K\u014dhangapiripiri. 158 were successfully released into Roto M\u0101hanga in Zealandia Te M\u0101ra a T\u0101ne.",
                     "img": [
                         {
                             "src": "assets/img/historicaldata/zealandia/toitoi.jpg",
@@ -521,6 +563,9 @@ const historicaldata =
                     ],
                     "tags": [
                         "stream"
+                    ],
+                    "citations": [
+                        "https://www.visitzealandia.com/Whats-On/ArtMID/1150/ArticleID/468/Toitoi-Translocation"
                     ]
                 },
                 {
@@ -528,7 +573,7 @@ const historicaldata =
                     "month": null,
                     "day": null,
                     "displayDate": "yes",
-                    "event": "159 toitoi were translocated and successfully released into Roto M\u0101hanga.",
+                    "event": "159 toitoi were translocated from Roto K\u014dhangapiripiri and successfully released into Roto M\u0101hanga in Zealandia Te M\u0101ra a T\u0101ne.",
                     "img": [
                         {
                             "src": "assets/img/historicaldata/zealandia/toitoi.jpg",
@@ -537,6 +582,9 @@ const historicaldata =
                     ],
                     "tags": [
                         "stream"
+                    ],
+                    "citations": [
+                        "https://www.visitzealandia.com/Whats-On/ArtMID/1150/ArticleID/468/Toitoi-Translocation"
                     ]
                 },
                 {
@@ -553,6 +601,9 @@ const historicaldata =
                     ],
                     "tags": [
                         "stream"
+                    ],
+                    "citations": [
+                        "https://www.visitzealandia.com/Whats-On/ArtMID/1150/ArticleID/468/Toitoi-Translocation"
                     ]
                 },
                 {
@@ -569,6 +620,10 @@ const historicaldata =
                     ],
                     "tags": [
                         "stream"
+                    ],
+                    "citations": [
+                        "https://zealandia1.sharepoint.com/S/ConservationResearch/Forms/AllItems.aspx?id=%2FS%2FConservationResearch%2Fh%29%20Species%20Overviews%20%26%20How%2Dto%27s%2FSpecies%20Overviews%2FFauna%2F20241224%20Toitoi%2DGobiomorphus%20cotidianus%20Overview%2Edocx&viewid=18821017%2D10cc%2D4f88%2D929e%2Dc2cfa6fc8c2f&parent=%2FS%2FConservationResearch%2Fh%29%20Species%20Overviews%20%26%20How%2Dto%27s%2FSpecies%20Overviews%2FFauna",
+                        "https://www.flyfisherman.com/editorial/all-about-brown-trout/454242"
                     ]
                 }
             ]
@@ -584,7 +639,7 @@ const historicaldata =
                     "month": null,
                     "day": null,
                     "displayDate": "yes",
-                    "event": "Eurasian perch (P. fluviatilis) were first introduced to Roto Kawau in 1874. This invasive species has dominated the aquatic ecosystem.",
+                    "event": "Eurasian perch (Perca fluviatilis) were first introduced to Roto Kawau in 1874 for recreational fishing. This invasive species dominated the aquatic ecosystem and harmed native biodiversity.",
                     "img": [
                         {
                             "src": "assets/img/historicaldata/zealandia/eurasian_perch.jpg",
@@ -593,6 +648,9 @@ const historicaldata =
                     ],
                     "tags": [
                         "stream"
+                    ],
+                    "citations": [
+                        "https://zealandia1.sharepoint.com/S/ConservationResearch/Forms/AllItems.aspx?id=%2FS%2FConservationResearch%2Ff%29%20Projects%2Fk%29%20Lake%20Rehabilitation%2FLower%20lake%20eradication%202020%2Fb%29%20operations%20%26%20planning%2FField%20operations%2FField%5Fsurveys%2Felectric%20fishing%20report%2FRemoval%20of%20perch%20from%20Roto%20Kawau%202020%2Epdf&viewid=18821017%2D10cc%2D4f88%2D929e%2Dc2cfa6fc8c2f&q=eurasian%20perch&parent=%2FS%2FConservationResearch&parentview=7"
                     ]
                 },
                 {
@@ -600,7 +658,7 @@ const historicaldata =
                     "month": null,
                     "day": null,
                     "displayDate": "yes",
-                    "event": "Boat electrofishing and netting techniques removed 3946 Eurasian perch from Roto Kawau (22% of the total perch biomass).",
+                    "event": "Boat electrofishing and netting techniques removed 3946 Eurasian perch from Roto Kawau (22% of the total estimated perch biomass).",
                     "img": [
                         {
                             "src": "assets/img/historicaldata/zealandia/eurasian_perch.jpg",
@@ -609,6 +667,9 @@ const historicaldata =
                     ],
                     "tags": [
                         "stream"
+                    ],
+                    "citations": [
+                        "https://zealandia1.sharepoint.com/S/ConservationResearch/Forms/AllItems.aspx?id=%2FS%2FConservationResearch%2Ff%29%20Projects%2Fk%29%20Lake%20Rehabilitation%2FLower%20lake%20eradication%202020%2Fb%29%20operations%20%26%20planning%2FField%20operations%2FField%5Fsurveys%2Felectric%20fishing%20report%2FRemoval%20of%20perch%20from%20Roto%20Kawau%202020%2Epdf&viewid=18821017%2D10cc%2D4f88%2D929e%2Dc2cfa6fc8c2f&q=eurasian%20perch&parent=%2FS%2FConservationResearch&parentview=7"
                     ]
                 },
                 {
@@ -625,6 +686,9 @@ const historicaldata =
                     ],
                     "tags": [
                         "stream"
+                    ],
+                    "citations": [
+                        "https://zealandia1.sharepoint.com/S/ConservationResearch/Forms/AllItems.aspx?id=%2FS%2FConservationResearch%2Ff%29%20Projects%2Fk%29%20Lake%20Rehabilitation%2FLower%20lake%20eradication%202020%2Fb%29%20operations%20%26%20planning%2FField%20operations%2FField%5Fsurveys%2Felectric%20fishing%20report%2FRemoval%20of%20perch%20from%20Roto%20Kawau%202020%2Epdf&viewid=18821017%2D10cc%2D4f88%2D929e%2Dc2cfa6fc8c2f&q=eurasian%20perch&parent=%2FS%2FConservationResearch&parentview=7"
                     ]
                 },
                 {
@@ -641,6 +705,9 @@ const historicaldata =
                     ],
                     "tags": [
                         "stream"
+                    ],
+                    "citations": [
+                        "https://zealandia1.sharepoint.com/S/ConservationResearch/Forms/AllItems.aspx?id=%2FS%2FConservationResearch%2Ff%29%20Projects%2Fk%29%20Lake%20Rehabilitation%2FLower%20lake%20eradication%202020%2Fb%29%20operations%20%26%20planning%2FField%20operations%2FField%5Fsurveys%2Felectric%20fishing%20report%2FRemoval%20of%20perch%20from%20Roto%20Kawau%202020%2Epdf&viewid=18821017%2D10cc%2D4f88%2D929e%2Dc2cfa6fc8c2f&q=eurasian%20perch&parent=%2FS%2FConservationResearch&parentview=7"
                     ]
                 },
                 {
@@ -657,6 +724,9 @@ const historicaldata =
                     ],
                     "tags": [
                         "stream"
+                    ],
+                    "citations": [
+                        "https://zealandia1.sharepoint.com/S/ConservationResearch/Forms/AllItems.aspx?id=%2FS%2FConservationResearch%2Ff%29%20Projects%2Fk%29%20Lake%20Rehabilitation%2FLower%20lake%20eradication%202020%2Fb%29%20operations%20%26%20planning%2FField%20operations%2FField%5Fsurveys%2Felectric%20fishing%20report%2FRemoval%20of%20perch%20from%20Roto%20Kawau%202020%2Epdf&viewid=18821017%2D10cc%2D4f88%2D929e%2Dc2cfa6fc8c2f&q=eurasian%20perch&parent=%2FS%2FConservationResearch&parentview=7"
                     ]
                 },
                 {
@@ -664,7 +734,7 @@ const historicaldata =
                     "month": 2,
                     "day": 17,
                     "displayDate": "yes",
-                    "event": "Beginning February 17th, boat electrofishing and gill netting was undertaken to remove 2316 Eurasian perch from the lower reservoir. This was the 6th removal of perch from the lake to occur since February 2007.",
+                    "event": "Beginning 17 February, boat electrofishing and gill netting was undertaken to remove 2316 Eurasian perch from the lower reservoir. This was the 6th removal of perch from the lake to occur since February 2007.",
                     "img": [
                         {
                             "src": "assets/img/historicaldata/zealandia/eurasian_perch.jpg",
@@ -673,6 +743,9 @@ const historicaldata =
                     ],
                     "tags": [
                         "stream"
+                    ],
+                    "citations": [
+                        "https://zealandia1.sharepoint.com/S/ConservationResearch/Forms/AllItems.aspx?id=%2FS%2FConservationResearch%2Ff%29%20Projects%2Fk%29%20Lake%20Rehabilitation%2FLower%20lake%20eradication%202020%2Fb%29%20operations%20%26%20planning%2FField%20operations%2FField%5Fsurveys%2Felectric%20fishing%20report%2FRemoval%20of%20perch%20from%20Roto%20Kawau%202020%2Epdf&viewid=18821017%2D10cc%2D4f88%2D929e%2Dc2cfa6fc8c2f&q=eurasian%20perch&parent=%2FS%2FConservationResearch&parentview=7"
                     ]
                 }
             ]
