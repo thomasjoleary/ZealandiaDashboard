@@ -64,7 +64,7 @@ def csv_to_json(csv_file, json_file, hasHeader = False):
                 }
             ],
             'tags': tags,
-            'citations': row[13].split(' AND ') if row[13] != '' else []
+            'citations': row[13].split(' &&& ') if row[13] != '' else []
         })
 
     # write to json file
